@@ -36,7 +36,7 @@ steps:
   inputs:
     command: Build an image
     Dockerfile: '$(service.rootDirectory)/Dockerfile'
-    arguments: '--pull --target testrunner'
+    arguments: '--pull --target test-env'
     imageName: '$(service.imageName)-test'
 
 
@@ -44,7 +44,7 @@ steps:
   displayName: 'Run tests'
   inputs:
     command: Run an image
-    containerName: testrunner
+    containerName: test-env
     volumes: '$(System.DefaultWorkingDirectory)/TestResults:/app/TestResults'
     imageName: '$(service.imageName)-test'
     runInBackground: false
