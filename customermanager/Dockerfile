@@ -1,4 +1,4 @@
-FROM azul/zulu-openjdk-alpine:8
+FROM openjdk:8-jdk-alpine
 VOLUME /tmp
 EXPOSE 8080
 COPY target/customersmanager.jar app.jar

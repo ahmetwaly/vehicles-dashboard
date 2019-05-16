@@ -1,4 +1,4 @@
-package se.alten.customermanager.Config;
+package se.alten.customermanager.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
