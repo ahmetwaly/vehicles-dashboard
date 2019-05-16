@@ -1,4 +1,4 @@
-package se.alten.customermanger.applicationservice;
+package se.alten.customermanager.applicationservice;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import se.alten.customermanger.model.entities.Customer;
-import se.alten.customermanger.model.repositories.CustomerRepository;
+import se.alten.customermanager.model.entities.Customer;
+import se.alten.customermanager.model.repositories.CustomerRepository;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {

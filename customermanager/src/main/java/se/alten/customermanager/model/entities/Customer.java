@@ -1,4 +1,4 @@
-package se.alten.customermanger.model.entities;
+package se.alten.customermanager.model.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

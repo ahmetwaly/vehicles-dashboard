@@ -1,4 +1,4 @@
-package se.alten.customermanger;
+package se.alten.customermanager;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

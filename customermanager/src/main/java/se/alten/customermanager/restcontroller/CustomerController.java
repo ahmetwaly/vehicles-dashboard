@@ -1,4 +1,4 @@
-package se.alten.customermanger.restcontroller;
+package se.alten.customermanager.restcontroller;
 
 import java.util.List;
 
@@ -20,8 +20,8 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-import se.alten.customermanger.applicationservice.CustomerService;
-import se.alten.customermanger.model.entities.Customer;
+import se.alten.customermanager.applicationservice.CustomerService;
+import se.alten.customermanager.model.entities.Customer;
 
 /**
  * rest controller provide the rest operations for the customers
