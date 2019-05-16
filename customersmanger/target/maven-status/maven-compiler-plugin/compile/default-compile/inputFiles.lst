@@ -1,0 +1,6 @@
+/Development/projects/AltenWorkspace/customersmanger/src/main/java/se/alten/customermanger/restcontroller/CustomerController.java
+/Development/projects/AltenWorkspace/customersmanger/src/main/java/se/alten/customermanger/CustomersManager.java
+/Development/projects/AltenWorkspace/customersmanger/src/main/java/se/alten/customermanger/model/repositories/CustomerRepository.java
+/Development/projects/AltenWorkspace/customersmanger/src/main/java/se/alten/customermanger/applicationservice/CustomerServiceImpl.java
+/Development/projects/AltenWorkspace/customersmanger/src/main/java/se/alten/customermanger/applicationservice/CustomerService.java
+/Development/projects/AltenWorkspace/customersmanger/src/main/java/se/alten/customermanger/model/entities/Customer.java
