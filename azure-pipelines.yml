@@ -10,6 +10,7 @@ pool:
   vmImage: 'ubuntu-latest'
 variables:
   service.rootDirectory: './customermanager/'
+  service.imageName: 'customermanager'
 
 steps:
 - script: echo wellcome to vehicles-dashboard!
@@ -28,9 +29,23 @@ steps:
     mavenVersionOption: 'Default'
     mavenAuthenticateFeed: false
     sonarQubeRunAnalysis: false
-- task: Docker@2
+
+- task: Docker@1
   displayName: docker build steps
   name: docker_build_step
   inputs:
-    command: 'build'
+    command: Build an image
     Dockerfile: '$(service.rootDirectory)/Dockerfile'
+    arguments: '--pull --target testrunner'
+    imageName: '$(service.imageName)-test'
+
+
+- task: Docker@1
+  displayName: 'Run tests'
+  inputs:
+    command: Run an image
+    containerName: testrunner
+    volumes: '$(System.DefaultWorkingDirectory)/TestResults:/app/TestResults'
+    imageName: '$(service.imageName)-test'
+    runInBackground: false
+
