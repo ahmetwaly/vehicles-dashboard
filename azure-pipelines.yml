@@ -8,14 +8,15 @@ trigger:
 
 pool:
   vmImage: 'ubuntu-latest'
-
+variables:
+  microserviceName: 'customermanager'
 steps:
 - script: echo wellcome to vehicles-dashboard!
   displayName: 'wellcome'
   
 - task: Maven@3
   inputs:
-    mavenPomFile: './customermanager/pom.xml'
+    mavenPomFile: '$(microserviceName)/pom.xml'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     codeCoverageToolOption: 'JaCoCo'
