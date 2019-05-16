@@ -8,6 +8,8 @@ trigger:
 
 pool:
   vmImage: 'ubuntu-latest'
+variables:
+  service.rootDirectory: './customermanager/'
 
 steps:
 - script: echo wellcome to vehicles-dashboard!
