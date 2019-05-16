@@ -8,9 +8,6 @@ trigger:
 
 pool:
   vmImage: 'ubuntu-latest'
-  paths:
-     include:
-     - ./customermanager
 
 steps:
 - script: echo wellcome to vehicles-dashboard!
@@ -18,7 +15,7 @@ steps:
   
 - task: Maven@3
   inputs:
-    mavenPomFile: 'pom.xml'
+    mavenPomFile: './customermanager/pom.xml'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     codeCoverageToolOption: 'JaCoCo'
