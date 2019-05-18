@@ -40,7 +40,7 @@ steps:
     command: 'build'
     Dockerfile: './Dockerfile'
     #arguments: '--build-arg ARTIFACT_PATH=/$(Build.SourcesDirectory)/customermanager/target'
-    buildContext: '/$(Build.SourcesDirectory)/customermanager'
+    buildContext: '$(Build.SourcesDirectory)/customermanager/'
 
 - task: Docker@2
   displayName: push docker image
