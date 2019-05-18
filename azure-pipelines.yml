@@ -30,27 +30,18 @@ steps:
     mavenAuthenticateFeed: false
     sonarQubeRunAnalysis: false
 
-- task: Docker@1
-  displayName: docker build steps
-  name: docker_build_step
+- task: Docker@2
   inputs:
-    command: Build an image
+    containerRegistry: 'vehiclesDashboardRegistryConnection'
+    repository: 'customermanager'
+    command: 'build'
     Dockerfile: '$(service.rootDirectory)/Dockerfile'
     arguments: '--pull --target test-env'
-    imageName: '$(service.imageName)-test'
 
-
-- task: Docker@1
-  displayName: 'Run tests'
-  inputs:
-    command: Run an image
-    containerName: test-env
-    volumes: '$(System.DefaultWorkingDirectory)/TestResults:/app/TestResults'
-    imageName: '$(service.imageName)-test'
-    runInBackground: false
 - task: Docker@2
   inputs:
     containerRegistry: 'vehiclesDashboardRegistryConnection'
     repository: 'customermanager'
     command: 'push'
+    
 
