@@ -35,5 +35,6 @@ steps:
     containerRegistry: 'vehiclesDashboardRegistryConnection'
     repository: 'customermanager'
     command: 'buildAndPush'
-    Dockerfile: '$(service.rootDirectory)/Dockerfile'    
+    Dockerfile: '$(service.rootDirectory)/Dockerfile'
+    arguments: --ARTIFACT_PATH=$(Build.ArtifactStagingDirectory)/customermanager/target    
 
