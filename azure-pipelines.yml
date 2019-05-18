@@ -38,7 +38,7 @@ steps:
     containerRegistry: 'vehiclesDashboardRegistryConnection'
     repository: 'customermanager'
     command: 'build'
-    Dockerfile: './Dockerfile'
+    Dockerfile: '$(service.rootDirectory)/Dockerfile'
     #arguments: '--build-arg ARTIFACT_PATH=/$(Build.SourcesDirectory)/customermanager/target'
     buildContext: '$(Build.SourcesDirectory)/customermanager/'
 
