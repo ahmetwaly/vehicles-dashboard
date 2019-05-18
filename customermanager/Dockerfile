@@ -3,7 +3,7 @@ FROM openjdk:8-alpine
 RUN apk update && apk add bash
 RUN mkdir -p /opt/app
 ENV PROJECT_PATH /opt/app
-ARG ARTIFACT_PATH=xyz
+ARG ARTIFACT_PATH=./target
 COPY ${ARTIFACT_PATH}/customermanager.jar $PROJECT_PATH/customermanager.jar
-WORKDIR $PROJECT_HOME
+WORKDIR $PROJECT_HOME/
 ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom","-jar","./customermanager.jar"]

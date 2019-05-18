@@ -3,9 +3,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>se.alten</groupId>
-	<artifactId>customersmangaer</artifactId>
+	<artifactId>customermangaer</artifactId>
 	<version>1.0</version>
-	<name>customersmangaer</name>
+	<name>customermangaer</name>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -74,7 +74,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>customersmanager</finalName>
+		<finalName>customermanager</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
