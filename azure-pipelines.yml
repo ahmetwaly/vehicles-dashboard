@@ -36,5 +36,5 @@ steps:
     repository: 'customermanager'
     command: 'buildAndPush'
     Dockerfile: '$(service.rootDirectory)/Dockerfile'
-    arguments: '--ARTIFACT_PATH=$(Build.SourcesDirectory)/customermanager/target'    
+    arguments: '--build-arg ARTIFACT_PATH=$(Build.SourcesDirectory)/customermanager/target'    
 
