@@ -37,7 +37,7 @@ steps:
     repository: 'customermanager'
     command: 'build'
     Dockerfile: '$(service.rootDirectory)/Dockerfile'
-    arguments: '--build-arg ARTIFACT_PATH=$(Build.SourcesDirectory)/customermanager/target'
+    arguments: '--build-arg ARTIFACT_PATH=/$(Build.SourcesDirectory)/customermanager/target'
     buildContext: '$(Build.SourcesDirectory)'
 
 - task: Docker@2
