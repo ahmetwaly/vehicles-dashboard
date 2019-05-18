@@ -1,5 +1,4 @@
-FROM openjdk:8-alpine AS test-env
-FROM openjdk:8-jre-alpine AS prod-env
+FROM openjdk:8-alpine
 # Required for starting application up.
 RUN apk update && apk add bash
 RUN mkdir -p /opt/app
