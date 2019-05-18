@@ -34,14 +34,6 @@ steps:
   inputs:
     containerRegistry: 'vehiclesDashboardRegistryConnection'
     repository: 'customermanager'
-    command: 'build'
-    Dockerfile: '$(service.rootDirectory)/Dockerfile'
-    arguments: '--pull --target test-env'
-
-- task: Docker@2
-  inputs:
-    containerRegistry: 'vehiclesDashboardRegistryConnection'
-    repository: 'customermanager'
-    command: 'push'
-    
+    command: 'buildAndPush'
+    Dockerfile: '$(service.rootDirectory)/Dockerfile'    
 
