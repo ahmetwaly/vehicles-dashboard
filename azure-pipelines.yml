@@ -29,12 +29,19 @@ steps:
     mavenVersionOption: 'Default'
     mavenAuthenticateFeed: false
     sonarQubeRunAnalysis: false
+- script: echo Build.SourcesDirectory:$(Build.SourcesDirectory) ,service.rootDirectory:$(service.rootDirectory)
+  displayName: echo variables
+- task: Docker@2
+  inputs:
+    containerRegistry: 'vehiclesDashboardRegistryConnection'
+    repository: 'customermanager'
+    command: 'build'
+    Dockerfile: '$(service.rootDirectory)/Dockerfile'
+    arguments: '--build-arg ARTIFACT_PATH=/$(Build.SourcesDirectory)/customermanager/target'
+    buildContext: '$(Build.SourcesDirectory)'
 
 - task: Docker@2
   inputs:
     containerRegistry: 'vehiclesDashboardRegistryConnection'
     repository: 'customermanager'
-    command: 'buildAndPush'
-    Dockerfile: '$(service.rootDirectory)/Dockerfile'
-    arguments: '--build-arg ARTIFACT_PATH=$(Build.SourcesDirectory)/customermanager/target'    
-
+    command: 'push'
