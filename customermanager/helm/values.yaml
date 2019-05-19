@@ -19,24 +19,13 @@ env: {}
 
 
 service:
-  name: customermanager
-  type: LoadBalancer
+  name: customermanager.svc.cluster.local
+  type: ClusterIP
   internalPort: 80
   externalPort:  8080
   ## Service annotations
   ##
   annotations: {}
-
-## Annotations to be added to Application pods
-##
-podAnnotations:
-  prometheus.io/scrape: "true"
-  prometheus.io/port: "9030"
-  prometheus.io/path: "/"
-
-## alertmanager Ingress hostnames with optinal path
-## Must be provided if Ingress is enabled
-##
 
 ingress:
   ## If true, Application Ingress will be created

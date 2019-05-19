@@ -1,13 +1,13 @@
-name: customermanager
+name: apigateway
 home: https://alten.se
 sources:
   - https://github.com/ahmetwaly/vehicles-dashboard.git
 
 version: 0.0.1
-description: Run the customermanager spring-boot application
+description: Run the apigateway spring-boot application
 keywords:
 - java
-- tomcat
+- zuul
 - spring-boot
 maintainers:
 - name: Ahmed Metwaly   
