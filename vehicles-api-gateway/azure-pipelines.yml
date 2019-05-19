@@ -41,11 +41,3 @@ steps:
     destination: $(Build.ArtifactStagingDirectory)
     chartVersion: $(Build.SourceBranchName)
     arguments: '--app-version $(Build.SourceBranchName)'
-
-- task: AzureCLI@1
-  displayName: Helm push
-  inputs:
-    azureSubscription: $(AzureSubscription)
-    scriptLocation: inlineScript
-    inlineScript: |
-    az acr helm push $(System.ArtifactsDirectory)/$(repositoryName)-$(Build.SourceBranchName).tgz --name $(vehiclesDashboardRegistryConnection);
