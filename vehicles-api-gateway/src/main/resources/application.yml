@@ -4,4 +4,4 @@ zuul:
    routes:
       getCustomers:
          path: /getCustomers/v1/**
-         url: http://customermanager.svc.cluster.local/customers
+         url: http://customermanager.backend.svc.cluster.local/customers

@@ -19,7 +19,7 @@ env: {}
 
 
 service:
-  name: customermanager.svc.cluster.local
+  name: customermanager
   type: ClusterIP
   internalPort: 80
   externalPort:  8080
