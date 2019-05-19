@@ -9,8 +9,9 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 variables:
-  service.rootDirectory: './vehicles-api-gateway/'
+  service.rootDirectory: './apigateway'
   service.imageName: 'apigateway'
+  helm.SourcesDirectory: './apigateway/apigateway-helm'
 
 steps:
 - script: echo wellcome to vehicles-dashboard!
@@ -37,7 +38,7 @@ steps:
   displayName: Helm package
   inputs:
     command: package
-    chartPath: $(service.rootDirectory)/helm
+    chartPath: $(helm.SourcesDirectory
     destination: $(Build.ArtifactStagingDirectory)
-    chartVersion: $(Build.SourceBranchName)
-    arguments: '--app-version $(Build.SourceBranchName)'
+    chartVersion: $(Build.BuildId)
+    arguments: '--app-version $(Build.BuildId)'
