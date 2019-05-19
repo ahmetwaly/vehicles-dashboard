@@ -4,5 +4,4 @@ zuul:
    routes:
       getCustomers:
          path: /getCustomers/v1/**
-         url: http://localhost/customers
-         
+         url: http://customermanager/customers
