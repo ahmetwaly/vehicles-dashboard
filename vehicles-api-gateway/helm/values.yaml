@@ -1,6 +1,7 @@
 image:
-  repository: "vehiclesdashboardregistry.azurecr.io/apigateway"
-  tag: "52"
+  #repository: "vehiclesdashboardregistry.azurecr.io/apigateway"
+  repository: "apigateway"
+  tag: "latest"
   pullPolicy: "IfNotPresent"
 
 replicas: 1

@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>se.alten</groupId>
-	<artifactId>zuul-server</artifactId>
+	<artifactId>apigateway</artifactId>
 	<packaging>jar</packaging>
 	<name>Spring Cloud Netflix Zuul Server</name>
 	<url>https://projects.spring.io/spring-cloud/</url>
@@ -52,6 +52,7 @@
 		</dependency>
 	</dependencies>
 	<build>
+		<finalName>apigateway</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
