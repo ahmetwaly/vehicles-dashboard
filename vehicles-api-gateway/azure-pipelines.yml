@@ -37,7 +37,7 @@ steps:
   displayName: Helm package
   inputs:
     command: package
-    chartPath: $(helm.SourcesDirectory
+    chartPath: $(helm.SourcesDirectory)
     destination: $(Build.ArtifactStagingDirectory)
     chartVersion: $(Build.BuildId)
     arguments: '--app-version $(Build.BuildId)'
