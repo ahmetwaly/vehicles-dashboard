@@ -9,7 +9,7 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 variables:
-  service.rootDirectory: './apigateway'
+  service.rootDirectory: './apigateway/'
   service.imageName: 'apigateway'
   helm.SourcesDirectory: './apigateway/apigateway-helm'
   helm.packagePrefix: 'apigateway-helm'
