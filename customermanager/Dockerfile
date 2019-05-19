@@ -6,4 +6,5 @@ ENV PROJECT_PATH /opt/app
 ARG ARTIFACT_PATH=./target
 COPY ${ARTIFACT_PATH}/customermanager.jar $PROJECT_PATH/customermanager.jar
 WORKDIR $PROJECT_HOME/
+RUN chmod 744 *
 ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom","-jar","./customermanager.jar"]
