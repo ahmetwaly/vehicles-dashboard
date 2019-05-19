@@ -1,7 +1,7 @@
 image:
   repository: "vehiclesdashboardregistry.azurecr.io/apigateway"
   #repository: "apigateway"
-  tag: "63"
+  tag: "66"
   pullPolicy: "IfNotPresent"
 
 replicas: 1
@@ -19,7 +19,7 @@ env: {}
 #    value: "-Dserver.port=8080"
 
 service:
-  name: apigateway.svc.cluster.local
+  name: apigateway
   type: LoadBalancer
   internalPort: 8081
   externalPort:  8081

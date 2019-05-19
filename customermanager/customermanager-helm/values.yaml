@@ -26,18 +26,3 @@ service:
   ## Service annotations
   ##
   annotations: {}
-
-ingress:
-  ## If true, Application Ingress will be created
-  ##
-  enabled: false
-  hosts: 
-     - /
-#    - /hello-world
-#    - foo.example.com/hello-world
-
-  ## Ingress annotations
-  ##
-  annotations: 
-    kubernetes.io/ingress.class: traefik
-    traefik.frontend.rule.type: PathPrefixStrip
