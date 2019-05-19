@@ -1,0 +1,43 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+variables:
+  service.rootDirectory: './vehicles-api-gateway/'
+  service.imageName: 'apigateway'
+
+steps:
+- script: echo wellcome to vehicles-dashboard!
+  displayName: 'wellcome'
+
+- task: Maven@3
+  name: apigateway_mvn_build
+  displayName: apigateway mvn build
+  inputs:
+    mavenPomFile: '$(service.rootDirectory)/pom.xml'
+    publishJUnitResults: true
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    codeCoverageToolOption: 'JaCoCo'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.8'
+    mavenVersionOption: 'Default'
+    mavenAuthenticateFeed: false
+    sonarQubeRunAnalysis: false
+
+- script: echo Build.SourcesDirectory:$(Build.SourcesDirectory) ,service.rootDirectory:$(service.rootDirectory)
+  displayName: echo variables
+
+- task: HelmDeploy@0
+  displayName: Helm package
+  inputs:
+    command: package
+    chartPath: $(service.rootDirectory)/helm
+    destination: $(Build.ArtifactStagingDirectory)
+    chartVersion: $(Build.SourceBranchName)
+    arguments: '--app-version $(Build.SourceBranchName)'
