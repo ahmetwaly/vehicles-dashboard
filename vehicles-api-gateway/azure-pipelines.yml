@@ -12,11 +12,11 @@ variables:
   service.rootDirectory: './apigateway'
   service.imageName: 'apigateway'
   helm.SourcesDirectory: './apigateway/apigateway-helm'
-  helm.packagePrefix:'apigateway-helm'
+  helm.packagePrefix: 'apigateway-helm'
+
 steps:
 - script: echo wellcome to vehicles-dashboard!
   displayName: 'wellcome'
-
 - task: Maven@3
   name: apigateway_mvn_build
   displayName: apigateway mvn build
@@ -30,7 +30,6 @@ steps:
     mavenVersionOption: 'Default'
     mavenAuthenticateFeed: false
     sonarQubeRunAnalysis: false
-
 - script: echo Build.SourcesDirectory:$(Build.SourcesDirectory) ,service.rootDirectory:$(service.rootDirectory)
   displayName: echo variables
 
@@ -42,7 +41,6 @@ steps:
     destination: $(Build.ArtifactStagingDirectory)
     chartVersion: $(Build.BuildId)
     arguments: '--app-version $(Build.BuildId)'
-
 - task: AzureCLI@1
   inputs:
     azureSubscription: 'ResourceManagerConnection'
