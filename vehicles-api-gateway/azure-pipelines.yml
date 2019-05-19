@@ -47,5 +47,5 @@ steps:
   displayName: push docker image
   inputs:
     containerRegistry: 'vehiclesDashboardRegistryConnection'
-    repository: 'customermanager'
+    repository: 'apigateway'
     command: 'push'
