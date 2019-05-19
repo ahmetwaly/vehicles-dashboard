@@ -9,13 +9,14 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 variables:
-  service.rootDirectory: './vehicles-api-gateway/'
+  service.rootDirectory: './apigateway'
   service.imageName: 'apigateway'
+  helm.SourcesDirectory: './apigateway/apigateway-helm'
+  helm.packagePrefix: 'apigateway-helm'
 
 steps:
 - script: echo wellcome to vehicles-dashboard!
   displayName: 'wellcome'
-
 - task: Maven@3
   name: apigateway_mvn_build
   displayName: apigateway mvn build
@@ -29,7 +30,6 @@ steps:
     mavenVersionOption: 'Default'
     mavenAuthenticateFeed: false
     sonarQubeRunAnalysis: false
-
 - script: echo Build.SourcesDirectory:$(Build.SourcesDirectory) ,service.rootDirectory:$(service.rootDirectory)
   displayName: echo variables
 
@@ -37,7 +37,12 @@ steps:
   displayName: Helm package
   inputs:
     command: package
-    chartPath: $(service.rootDirectory)/helm
+    chartPath: $(helm.SourcesDirectory
     destination: $(Build.ArtifactStagingDirectory)
-    chartVersion: $(Build.SourceBranchName)
-    arguments: '--app-version $(Build.SourceBranchName)'
+    chartVersion: $(Build.BuildId)
+    arguments: '--app-version $(Build.BuildId)'
+- task: AzureCLI@1
+  inputs:
+    azureSubscription: 'ResourceManagerConnection'
+    scriptLocation: 'inlineScript'
+    inlineScript: 'az acr helm push $(System.ArtifactsDirectory)/$(helm.packagePrefix)-$(Build.BuildId).tgz --name $(ACR);'
