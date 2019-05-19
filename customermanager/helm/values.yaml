@@ -1,6 +1,6 @@
 image:
   repository: "vehiclesdashboardregistry.azurecr.io/customermanager"
-  tag: "29"
+  tag: "52"
   pullPolicy: "IfNotPresent"
 
 replicas: 1
@@ -20,8 +20,8 @@ env: {}
 
 service:
   name: customermanager
-  type: ClusterIP
-  internalPort: 8080
+  type: LoadBalancer
+  internalPort: 80
   externalPort:  8080
   ## Service annotations
   ##

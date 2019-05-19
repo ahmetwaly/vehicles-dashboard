@@ -1,0 +1,8 @@
+server:
+  port: 8081
+zuul:
+   routes:
+      getCustomers:
+         path: /getCustomers/v1/**
+         url: http://localhost/customers
+         

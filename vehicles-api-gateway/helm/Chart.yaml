@@ -1,0 +1,14 @@
+name: customermanager
+home: https://alten.se
+sources:
+  - https://github.com/ahmetwaly/vehicles-dashboard.git
+
+version: 0.0.1
+description: Run the customermanager spring-boot application
+keywords:
+- java
+- tomcat
+- spring-boot
+maintainers:
+- name: Ahmed Metwaly   
+  email: ahmed.a.metwali@gmail.com

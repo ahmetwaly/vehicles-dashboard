@@ -1,0 +1,25 @@
+image:
+  repository: "vehiclesdashboardregistry.azurecr.io/apigateway"
+  tag: "52"
+  pullPolicy: "IfNotPresent"
+
+replicas: 1
+
+resources:
+  requests:
+    memory: 250Mi
+    cpu: 40m
+  limits:
+    memory: 2Gi
+    cpu: 1
+
+env: {}
+#  - name: "JAVA_OPTS2"
+#    value: "-Dserver.port=8080"
+
+service:
+  name: apigateway
+  type: LoadBalancer
+  internalPort: 8081
+  externalPort:  8081
+  annotations: {}
