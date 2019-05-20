@@ -1,4 +1,4 @@
-name: apigateway
+name: apigateway-helm
 home: https://alten.se
 sources:
   - https://github.com/ahmetwaly/vehicles-dashboard.git
