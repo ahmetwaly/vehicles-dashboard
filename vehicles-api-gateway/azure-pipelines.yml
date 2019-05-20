@@ -53,3 +53,8 @@ steps:
     chartVersion: $(Build.BuildId)
     arguments: '--app-version $(Build.BuildId)'
   
+- task: AzureCLI@1
+  inputs:
+    azureSubscription: 'Free Trial(8d3b52bc-28ad-4afc-97f2-cd46726a2b0e)'
+    scriptLocation: 'inlineScript'
+    inlineScript: 'az acr helm push $(Build.ArtifactStagingDirectory)/$(helm.packagePrefix)-$(Build.BuildId).tgz --name pnpdhacr --force;'
