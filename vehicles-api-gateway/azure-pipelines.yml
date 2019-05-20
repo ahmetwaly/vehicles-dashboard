@@ -46,8 +46,4 @@ steps:
     destination: $(Build.ArtifactStagingDirectory)
     chartVersion: $(Build.BuildId)
     arguments: '--app-version $(Build.BuildId)'
-- task: AzureCLI@1
-  inputs:
-    azureSubscription: 'ResourceManagerConnection'
-    scriptLocation: 'inlineScript'
-    inlineScript: 'az acr helm push $(System.ArtifactsDirectory)/$(helm.packagePrefix)-$(Build.BuildId).tgz --name ACR;'
+  
