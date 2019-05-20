@@ -50,4 +50,4 @@ steps:
   inputs:
     azureSubscription: 'ResourceManagerConnection'
     scriptLocation: 'inlineScript'
-    inlineScript: 'az acr helm push $(System.ArtifactsDirectory)/$(helm.packagePrefix)-$(Build.BuildId).tgz --name $(ACR);'
+    inlineScript: 'az acr helm push $(System.ArtifactsDirectory)/$(helm.packagePrefix)-$(Build.BuildId).tgz --name ACR;'
