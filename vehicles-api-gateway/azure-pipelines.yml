@@ -34,6 +34,11 @@ steps:
   displayName: echo variables
 
 - task: HelmDeploy@0
+  inputs:
+    command: 'init'
+    arguments: '--client-only'
+
+- task: HelmDeploy@0
   displayName: Helm package
   inputs:
     command: package
