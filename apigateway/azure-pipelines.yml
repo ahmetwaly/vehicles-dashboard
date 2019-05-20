@@ -9,7 +9,7 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 variables:
-  service.rootDirectory: './vehicles-api-gateway/'
+  service.rootDirectory: './apigateway/'
   service.imageName: 'apigateway'
 
 steps:
