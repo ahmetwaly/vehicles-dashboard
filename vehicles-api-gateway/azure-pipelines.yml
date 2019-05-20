@@ -35,8 +35,10 @@ steps:
 
 - task: HelmDeploy@0
   inputs:
+    connectionType: 'Kubernetes Service Connection'
+    kubernetesServiceConnection: 'AKS'
     command: 'init'
-    arguments: '--client-only'
+    upgradeTiller: false
 
 - task: HelmDeploy@0
   displayName: Helm package
