@@ -11,7 +11,8 @@ pool:
 variables:
   service.rootDirectory: './apigateway/'
   service.imageName: 'apigateway'
-
+  helm.SourcesDirectory: './apigateway/apigateway-helm'
+  helm.packagePrefix: 'apigateway-helm'
 steps:
 - script: echo wellcome to vehicles-dashboard!
   displayName: 'wellcome'
