@@ -4,6 +4,8 @@ image:
   pullPolicy: "IfNotPresent"
 
 replicas: 1
+cluster:
+  namespace: backend 
 
 resources:
   requests:
@@ -12,6 +14,7 @@ resources:
   limits:
     memory: 2Gi
     cpu: 1
+
 
 env: {}
 #  - name: "JAVA_OPTS2"
