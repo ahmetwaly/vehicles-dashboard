@@ -5,7 +5,9 @@ image:
   pullPolicy: "IfNotPresent"
 
 replicas: 1
-
+cluster:
+  namespace: backend 
+   
 resources:
   requests:
     memory: 250Mi
