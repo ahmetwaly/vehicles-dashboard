@@ -31,5 +31,13 @@
       ```bash 
       az aks create --resource-group $AKS_RESOURCE_GROUP --name $AKS_CLUSTER \
       --service-principal $SP_APP_ID --client-secret $SP_PASSWD --node-count 1 --generate-ssh-keys
+      
+   - install cli tools
+      ```bash 
+      az aks install-cli
+  - Use Kubectl with the cluster  
+    ```bash
+       az aks get-credentials --resource-group $AKS_RESOURCE_GROUP --name $AKS_CLUSTER
+     $ kubectl create serviceaccount tiller --namespace kube-system
+     $ kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller
 
-    

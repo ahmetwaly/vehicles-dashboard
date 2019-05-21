@@ -35,7 +35,7 @@ steps:
 - task: Docker@2
   displayName: build docker image
   inputs:
-    containerRegistry: 'vehiclesDashboardRegistryConnection'
+    containerRegistry: 'ACR'
     repository: 'customermanager'
     command: 'build'
     Dockerfile: '$(service.rootDirectory)/Dockerfile'
@@ -45,6 +45,6 @@ steps:
 - task: Docker@2
   displayName: push docker image
   inputs:
-    containerRegistry: 'vehiclesDashboardRegistryConnection'
+    containerRegistry: 'ACR'
     repository: 'customermanager'
     command: 'push'

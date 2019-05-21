@@ -17,6 +17,15 @@ variables:
 steps:
 - script: echo wellcome to vehicles-dashboard!
   displayName: 'wellcome'
+
+- task: HelmDeploy@0
+  inputs:
+    connectionType: 'Kubernetes Service Connection'
+    kubernetesServiceConnection: 'AKS'
+    command: 'init'
+    upgradeTiller: false
+    arguments: '--client-only'
+
 - task: Maven@3
   name: apigateway_mvn_build
   displayName: apigateway mvn build
@@ -33,6 +42,8 @@ steps:
 - script: echo Build.SourcesDirectory:$(Build.SourcesDirectory) ,service.rootDirectory:$(service.rootDirectory)
   displayName: echo variables
 
+
+
 - task: HelmDeploy@0
   displayName: Helm package
   inputs:
@@ -41,8 +52,9 @@ steps:
     destination: $(Build.ArtifactStagingDirectory)
     chartVersion: $(Build.BuildId)
     arguments: '--app-version $(Build.BuildId)'
+
 - task: AzureCLI@1
   inputs:
-    azureSubscription: 'ResourceManagerConnection'
+    azureSubscription: 'Free Trial(8d3b52bc-28ad-4afc-97f2-cd46726a2b0e)'
     scriptLocation: 'inlineScript'
-    inlineScript: 'az acr helm push $(System.ArtifactsDirectory)/$(helm.packagePrefix)-$(Build.BuildId).tgz --name $(ACR);'
+    inlineScript: 'az acr helm push $(Build.ArtifactStagingDirectory)/$(helm.packagePrefix)-$(Build.BuildId).tgz --name vehiclesDashboardRegistry --force;'
