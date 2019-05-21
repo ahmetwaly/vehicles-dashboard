@@ -17,6 +17,15 @@ steps:
 - script: echo wellcome to vehicles-dashboard!
   displayName: 'wellcome'
 
+- task: HelmDeploy@0
+  inputs:
+    connectionType: 'Kubernetes Service Connection'
+    kubernetesServiceConnection: 'AKS'
+    command: 'init'
+    upgradeTiller: false
+    arguments: '--client-only'
+
+
 - task: Maven@3
   name: apigateway_mvn_build
   displayName: apigateway mvn build
