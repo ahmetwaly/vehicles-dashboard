@@ -11,11 +11,21 @@ pool:
 variables:
   service.rootDirectory: './customermanager/'
   service.imageName: 'customermanager'
+  helm.SourcesDirectory: './customermanager/vehiclemanager-helm'
+  helm.packagePrefix: 'customermanager-helm'
 
 steps:
 - script: echo wellcome to vehicles-dashboard!
   displayName: 'wellcome'
-  
+
+- task: HelmDeploy@0
+  inputs:
+    connectionType: 'Kubernetes Service Connection'
+    kubernetesServiceConnection: 'AKS'
+    command: 'init'
+    upgradeTiller: false
+    arguments: '--client-only'
+
 - task: Maven@3
   name: customermanager_mvn_build
   displayName: customermanager mvn build
@@ -48,3 +58,18 @@ steps:
     containerRegistry: 'ACR'
     repository: 'customermanager'
     command: 'push'
+
+- task: HelmDeploy@0
+  displayName: Helm package
+  inputs:
+    command: package
+    chartPath: $(helm.SourcesDirectory)
+    destination: $(Build.ArtifactStagingDirectory)
+    chartVersion: $(Build.BuildId)
+    arguments: '--app-version $(Build.BuildId)'
+
+- task: AzureCLI@1
+  inputs:
+    azureSubscription: 'Free Trial(8d3b52bc-28ad-4afc-97f2-cd46726a2b0e)'
+    scriptLocation: 'inlineScript'
+    inlineScript: 'az acr helm push $(Build.ArtifactStagingDirectory)/$(helm.packagePrefix)-$(Build.BuildId).tgz --name vehiclesDashboardRegistry --force;'
