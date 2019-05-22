@@ -11,7 +11,7 @@ pool:
 variables:
   service.rootDirectory: './customermanager/'
   service.imageName: 'customermanager'
-  helm.SourcesDirectory: './customermanager/vehiclemanager-helm'
+  helm.SourcesDirectory: './customermanager/customermanager-helm'
   helm.packagePrefix: 'customermanager-helm'
 
 steps:
@@ -72,4 +72,4 @@ steps:
   inputs:
     azureSubscription: 'Free Trial(8d3b52bc-28ad-4afc-97f2-cd46726a2b0e)'
     scriptLocation: 'inlineScript'
-    inlineScript: 'az acr helm push $(Build.ArtifactStagingDirectory)/$(helm.packagePrefix)-$(Build.BuildId).tgz --name vehiclesDashboardRegistry;'
+    inlineScript: 'az acr helm push $(Build.ArtifactStagingDirectory)/$(helm.packagePrefix)-$(Build.BuildId).tgz --name vehiclesDashboardRegistry --force;'
