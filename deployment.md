@@ -34,10 +34,16 @@
       
    - install cli tools
       ```bash 
-      az aks install-cli
+       az aks install-cli
   - Use Kubectl with the cluster  
     ```bash
        az aks get-credentials --resource-group $AKS_RESOURCE_GROUP --name $AKS_CLUSTER
-     $ kubectl create serviceaccount tiller --namespace kube-system
-     $ kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller
+  - create tiller service accounts 
+      ```bash
+       kubectl create serviceaccount tiller --namespace kube-system
+       kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller
 
+  - Create k8 namespaces 
+     ```bash
+     kubectl create namespace backend
+     kubectl create namespace frontend
