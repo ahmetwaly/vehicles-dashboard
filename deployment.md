@@ -19,7 +19,7 @@
        az group create --name $AKS_RESOURCE_GROUP --location eastus
    - Create  Azure container registery ACR and keep copy of result for future use
       ```bash
-         az acr create --resource-group $AKS_RESOURCE_GROUP --name $ACR_REGISTRY --sku Basic
+         az acr create --resource-group $AKS_RESOURCE_GROUP --name $ACR_REGISTRY --sku Standard
          ACR_REGISTRY_ID=$(az acr show --name $ACR_REGISTRY --query id --output tsv)
    - Create service principal for ACR access
        ```bash
