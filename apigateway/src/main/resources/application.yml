@@ -3,5 +3,8 @@ server:
 zuul:
    routes:
       getCustomers:
-         path: /getCustomers/v1/**
+         path: /customers/v1/**
          url: http://customermanager.backend.svc.cluster.local:8080/customers
+      getVehicles:
+         path: /vehicles/v1/**
+         url: http://customermanager.backend.svc.cluster.local:8081/vehicles
