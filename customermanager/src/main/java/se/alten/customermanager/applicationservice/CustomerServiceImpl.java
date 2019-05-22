@@ -28,7 +28,7 @@ public class CustomerServiceImpl implements CustomerService {
 	 * @see se.alten.customermanger.applicationservice.CustomerServiceIfc#findAllCustomer()
 	 */
 	@Override
-	public List<Customer> findAllCustomer() {
+	public List<Customer> findAllCustomers() {
 		List<Customer> customers = customerRepositry.findAll() ;
 		return customers;
 	}

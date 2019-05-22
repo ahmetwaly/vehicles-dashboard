@@ -10,6 +10,6 @@ public interface CustomerService {
 
 	Customer findCustomerById(int customerId);
 
-	List<Customer> findAllCustomer();
+	List<Customer> findAllCustomers();
 
 }

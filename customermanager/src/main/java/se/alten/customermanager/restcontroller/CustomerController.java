@@ -52,7 +52,7 @@ public class CustomerController {
 	
 	@RequestMapping(value = "/customers", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
 	public ResponseEntity<List<Customer>> findAllCustomers() {
-		List<Customer> customers = customerService.findAllCustomer();
+		List<Customer> customers = customerService.findAllCustomers();
 		return new ResponseEntity<List<Customer>>(customers, HttpStatus.OK) ;
 	}
 	

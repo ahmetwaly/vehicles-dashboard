@@ -13,4 +13,4 @@ spec:
          - backend:
              serviceName: apigateway
              servicePort: 8081
-           path: /apigatewayy
+           path: /apigateway/*
