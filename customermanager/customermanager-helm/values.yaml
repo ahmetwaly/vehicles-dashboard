@@ -24,8 +24,8 @@ env: {}
 service:
   name: customermanager
   type: ClusterIP
-  internalPort: 80
-  externalPort:  8080
+  internalPort: 8082
+  externalPort:  8082
   ## Service annotations
   ##
   annotations: {}

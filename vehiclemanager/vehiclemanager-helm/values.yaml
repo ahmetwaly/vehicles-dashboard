@@ -24,8 +24,8 @@ env: {}
 service:
   name: vehiclemanager
   type: ClusterIP
-  internalPort: 8082
-  externalPort:  8082
+  internalPort: 8083
+  externalPort:  8083
   ## Service annotations
   ##
   annotations: {}
