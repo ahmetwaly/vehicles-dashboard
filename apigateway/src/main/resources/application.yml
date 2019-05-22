@@ -7,4 +7,4 @@ zuul:
          url: http://customermanager.backend.svc.cluster.local:8080/customers
       getVehicles:
          path: /vehicles/v1/**
-         url: http://customermanager.backend.svc.cluster.local:8081/vehicles
+         url: http://vehiclemanager.backend.svc.cluster.local:8081/vehicles
