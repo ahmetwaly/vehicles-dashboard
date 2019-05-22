@@ -11,7 +11,7 @@ pool:
 variables:
   service.rootDirectory: './vehiclemanager/'
   service.imageName: 'vehiclemanager'
-  helm.SourcesDirectory: './vehiclemanager/apigateway-helm'
+  helm.SourcesDirectory: './vehiclemanager/vehiclemanager-helm'
   helm.packagePrefix: 'vehiclemanager-helm'
   
 
