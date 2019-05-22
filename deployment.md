@@ -41,3 +41,7 @@
      $ kubectl create serviceaccount tiller --namespace kube-system
      $ kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller
 
+  - Create k8 namespaces 
+     ```bash
+     kubectl create namespace backend
+     kubectl create namespace frontend
