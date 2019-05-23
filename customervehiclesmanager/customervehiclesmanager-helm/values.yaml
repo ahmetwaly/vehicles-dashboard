@@ -1,0 +1,30 @@
+image:
+  repository: "vehiclesdashboardregistry.azurecr.io/customervehiclesmanager"
+  tag: "52"
+  pullPolicy: "IfNotPresent"
+
+replicas: 1
+cluster:
+  namespace: frontend 
+
+resources:
+  requests:
+    memory: 250Mi
+    cpu: 40m
+  limits:
+    memory: 2Gi
+    cpu: 1
+
+service:
+  name: customervehiclesmanager
+  type: ClusterIP
+  internalPort: 80
+  externalPort: 80
+  ## Service annotations
+  ##
+  annotations: {}
+
+env: {}
+#  - name: "JAVA_OPTS2"
+#    value: "-Dserver.port=8080"
+

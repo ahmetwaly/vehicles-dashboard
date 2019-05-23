@@ -23,6 +23,6 @@ env: {}
 service:
   name: apigateway
   type: LoadBalancer
-  internalPort: 8081
-  externalPort:  8081
+  internalPort: 80
+  externalPort:  80
   annotations: {}

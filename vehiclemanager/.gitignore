@@ -29,3 +29,4 @@ HELP.md
 .vscode/
 /mvnw.cmd
 /mvnw
+/process.pid

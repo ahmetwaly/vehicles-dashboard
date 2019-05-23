@@ -68,7 +68,7 @@
 	</dependencies>
 
 	<build>
-			<finalName>vehiclemanager</finalName>
+		<finalName>vehiclemanager</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -90,5 +90,21 @@
 
 		</plugins>
 	</build>
-
+	<profiles>
+		<profile>
+			<id>development</id>
+			<properties>
+				<spring.profiles.active>development</spring.profiles.active>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+		<profile>
+			<id>staging</id>
+			<properties>
+				<spring.profiles.active>staging</spring.profiles.active>
+			</properties>
+		</profile>
+	</profiles>
 </project>

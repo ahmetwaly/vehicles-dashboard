@@ -1,0 +1,29 @@
+server:
+  port: 80
+zuul:
+   routes:
+      customermanager:
+         path: /customers/v1/**
+         url: http://customermanager.backend.svc.cluster.local/customers
+         methods:
+           - POST
+           - PUT
+           - PATCH
+           - GET
+         
+      vehiclemanager:
+         path: /vehicles/v1/**
+         url: http://vehiclemanager.backend.svc.cluster.local/vehicles
+         methods:
+           - POST
+           - PUT
+           - PATCH
+           - GETT
+      customervehiclesmanager:
+         path: /customervehicles/v1/**
+         url: http://customervehiclesmanager.backend.svc.cluster.local/customervehicles
+         methods:
+           - POST
+           - PUT
+           - PATCH
+           - GETT
