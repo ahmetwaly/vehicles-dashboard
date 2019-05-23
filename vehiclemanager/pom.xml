@@ -109,8 +109,8 @@
 	</profiles>
 	<distributionManagement>
 		<repository>
-			<id>dev-azure-com-altenchallenge-piplineartifcate</id>
-			<url>https://pkgs.dev.azure.com/altenchallenge/_packaging/piplineartifcate/maven/v1</url>
+			<id>dev-azure-com-altenchallenge-altenchallenge</id>
+			<url>https://pkgs.dev.azure.com/altenchallenge/_packaging/altenchallenge/maven/v1</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>
