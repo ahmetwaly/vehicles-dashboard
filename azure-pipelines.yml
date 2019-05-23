@@ -17,7 +17,7 @@ stages:
   displayName: CI Build $(service.name)
   jobs:
     - job: mavenbuild
-      displayName: $(service.name) [mnv build ,static code analysis , security scanning]
+      displayName: '$(service.name) [mnv build ,static code analysis , security scanning]'
       pool:
         vmImage: 'ubuntu-latest'
       steps:
@@ -31,7 +31,7 @@ stages:
     
       - task: Maven@3
         name: customermanager_mvn_build
-        displayName: $(service.name) mvn build
+        displayName: '$(service.name) mvn build'
         inputs:
           mavenPomFile: './$(service.name)/pom.xml'
           options: '-P staging'
@@ -49,7 +49,7 @@ stages:
           findBugsRunAnalysis: true
 
       - task: SonarCloudPublish@1
-        displayName: $(service.name) publish test resuts
+        displayName: '$(service.name) publish test resuts'
         inputs:
           pollingTimeoutSec: '300'
       
