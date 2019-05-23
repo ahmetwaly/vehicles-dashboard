@@ -32,6 +32,7 @@ stages:
         displayName: customermanager mvn build
         inputs:
           mavenPomFile: '$(service.rootDirectory)/pom.xml'
+          options: '-P staging'
           publishJUnitResults: true
           testResultsFiles: '**/surefire-reports/TEST-*.xml'
           codeCoverageToolOption: 'JaCoCo'
