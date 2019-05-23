@@ -30,6 +30,7 @@ steps:
   inputs:
     mavenPomFile: '$(service.rootDirectory)/pom.xml'
     publishJUnitResults: true
+    options: '-P staging'
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     codeCoverageToolOption: 'JaCoCo'
     javaHomeOption: 'JDKVersion'
