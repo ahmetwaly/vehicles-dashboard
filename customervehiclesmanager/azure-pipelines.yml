@@ -54,7 +54,7 @@ steps:
   displayName: push docker image
   inputs:
     containerRegistry: 'ACR'
-    repository: 'vehiclesimulator'
+    repository: 'customervehiclesmanager'
     command: 'push'
 - task: HelmDeploy@0
   displayName: Helm package
