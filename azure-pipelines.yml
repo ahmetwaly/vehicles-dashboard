@@ -1,7 +1,7 @@
 name: $(Date:yyyyMMdd)$(Rev:.r)
 variables:
   service.name: 'vehiclemanager'
-
+  acr.name: 'vehiclesDashboardRegistry'
 trigger:
   branches:
     include:
@@ -71,6 +71,11 @@ stages:
           containerRegistry: 'ACR'
           repository: '$(service.name)'
           command: 'push'
+    - job: helm_package
+      displayName: '$(service.name) [helm init package deploy to ACR]'
+      pool:
+        vmImage: 'ubuntu-latest'
+      steps:
 
       - task: HelmDeploy@0
         inputs:
@@ -84,7 +89,7 @@ stages:
         displayName: Helm package
         inputs:
           command: package
-          chartPath: $(helm.SourcesDirectory)
+          chartPath: './$(service.name)/$(service.name)-helm'
           destination: $(Build.ArtifactStagingDirectory)
           chartVersion: $(Build.BuildId)
           arguments: '--app-version $(Build.BuildId)'
@@ -93,5 +98,5 @@ stages:
         inputs:
           azureSubscription: 'Free Trial(8d3b52bc-28ad-4afc-97f2-cd46726a2b0e)'
           scriptLocation: 'inlineScript'
-          inlineScript: 'az acr helm push $(Build.ArtifactStagingDirectory)/$(helm.packagePrefix)-$(Build.BuildId).tgz --name vehiclesDashboardRegistry --force;'
+          inlineScript: 'az acr helm push $(Build.ArtifactStagingDirectory)/$(service.name)-helm-$(Build.BuildId).tgz --name $(acr.name) --force;'
       
