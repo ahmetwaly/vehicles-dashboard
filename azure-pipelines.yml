@@ -35,6 +35,7 @@ stages:
         inputs:
           mavenPomFile: '$(service.rootDirectory)/pom.xml'
           options: '-P staging'
+          goals: 'package deploy'
           publishJUnitResults: true
           testResultsFiles: '**/surefire-reports/TEST-*.xml'
           codeCoverageToolOption: 'JaCoCo'
