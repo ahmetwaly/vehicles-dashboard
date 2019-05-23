@@ -33,7 +33,7 @@ stages:
         name: customermanager_mvn_build
         displayName: $(service.name) mvn build
         inputs:
-          mavenPomFile: '$(service.rootDirectory)/pom.xml'
+          mavenPomFile: './$(service.name)/pom.xml'
           options: '-P staging'
           goals: 'package deploy'
           publishJUnitResults: true
