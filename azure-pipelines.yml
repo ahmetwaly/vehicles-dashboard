@@ -1,7 +1,7 @@
 name: $(Date:yyyyMMdd)$(Rev:.r)
 variables:
   service.name: 'vehiclemanager'
-
+  acr.name: 'vehiclesDashboardRegistry'
 trigger:
   branches:
     include:
@@ -72,7 +72,7 @@ stages:
           repository: '$(service.name)'
           command: 'push'
     - job: helm_package
-      displayName: '$(service.name) [dokcer init package deploy to ACR]'
+      displayName: '$(service.name) [helm init package deploy to ACR]'
       pool:
         vmImage: 'ubuntu-latest'
       steps:
