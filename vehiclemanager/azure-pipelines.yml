@@ -12,11 +12,11 @@ stages:
     - job: BuildJob
       pool:
         vmImage: 'ubuntu-latest'
-        variables:
-          service.rootDirectory: './vehiclemanager/'
-          service.imageName: 'vehiclemanager'
-          helm.SourcesDirectory: './vehiclemanager/vehiclemanager-helm'
-          helm.packagePrefix: 'vehiclemanager-helm'
+      variables:
+        service.rootDirectory: './vehiclemanager/'
+        service.imageName: 'vehiclemanager'
+        helm.SourcesDirectory: './vehiclemanager/vehiclemanager-helm'
+        helm.packagePrefix: 'vehiclemanager-helm'
       steps:
       - script: echo wellcome to vehicles-dashboard!
         displayName: 'wellcome'
