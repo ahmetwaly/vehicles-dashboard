@@ -30,6 +30,7 @@ steps:
   inputs:
     mavenPomFile: '$(service.rootDirectory)/pom.xml'
     publishJUnitResults: true
+    options: '-P staging'
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     codeCoverageToolOption: 'JaCoCo'
     javaHomeOption: 'JDKVersion'
@@ -44,7 +45,7 @@ steps:
   displayName: build docker image
   inputs:
     containerRegistry: 'ACR'
-    repository: 'vehiclemanager'
+    repository: 'vehiclesimulator'
     command: 'build'
     Dockerfile: '$(service.rootDirectory)/Dockerfile'
     #arguments: '--build-arg ARTIFACT_PATH=/$(Build.SourcesDirectory)/customermanager/target'

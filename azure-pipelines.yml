@@ -1,61 +1,58 @@
 name: $(Date:yyyyMMdd)$(Rev:.r)
+variables:
+  service.name: 'vehiclemanager'
 
 trigger:
-- master
+  branches:
+    include:
+    - master
+  paths:
+    include:
+    - ./$(service.name)
+    exclude:
+    - ./$(service.name)/$(service.name)-helm
 
 stages:
 - stage: Build
+  displayName: CI Build $(service.name)
   jobs:
-    - job: BuildJob
+    - job: mavenbuild
+      displayName: '$(service.name) [mnv build ,static code analysis , security scanning]'
       pool:
         vmImage: 'ubuntu-latest'
-      variables:
-        service.rootDirectory: './vehiclemanager/'
-        service.imageName: 'vehiclemanager'
-        helm.SourcesDirectory: './vehiclemanager/vehiclemanager-helm'
-        helm.packagePrefix: 'vehiclemanager-helm'
       steps:
-      - script: echo wellcome to vehicles-dashboard!
-        displayName: 'wellcome'
-
-      - task: HelmDeploy@0
-        inputs:
-          connectionType: 'Kubernetes Service Connection'
-          kubernetesServiceConnection: 'AKS'
-          command: 'init'
-          upgradeTiller: false
-          arguments: '--client-only'
 
       - task: SonarCloudPrepare@1
+        displayName: prepare sonarcloud 
         inputs:
           SonarCloud: 'sonarcloud'
           organization: 'ahmetwaly-github'
           scannerMode: 'Other' 
-          
+    
       - task: Maven@3
         name: customermanager_mvn_build
-        displayName: customermanager mvn build
+        displayName: '$(service.name) mvn build'
         inputs:
-          mavenPomFile: '$(service.rootDirectory)/pom.xml'
+          mavenPomFile: './$(service.name)/pom.xml'
           options: '-P staging'
+          goals: 'package deploy'
           publishJUnitResults: true
           testResultsFiles: '**/surefire-reports/TEST-*.xml'
           codeCoverageToolOption: 'JaCoCo'
           javaHomeOption: 'JDKVersion'
           jdkVersionOption: '1.8'
           mavenVersionOption: 'Default'
-          mavenAuthenticateFeed: false
+          mavenAuthenticateFeed: true
           sonarQubeRunAnalysis: true
           checkStyleRunAnalysis: true
           pmdRunAnalysis: true
           findBugsRunAnalysis: true
 
       - task: SonarCloudPublish@1
+        displayName: '$(service.name) publish test resuts'
         inputs:
           pollingTimeoutSec: '300'
-      - script: echo Build.SourcesDirectory:$(Build.SourcesDirectory) ,service.rootDirectory:$(service.rootDirectory)
-        displayName: echo variables
-
+      
       - task: Docker@2
         displayName: build docker image
         inputs:
@@ -72,6 +69,15 @@ stages:
           containerRegistry: 'ACR'
           repository: 'vehiclemanager'
           command: 'push'
+
+      - task: HelmDeploy@0
+        inputs:
+          connectionType: 'Kubernetes Service Connection'
+          kubernetesServiceConnection: 'AKS'
+          command: 'init'
+          upgradeTiller: false
+          arguments: '--client-only'
+
       - task: HelmDeploy@0
         displayName: Helm package
         inputs:
@@ -86,4 +92,4 @@ stages:
           azureSubscription: 'Free Trial(8d3b52bc-28ad-4afc-97f2-cd46726a2b0e)'
           scriptLocation: 'inlineScript'
           inlineScript: 'az acr helm push $(Build.ArtifactStagingDirectory)/$(helm.packagePrefix)-$(Build.BuildId).tgz --name vehiclesDashboardRegistry --force;'
-    
+      

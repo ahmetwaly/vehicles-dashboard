@@ -29,6 +29,7 @@ steps:
   displayName: customermanager mvn build
   inputs:
     mavenPomFile: '$(service.rootDirectory)/pom.xml'
+    options: '-P staging'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     codeCoverageToolOption: 'JaCoCo'
@@ -54,7 +55,7 @@ steps:
   displayName: push docker image
   inputs:
     containerRegistry: 'ACR'
-    repository: 'vehiclesimulator'
+    repository: 'customervehiclesmanager'
     command: 'push'
 - task: HelmDeploy@0
   displayName: Helm package
