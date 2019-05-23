@@ -1,28 +1,37 @@
 name: $(Date:yyyyMMdd)$(Rev:.r)
+
 trigger:
 - master
-variables:
-  service.rootDirectory: './vehiclemanager/'
-  service.name: 'vehiclemanager'
-  helm.SourcesDirectory: './vehiclemanager/vehiclemanager-helm'
-  helm.packagePrefix: 'vehiclemanager-helm'
-  k8.name: 'AKS'
-  azureSubscription.name: 'Free Trial(8d3b52bc-28ad-4afc-97f2-cd46726a2b0e)'
-  acr.name: vehiclesDashboardRegistry
+
 stages:
 - stage: Build
   jobs:
-    - job: mavenbuild
-      displayName: maven build
+    - job: BuildJob
       pool:
         vmImage: 'ubuntu-latest'
-      steps:  
+      variables:
+        service.rootDirectory: './vehiclemanager/'
+        service.imageName: 'vehiclemanager'
+        helm.SourcesDirectory: './vehiclemanager/vehiclemanager-helm'
+        helm.packagePrefix: 'vehiclemanager-helm'
+      steps:
+      - script: echo wellcome to vehicles-dashboard!
+        displayName: 'wellcome'
+
+      - task: HelmDeploy@0
+        inputs:
+          connectionType: 'Kubernetes Service Connection'
+          kubernetesServiceConnection: 'AKS'
+          command: 'init'
+          upgradeTiller: false
+          arguments: '--client-only'
+
+        
       - task: Maven@3
-        name: mvn_build
-        displayName: $(service.name) mvn build
+        name: customermanager_mvn_build
+        displayName: customermanager mvn build
         inputs:
           mavenPomFile: '$(service.rootDirectory)/pom.xml'
-          options: '-P staging'
           publishJUnitResults: true
           testResultsFiles: '**/surefire-reports/TEST-*.xml'
           codeCoverageToolOption: 'JaCoCo'
@@ -31,47 +40,25 @@ stages:
           mavenVersionOption: 'Default'
           mavenAuthenticateFeed: false
           sonarQubeRunAnalysis: false
+      - script: echo Build.SourcesDirectory:$(Build.SourcesDirectory) ,service.rootDirectory:$(service.rootDirectory)
+        displayName: echo variables
 
-      - task: PublishTestResults@2
-        inputs:
-          testResultsFormat: 'JUnit'
-          testResultsFiles: '**/TEST-*.xml'
-          failTaskOnFailedTests: true
-    - job: dockerimagebuild
-      displayName: docker image build
-      pool:
-        vmImage: 'ubuntu-latest'
-      steps:  
       - task: Docker@2
         displayName: build docker image
         inputs:
-          containerRegistry: '$(acr.name)'
-          repository: $(service.name)
+          containerRegistry: 'ACR'
+          repository: 'vehiclemanager'
           command: 'build'
           Dockerfile: '$(service.rootDirectory)/Dockerfile'
           #arguments: '--build-arg ARTIFACT_PATH=/$(Build.SourcesDirectory)/customermanager/target'
-          buildContext: '$(Build.SourcesDirectory)/$(service.rootDirectory)/'
+          buildContext: '$(Build.SourcesDirectory)/vehiclemanager/'
 
       - task: Docker@2
         displayName: push docker image
         inputs:
           containerRegistry: 'ACR'
-          repository: $(service.name)
+          repository: 'vehiclemanager'
           command: 'push'
-    - job: helm 
-      displayName: helm package and push
-      pool:
-        vmImage: 'ubuntu-latest'
-      steps:        
-      - task: HelmDeploy@0
-        displayName: helm init
-        inputs:
-          connectionType: 'Kubernetes Service Connection'
-          kubernetesServiceConnection: $(k8.name)
-          command: 'init'
-          upgradeTiller: false
-          arguments: '--client-only'
-
       - task: HelmDeploy@0
         displayName: Helm package
         inputs:
@@ -82,9 +69,8 @@ stages:
           arguments: '--app-version $(Build.BuildId)'
 
       - task: AzureCLI@1
-        displayName: helm push
         inputs:
-          azureSubscription: $(azureSubscription.name)
+          azureSubscription: 'Free Trial(8d3b52bc-28ad-4afc-97f2-cd46726a2b0e)'
           scriptLocation: 'inlineScript'
-          inlineScript: 'az acr helm push $(Build.ArtifactStagingDirectory)/$(helm.packagePrefix)-$(Build.BuildId).tgz --name $(acr.name) --force;'
+          inlineScript: 'az acr helm push $(Build.ArtifactStagingDirectory)/$(helm.packagePrefix)-$(Build.BuildId).tgz --name vehiclesDashboardRegistry --force;'
     
