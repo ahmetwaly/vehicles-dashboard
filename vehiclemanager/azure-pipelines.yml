@@ -48,7 +48,11 @@ stages:
           sonarQubeRunAnalysis: true
           checkStyleRunAnalysis: true
           pmdRunAnalysis: true
-          findBugsRunAnalysis: true      
+          findBugsRunAnalysis: true
+
+      - task: SonarCloudPublish@1
+        inputs:
+          pollingTimeoutSec: '300'
       - script: echo Build.SourcesDirectory:$(Build.SourcesDirectory) ,service.rootDirectory:$(service.rootDirectory)
         displayName: echo variables
 
