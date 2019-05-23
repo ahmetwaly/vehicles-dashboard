@@ -26,7 +26,12 @@ stages:
           upgradeTiller: false
           arguments: '--client-only'
 
-        
+      - task: SonarCloudPrepare@1
+        inputs:
+          SonarCloud: 'sonarcloud'
+          organization: 'ahmetwaly-github'
+          scannerMode: 'Other' 
+          
       - task: Maven@3
         name: customermanager_mvn_build
         displayName: customermanager mvn build
@@ -40,7 +45,10 @@ stages:
           jdkVersionOption: '1.8'
           mavenVersionOption: 'Default'
           mavenAuthenticateFeed: false
-          sonarQubeRunAnalysis: false
+          sonarQubeRunAnalysis: true
+          checkStyleRunAnalysis: true
+          pmdRunAnalysis: true
+          findBugsRunAnalysis: true      
       - script: echo Build.SourcesDirectory:$(Build.SourcesDirectory) ,service.rootDirectory:$(service.rootDirectory)
         displayName: echo variables
 
