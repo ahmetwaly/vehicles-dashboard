@@ -54,12 +54,12 @@ stages:
       
       - task: WhiteSource Bolt@19
         inputs:
-          cwd: '$(Build.ArtifactStagingDirectory)/$(service.name)'
+          cwd: './$(service.name)'
 
       - task: PublishBuildArtifacts@1
         inputs:
-          PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-          ArtifactName: '$(service.name)-$(Build.BuildId)'
+          PathtoPublish: './$(service.name)/target'
+          ArtifactName: 'target'
           publishLocation: 'Container'
 
     - job: dockerbuildandpush
@@ -72,7 +72,7 @@ stages:
         inputs:
           buildType: 'current'
           downloadType: 'single'
-          artifactName: '''$(service.name)-$(Build.BuildId)'''
+          artifactName: 'target'
           downloadPath: '$(Build.SourcesDirectory)/$(service.name)'
       - task: Docker@2
         displayName: build docker image
