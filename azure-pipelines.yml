@@ -51,6 +51,11 @@ stages:
         displayName: '$(service.name) publish test resuts'
         inputs:
           pollingTimeoutSec: '300'
+      - task: PublishBuildArtifacts@1
+        inputs:
+          PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+          ArtifactName: '(service.name)-$(Build.BuildId)'
+          publishLocation: 'Container'
     - job: dockerbuildandpush
       dependsOn: mavenbuild
       displayName: '$(service.name) [dokcer build , push to container container registry]'
