@@ -17,7 +17,7 @@ stages:
   displayName: CI Build $(service.name)
   jobs:
     - job: mavenbuild
-      displayName: '$(service.name) [mnv build ,static code analysis , security scanning]'
+      displayName: '[mnv build ,static code analysis , security scanning]'
       pool:
         vmImage: 'ubuntu-latest'
       steps:
@@ -59,7 +59,7 @@ stages:
 
     - job: dockerbuildandpush
       dependsOn: mavenbuild
-      displayName: '$(service.name) [dokcer build , push to container container registry]'
+      displayName: '[dokcer build , push to container container registry]'
       pool:
         vmImage: 'ubuntu-latest'
       steps:
@@ -85,7 +85,7 @@ stages:
           command: 'push'
     - job: helm_package
       dependsOn: dockerbuildandpush
-      displayName: '$(service.name) [helm init package deploy to ACR]'
+      displayName: '[helm init package deploy to ACR]'
       pool:
         vmImage: 'ubuntu-latest'
       steps:
