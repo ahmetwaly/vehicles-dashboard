@@ -84,6 +84,7 @@ stages:
           repository: '$(service.name)'
           command: 'push'
     - job: helm_package
+      dependsOn: dockerbuildandpush
       displayName: '$(service.name) [helm init package deploy to ACR]'
       pool:
         vmImage: 'ubuntu-latest'
