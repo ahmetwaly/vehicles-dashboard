@@ -51,10 +51,11 @@ stages:
         displayName: '$(service.name) publish test resuts'
         inputs:
           pollingTimeoutSec: '300'
+      
       - task: WhiteSource Bolt@19
         inputs:
           cwd: '$(Build.ArtifactStagingDirectory)/$(service.name)'
-          
+
       - task: PublishBuildArtifacts@1
         inputs:
           PathtoPublish: '$(Build.ArtifactStagingDirectory)'
