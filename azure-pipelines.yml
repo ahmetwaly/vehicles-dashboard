@@ -54,14 +54,21 @@ stages:
       - task: PublishBuildArtifacts@1
         inputs:
           PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-          ArtifactName: '(service.name)-$(Build.BuildId)'
+          ArtifactName: '$(service.name)-$(Build.BuildId)'
           publishLocation: 'Container'
+
     - job: dockerbuildandpush
       dependsOn: mavenbuild
       displayName: '$(service.name) [dokcer build , push to container container registry]'
       pool:
         vmImage: 'ubuntu-latest'
       steps:
+      - task: DownloadBuildArtifacts@0
+        inputs:
+          buildType: 'current'
+          downloadType: 'single'
+          artifactName: '''$(service.name)-$(Build.BuildId)'''
+          downloadPath: '$(Build.SourcesDirectory)/$(service.name)'
       - task: Docker@2
         displayName: build docker image
         inputs:
