@@ -63,8 +63,8 @@ stages:
           containerRegistry: 'ACR'
           repository: '$(service.name)'
           command: 'build'
-          Dockerfile: './$(service.name)/Dockerfile'
-          buildContext: './$(service.name)/'
+          Dockerfile: '$(Build.SourcesDirectory)/$(service.name)/Dockerfile'
+          buildContext: '$(Build.SourcesDirectory)/$(service.name)/'
       - task: Docker@2
         displayName: push docker image
         inputs:
