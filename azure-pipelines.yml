@@ -35,7 +35,6 @@ stages:
         inputs:
           mavenPomFile: './$(service.name)/pom.xml'
           options: '-P staging'
-          goals: 'package deploy'
           publishJUnitResults: true
           testResultsFiles: '**/surefire-reports/TEST-*.xml'
           codeCoverageToolOption: 'JaCoCo'
@@ -53,6 +52,7 @@ stages:
         inputs:
           pollingTimeoutSec: '300'
     - job: dockerbuildandpush
+      dependsOn: mavenbuild
       displayName: '$(service.name) [dokcer build , push to container container registry]'
       pool:
         vmImage: 'ubuntu-latest'
