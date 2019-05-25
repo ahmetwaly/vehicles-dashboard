@@ -1,5 +1,8 @@
 variables:
   buildConfiguration: 'staging'
+  service.name: 'vehiclemanager'
+  acr.name: 'vehiclesDashboardRegistry'
+
 jobs:
 - job: Angular
   steps:
