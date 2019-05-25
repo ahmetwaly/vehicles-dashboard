@@ -4,7 +4,7 @@ variables:
   acr.name: 'vehiclesDashboardRegistry'
 
 jobs:
-- job: Angular
+- job: Angularmonitoringdashboardbuild
   pool:
     vmImage: 'ubuntu-latest'
   steps:
