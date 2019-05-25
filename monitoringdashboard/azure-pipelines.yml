@@ -1,5 +1,5 @@
 variables:
-  buildConfiguration: 'Release'
+  buildConfiguration: 'staging'
 jobs:
 - job: Angular
   steps:
@@ -19,7 +19,7 @@ jobs:
     displayName: 'Build Angular'
     inputs:
       command: custom
-      customCommand: run build -- --prod
+      customCommand: run build -- --$(buildConfiguration)
       workingDir: src/angular7
   
   - task: PublishPipelineArtifact@0
