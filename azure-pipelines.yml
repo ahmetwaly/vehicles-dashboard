@@ -17,7 +17,7 @@ stages:
   displayName: CI Build $(service.name)
   jobs:
     - job: mavenbuild
-      displayName: '$(service.name) [mnv build ,static code analysis , security scanning]'
+      displayName: '[mnv build ,static code analysis , security scanning]'
       pool:
         vmImage: 'ubuntu-latest'
       steps:
@@ -35,7 +35,6 @@ stages:
         inputs:
           mavenPomFile: './$(service.name)/pom.xml'
           options: '-P staging'
-          goals: 'package deploy'
           publishJUnitResults: true
           testResultsFiles: '**/surefire-reports/TEST-*.xml'
           codeCoverageToolOption: 'JaCoCo'
@@ -52,19 +51,37 @@ stages:
         displayName: '$(service.name) publish test resuts'
         inputs:
           pollingTimeoutSec: '300'
+      
+      - task: WhiteSource Bolt@19
+        inputs:
+          cwd: './$(service.name)'
+
+      - task: PublishBuildArtifacts@1
+        inputs:
+          PathtoPublish: './$(service.name)/target'
+          ArtifactName: 'target'
+          publishLocation: 'Container'
+
     - job: dockerbuildandpush
-      displayName: '$(service.name) [dokcer build , push to container container registry]'
+      dependsOn: mavenbuild
+      displayName: '[dokcer build , push to container container registry]'
       pool:
         vmImage: 'ubuntu-latest'
       steps:
+      - task: DownloadBuildArtifacts@0
+        inputs:
+          buildType: 'current'
+          downloadType: 'single'
+          artifactName: 'target'
+          downloadPath: '$(Build.SourcesDirectory)/$(service.name)'
       - task: Docker@2
         displayName: build docker image
         inputs:
           containerRegistry: 'ACR'
           repository: '$(service.name)'
           command: 'build'
-          Dockerfile: './$(service.name)/Dockerfile'
-          buildContext: './$(service.name)/'
+          Dockerfile: '$(Build.SourcesDirectory)/$(service.name)/Dockerfile'
+          buildContext: '$(Build.SourcesDirectory)/$(service.name)/'
       - task: Docker@2
         displayName: push docker image
         inputs:
@@ -72,7 +89,8 @@ stages:
           repository: '$(service.name)'
           command: 'push'
     - job: helm_package
-      displayName: '$(service.name) [helm init package deploy to ACR]'
+      dependsOn: dockerbuildandpush
+      displayName: '[helm init package deploy to ACR]'
       pool:
         vmImage: 'ubuntu-latest'
       steps:
