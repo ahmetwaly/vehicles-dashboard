@@ -24,7 +24,7 @@ jobs:
     displayName: 'Build Angular'
     inputs:
       command: custom
-      customCommand: run-script  build
+      customCommand: run build
       workingDir: ./$(service.name)
   
   - task: PublishPipelineArtifact@0
