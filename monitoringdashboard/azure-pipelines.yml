@@ -1,6 +1,6 @@
 variables:
   buildConfiguration: 'staging'
-  service.name: 'vehiclemanager'
+  service.name: 'monitoringdashboard'
   acr.name: 'vehiclesDashboardRegistry'
 
 jobs:
@@ -23,16 +23,16 @@ jobs:
     inputs:
       command: custom
       customCommand: run build -- --$(buildConfiguration)
-      workingDir: src/angular7
+      workingDir: ./$(service.name)
   
   - task: PublishPipelineArtifact@0
     inputs:
       artifactName: 'angular'
-      targetPath: 'src/angular7/dist'
+      targetPath: '/$(service.name)/dist'
   
   - task: PublishBuildArtifacts@1
     inputs:
-      PathtoPublish: 'src/angular7/dist'
+      PathtoPublish: './$(service.name)/dist'
       ArtifactName: angular2
   
   - task: Npm@1
@@ -40,22 +40,22 @@ jobs:
     inputs:
       command: custom
       customCommand: run test -- --watch=false --code-coverage
-      workingDir: src/angular7
+      workingDir: ./$(service.name)/
   
   - task: PublishCodeCoverageResults@1
     displayName: 'Publish code coverage Angular results'
     condition: succeededOrFailed()
     inputs:
       codeCoverageTool: Cobertura
-      summaryFileLocation: 'src/angular7/coverage/cobertura-coverage.xml'
-      reportDirectory: src/angular7/coverage
-      failIfCoverageEmpty: true
+      summaryFileLocation: '/$(service.name)/coverage/cobertura-coverage.xml'
+      reportDirectory: /$(service.name)/coverage
+      failIfCoverageEmpty: false
   
   - task: PublishTestResults@2
     displayName: 'Publish Angular test results'
     condition: succeededOrFailed()
     inputs:
-      searchFolder: $(System.DefaultWorkingDirectory)/src/angular7/junit
+      searchFolder: $(System.DefaultWorkingDirectory)/$(service.name)/junit
       testRunTitle: Angular
       testResultsFormat: JUnit
       testResultsFiles: "**/TESTS*.xml"
@@ -65,20 +65,20 @@ jobs:
     inputs:
       command: custom
       customCommand: run lint --  --format=stylish
-      workingDir: src/angular7
+      workingDir: ./$(service.name)/
   
   - task: Npm@1
     displayName: 'E2E Test Angular'
     inputs:
       command: custom
       customCommand: run e2e
-      workingDir: src/angular7
+      workingDir: ./$(service.name)
   
   - task: PublishTestResults@2
     displayName: 'Publish Angular E2E test results'
     condition: succeededOrFailed()
     inputs:
-      searchFolder: $(System.DefaultWorkingDirectory)/src/angular7/e2e/junit
+      searchFolder: $(System.DefaultWorkingDirectory)/$(service.name)/e2e/junit
       testRunTitle: Angular_E2E
       testResultsFormat: JUnit
       testResultsFiles: "**/junit*.xml"
