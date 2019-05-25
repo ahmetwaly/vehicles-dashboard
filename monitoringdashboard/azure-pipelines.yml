@@ -9,14 +9,14 @@ jobs:
   - task: DeleteFiles@1
     displayName: 'Delete JUnit files'
     inputs:
-      SourceFolder: src/angular7/junit
+      SourceFolder: ./$(service.name)/junit
       Contents: 'TEST*.xml'
   
   - task: Npm@1
     displayName: 'npm install'
     inputs:
       command: install
-      workingDir: src/angular7
+      workingDir: ./$(service.name)
   
   - task: Npm@1
     displayName: 'Build Angular'
