@@ -19,6 +19,13 @@ jobs:
     inputs:
       command: install
       workingDir: ./$(service.name)
+   
+  - task: Npm@1
+    displayName: 'Build Angular'
+    inputs:
+      command: custom
+      customCommand: install bootstrap
+      workingDir: ./$(service.name)
   
   - task: Npm@1
     displayName: 'Build Angular'
@@ -30,7 +37,7 @@ jobs:
   - task: PublishPipelineArtifact@0
     inputs:
       artifactName: 'angular'
-      targetPath: '/$(service.name)/dist'
+      targetPath: './$(service.name)/dist'
   
   - task: PublishBuildArtifacts@1
     inputs:
