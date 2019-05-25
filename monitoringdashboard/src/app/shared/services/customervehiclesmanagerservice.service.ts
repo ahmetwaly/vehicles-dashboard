@@ -11,7 +11,7 @@ import { environment } from '../../../environments/environment';
 export class CustomerVehiclesManagerService {
 
     customervehicleManagerUrl: string = environment.baseUrl;
-    
+
     constructor(private httpClient: HttpClient) { }
 
 
