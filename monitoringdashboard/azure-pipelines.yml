@@ -35,13 +35,8 @@ jobs:
   
   - task: PublishPipelineArtifact@0
     inputs:
-      artifactName: 'angular'
+      artifactName: 'dist'
       targetPath: './$(service.name)/dist'
-  
-  - task: PublishBuildArtifacts@1
-    inputs:
-      PathtoPublish: './$(service.name)/dist'
-      ArtifactName: angular2
   
   - task: Npm@1
     displayName: 'Test Angular'
@@ -90,8 +85,10 @@ jobs:
       testRunTitle: Angular_E2E
       testResultsFormat: JUnit
       testResultsFiles: "**/junit*.xml"
+
 - job: dockerbuildandpush
   dependsOn: Angularmonitoringdashboardbuild
+  condition: succeededOrFailed()
   displayName: '[dokcer build , push to container container registry]'
   pool:
     vmImage: 'ubuntu-latest'
@@ -100,8 +97,8 @@ jobs:
     inputs:
       buildType: 'current'
       downloadType: 'single'
-      artifactName: 'angular2'
-      downloadPath: '$(Build.SourcesDirectory)/$(service.name)'
+      artifactName: 'dist'
+      downloadPath: '$(Build.SourcesDirectory)/$(service.name)/dist'
   - task: Docker@2
     displayName: build docker image
     inputs:
