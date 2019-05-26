@@ -7,7 +7,7 @@ RUN rm -rf /usr/share/nginx/html/*
 COPY ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
 # Copying monitoringdashboard source into web server root.
-COPY dist/monitoringdashboard/ /usr/share/nginx/html
+COPY ./dist/monitoringdashboard /usr/share/nginx/html
 
 # Exposing ports.
 EXPOSE 80
