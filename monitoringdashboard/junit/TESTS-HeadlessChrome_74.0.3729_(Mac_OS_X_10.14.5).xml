@@ -1,0 +1,308 @@
+<?xml version="1.0"?>
+<testsuite name="HeadlessChrome 74.0.3729 (Mac OS X 10.14.5)" package="" timestamp="2019-05-26T00:49:30" id="0" hostname="Ahmeds-MBP" tests="7" errors="0" failures="5" time="0.28">
+  <properties>
+    <property name="browser.fullName" value="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/74.0.3729.169 Safari/537.36"/>
+  </properties>
+  <testcase name="AppComponent should create the app" time="0.052" classname="HeadlessChrome_74_0_3729_(Mac_OS_X_10_14_5).AppComponent">
+    <failure type="">'app-header' is not a known element:
+1. If 'app-header' is an Angular component, then verify that it is part of this module.
+2. If 'app-header' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. ("&lt;!--The content below is only a placeholder and can be replaced.--&gt;
+[ERROR -&gt;]&lt;app-header&gt;&lt;/app-header&gt;
+&lt;app-customerdashboard&gt;&lt;/app-customerdashboard&gt;
+&lt;app-footer&gt;&lt;/app-footer&gt;
+"): ng:///DynamicTestModule/AppComponent.html@2:0
+'app-customerdashboard' is not a known element:
+1. If 'app-customerdashboard' is an Angular component, then verify that it is part of this module.
+2. If 'app-customerdashboard' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. ("
+&lt;app-header&gt;&lt;/app-header&gt;
+[ERROR -&gt;]&lt;app-customerdashboard&gt;&lt;/app-customerdashboard&gt;
+&lt;app-footer&gt;&lt;/app-footer&gt;
+"): ng:///DynamicTestModule/AppComponent.html@3:0
+'app-footer' is not a known element:
+1. If 'app-footer' is an Angular component, then verify that it is part of this module.
+2. If 'app-footer' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. ("
+&lt;app-header&gt;&lt;/app-header&gt;
+&lt;app-customerdashboard&gt;&lt;/app-customerdashboard&gt;
+[ERROR -&gt;]&lt;app-footer&gt;&lt;/app-footer&gt;
+"): ng:///DynamicTestModule/AppComponent.html@4:0
+Error: Template parse errors:
+    at syntaxError (node_modules/@angular/compiler/fesm5/compiler.js:2430:1)
+    at TemplateParser.push../node_modules/@angular/compiler/fesm5/compiler.js.TemplateParser.parse (node_modules/@angular/compiler/fesm5/compiler.js:20605:1)
+    at JitCompiler.push../node_modules/@angular/compiler/fesm5/compiler.js.JitCompiler._parseTemplate (node_modules/@angular/compiler/fesm5/compiler.js:26171:1)
+    at JitCompiler.push../node_modules/@angular/compiler/fesm5/compiler.js.JitCompiler._compileTemplate (node_modules/@angular/compiler/fesm5/compiler.js:26158:1)
+    at node_modules/@angular/compiler/fesm5/compiler.js:26101:48
+    at Set.forEach (&lt;anonymous&gt;)
+    at JitCompiler.push../node_modules/@angular/compiler/fesm5/compiler.js.JitCompiler._compileComponents (node_modules/@angular/compiler/fesm5/compiler.js:26101:1)
+    at node_modules/@angular/compiler/fesm5/compiler.js:26019:1
+    at Object.then (node_modules/@angular/compiler/fesm5/compiler.js:2421:33)
+    at JitCompiler.push../node_modules/@angular/compiler/fesm5/compiler.js.JitCompiler._compileModuleAndAllComponents (node_modules/@angular/compiler/fesm5/compiler.js:26017:1)
+</failure>
+    <failure type="">Error: Template parse errors:
+'app-header' is not a known element:
+1. If 'app-header' is an Angular component, then verify that it is part of this module.
+2. If 'app-header' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. ("&lt;!--The content below is only a placeholder and can be replaced.--&gt;
+[ERROR -&gt;]&lt;app-header&gt;&lt;/app-header&gt;
+&lt;app-customerdashboard&gt;&lt;/app-customerdashboard&gt;
+&lt;app-footer&gt;&lt;/app-footer&gt;
+"): ng:///DynamicTestModule/AppComponent.html@2:0
+'app-customerdashboard' is not a known element:
+1. If 'app-customerdashboard' is an Angular component, then verify that it is part of this module.
+2. If 'app-customerdashboard' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. ("
+&lt;app-header&gt;&lt;/app-header&gt;
+[ERROR -&gt;]&lt;app-customerdashboard&gt;&lt;/app-customerdashboard&gt;
+&lt;app-footer&gt;&lt;/app-footer&gt;
+"): ng:///DynamicTestModule/AppComponent.html@3:0
+'app-footer' is not a known element:
+1. If 'app-footer' is an Angular component, then verify that it is part of this module.
+2. If 'app-footer' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. ("
+&lt;app-header&gt;&lt;/app-header&gt;
+&lt;app-customerdashboard&gt;&lt;/app-customerdashboard&gt;
+[ERROR -&gt;]&lt;app-footer&gt;&lt;/app-footer&gt;
+"): ng:///DynamicTestModule/AppComponent.html@4:0
+    at syntaxError (node_modules/@angular/compiler/fesm5/compiler.js:2430:1)
+    at TemplateParser.push../node_modules/@angular/compiler/fesm5/compiler.js.TemplateParser.parse (node_modules/@angular/compiler/fesm5/compiler.js:20605:1)
+    at JitCompiler.push../node_modules/@angular/compiler/fesm5/compiler.js.JitCompiler._parseTemplate (node_modules/@angular/compiler/fesm5/compiler.js:26171:1)
+    at JitCompiler.push../node_modules/@angular/compiler/fesm5/compiler.js.JitCompiler._compileTemplate (node_modules/@angular/compiler/fesm5/compiler.js:26158:1)
+    at node_modules/@angular/compiler/fesm5/compiler.js:26101:48
+    at Set.forEach (&lt;anonymous&gt;)
+    at JitCompiler.push../node_modules/@angular/compiler/fesm5/compiler.js.JitCompiler._compileComponents (node_modules/@angular/compiler/fesm5/compiler.js:26101:1)
+    at node_modules/@angular/compiler/fesm5/compiler.js:26019:1
+    at Object.then (node_modules/@angular/compiler/fesm5/compiler.js:2421:33)
+    at JitCompiler.push../node_modules/@angular/compiler/fesm5/compiler.js.JitCompiler._compileModuleAndAllComponents (node_modules/@angular/compiler/fesm5/compiler.js:26017:1)
+</failure>
+  </testcase>
+  <testcase name="AppComponent should have as title 'monitoringdashboard'" time="0.02" classname="HeadlessChrome_74_0_3729_(Mac_OS_X_10_14_5).AppComponent">
+    <failure type="">'app-header' is not a known element:
+1. If 'app-header' is an Angular component, then verify that it is part of this module.
+2. If 'app-header' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. ("&lt;!--The content below is only a placeholder and can be replaced.--&gt;
+[ERROR -&gt;]&lt;app-header&gt;&lt;/app-header&gt;
+&lt;app-customerdashboard&gt;&lt;/app-customerdashboard&gt;
+&lt;app-footer&gt;&lt;/app-footer&gt;
+"): ng:///DynamicTestModule/AppComponent.html@2:0
+'app-customerdashboard' is not a known element:
+1. If 'app-customerdashboard' is an Angular component, then verify that it is part of this module.
+2. If 'app-customerdashboard' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. ("
+&lt;app-header&gt;&lt;/app-header&gt;
+[ERROR -&gt;]&lt;app-customerdashboard&gt;&lt;/app-customerdashboard&gt;
+&lt;app-footer&gt;&lt;/app-footer&gt;
+"): ng:///DynamicTestModule/AppComponent.html@3:0
+'app-footer' is not a known element:
+1. If 'app-footer' is an Angular component, then verify that it is part of this module.
+2. If 'app-footer' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. ("
+&lt;app-header&gt;&lt;/app-header&gt;
+&lt;app-customerdashboard&gt;&lt;/app-customerdashboard&gt;
+[ERROR -&gt;]&lt;app-footer&gt;&lt;/app-footer&gt;
+"): ng:///DynamicTestModule/AppComponent.html@4:0
+Error: Template parse errors:
+    at syntaxError (node_modules/@angular/compiler/fesm5/compiler.js:2430:1)
+    at TemplateParser.push../node_modules/@angular/compiler/fesm5/compiler.js.TemplateParser.parse (node_modules/@angular/compiler/fesm5/compiler.js:20605:1)
+    at JitCompiler.push../node_modules/@angular/compiler/fesm5/compiler.js.JitCompiler._parseTemplate (node_modules/@angular/compiler/fesm5/compiler.js:26171:1)
+    at JitCompiler.push../node_modules/@angular/compiler/fesm5/compiler.js.JitCompiler._compileTemplate (node_modules/@angular/compiler/fesm5/compiler.js:26158:1)
+    at node_modules/@angular/compiler/fesm5/compiler.js:26101:48
+    at Set.forEach (&lt;anonymous&gt;)
+    at JitCompiler.push../node_modules/@angular/compiler/fesm5/compiler.js.JitCompiler._compileComponents (node_modules/@angular/compiler/fesm5/compiler.js:26101:1)
+    at node_modules/@angular/compiler/fesm5/compiler.js:26019:1
+    at Object.then (node_modules/@angular/compiler/fesm5/compiler.js:2421:33)
+    at JitCompiler.push../node_modules/@angular/compiler/fesm5/compiler.js.JitCompiler._compileModuleAndAllComponents (node_modules/@angular/compiler/fesm5/compiler.js:26017:1)
+</failure>
+    <failure type="">Error: Template parse errors:
+'app-header' is not a known element:
+1. If 'app-header' is an Angular component, then verify that it is part of this module.
+2. If 'app-header' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. ("&lt;!--The content below is only a placeholder and can be replaced.--&gt;
+[ERROR -&gt;]&lt;app-header&gt;&lt;/app-header&gt;
+&lt;app-customerdashboard&gt;&lt;/app-customerdashboard&gt;
+&lt;app-footer&gt;&lt;/app-footer&gt;
+"): ng:///DynamicTestModule/AppComponent.html@2:0
+'app-customerdashboard' is not a known element:
+1. If 'app-customerdashboard' is an Angular component, then verify that it is part of this module.
+2. If 'app-customerdashboard' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. ("
+&lt;app-header&gt;&lt;/app-header&gt;
+[ERROR -&gt;]&lt;app-customerdashboard&gt;&lt;/app-customerdashboard&gt;
+&lt;app-footer&gt;&lt;/app-footer&gt;
+"): ng:///DynamicTestModule/AppComponent.html@3:0
+'app-footer' is not a known element:
+1. If 'app-footer' is an Angular component, then verify that it is part of this module.
+2. If 'app-footer' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. ("
+&lt;app-header&gt;&lt;/app-header&gt;
+&lt;app-customerdashboard&gt;&lt;/app-customerdashboard&gt;
+[ERROR -&gt;]&lt;app-footer&gt;&lt;/app-footer&gt;
+"): ng:///DynamicTestModule/AppComponent.html@4:0
+    at syntaxError (node_modules/@angular/compiler/fesm5/compiler.js:2430:1)
+    at TemplateParser.push../node_modules/@angular/compiler/fesm5/compiler.js.TemplateParser.parse (node_modules/@angular/compiler/fesm5/compiler.js:20605:1)
+    at JitCompiler.push../node_modules/@angular/compiler/fesm5/compiler.js.JitCompiler._parseTemplate (node_modules/@angular/compiler/fesm5/compiler.js:26171:1)
+    at JitCompiler.push../node_modules/@angular/compiler/fesm5/compiler.js.JitCompiler._compileTemplate (node_modules/@angular/compiler/fesm5/compiler.js:26158:1)
+    at node_modules/@angular/compiler/fesm5/compiler.js:26101:48
+    at Set.forEach (&lt;anonymous&gt;)
+    at JitCompiler.push../node_modules/@angular/compiler/fesm5/compiler.js.JitCompiler._compileComponents (node_modules/@angular/compiler/fesm5/compiler.js:26101:1)
+    at node_modules/@angular/compiler/fesm5/compiler.js:26019:1
+    at Object.then (node_modules/@angular/compiler/fesm5/compiler.js:2421:33)
+    at JitCompiler.push../node_modules/@angular/compiler/fesm5/compiler.js.JitCompiler._compileModuleAndAllComponents (node_modules/@angular/compiler/fesm5/compiler.js:26017:1)
+</failure>
+  </testcase>
+  <testcase name="AppComponent should render title in a h1 tag" time="0.023" classname="HeadlessChrome_74_0_3729_(Mac_OS_X_10_14_5).AppComponent">
+    <failure type="">'app-header' is not a known element:
+1. If 'app-header' is an Angular component, then verify that it is part of this module.
+2. If 'app-header' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. ("&lt;!--The content below is only a placeholder and can be replaced.--&gt;
+[ERROR -&gt;]&lt;app-header&gt;&lt;/app-header&gt;
+&lt;app-customerdashboard&gt;&lt;/app-customerdashboard&gt;
+&lt;app-footer&gt;&lt;/app-footer&gt;
+"): ng:///DynamicTestModule/AppComponent.html@2:0
+'app-customerdashboard' is not a known element:
+1. If 'app-customerdashboard' is an Angular component, then verify that it is part of this module.
+2. If 'app-customerdashboard' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. ("
+&lt;app-header&gt;&lt;/app-header&gt;
+[ERROR -&gt;]&lt;app-customerdashboard&gt;&lt;/app-customerdashboard&gt;
+&lt;app-footer&gt;&lt;/app-footer&gt;
+"): ng:///DynamicTestModule/AppComponent.html@3:0
+'app-footer' is not a known element:
+1. If 'app-footer' is an Angular component, then verify that it is part of this module.
+2. If 'app-footer' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. ("
+&lt;app-header&gt;&lt;/app-header&gt;
+&lt;app-customerdashboard&gt;&lt;/app-customerdashboard&gt;
+[ERROR -&gt;]&lt;app-footer&gt;&lt;/app-footer&gt;
+"): ng:///DynamicTestModule/AppComponent.html@4:0
+Error: Template parse errors:
+    at syntaxError (node_modules/@angular/compiler/fesm5/compiler.js:2430:1)
+    at TemplateParser.push../node_modules/@angular/compiler/fesm5/compiler.js.TemplateParser.parse (node_modules/@angular/compiler/fesm5/compiler.js:20605:1)
+    at JitCompiler.push../node_modules/@angular/compiler/fesm5/compiler.js.JitCompiler._parseTemplate (node_modules/@angular/compiler/fesm5/compiler.js:26171:1)
+    at JitCompiler.push../node_modules/@angular/compiler/fesm5/compiler.js.JitCompiler._compileTemplate (node_modules/@angular/compiler/fesm5/compiler.js:26158:1)
+    at node_modules/@angular/compiler/fesm5/compiler.js:26101:48
+    at Set.forEach (&lt;anonymous&gt;)
+    at JitCompiler.push../node_modules/@angular/compiler/fesm5/compiler.js.JitCompiler._compileComponents (node_modules/@angular/compiler/fesm5/compiler.js:26101:1)
+    at node_modules/@angular/compiler/fesm5/compiler.js:26019:1
+    at Object.then (node_modules/@angular/compiler/fesm5/compiler.js:2421:33)
+    at JitCompiler.push../node_modules/@angular/compiler/fesm5/compiler.js.JitCompiler._compileModuleAndAllComponents (node_modules/@angular/compiler/fesm5/compiler.js:26017:1)
+</failure>
+    <failure type="">Error: Template parse errors:
+'app-header' is not a known element:
+1. If 'app-header' is an Angular component, then verify that it is part of this module.
+2. If 'app-header' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. ("&lt;!--The content below is only a placeholder and can be replaced.--&gt;
+[ERROR -&gt;]&lt;app-header&gt;&lt;/app-header&gt;
+&lt;app-customerdashboard&gt;&lt;/app-customerdashboard&gt;
+&lt;app-footer&gt;&lt;/app-footer&gt;
+"): ng:///DynamicTestModule/AppComponent.html@2:0
+'app-customerdashboard' is not a known element:
+1. If 'app-customerdashboard' is an Angular component, then verify that it is part of this module.
+2. If 'app-customerdashboard' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. ("
+&lt;app-header&gt;&lt;/app-header&gt;
+[ERROR -&gt;]&lt;app-customerdashboard&gt;&lt;/app-customerdashboard&gt;
+&lt;app-footer&gt;&lt;/app-footer&gt;
+"): ng:///DynamicTestModule/AppComponent.html@3:0
+'app-footer' is not a known element:
+1. If 'app-footer' is an Angular component, then verify that it is part of this module.
+2. If 'app-footer' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. ("
+&lt;app-header&gt;&lt;/app-header&gt;
+&lt;app-customerdashboard&gt;&lt;/app-customerdashboard&gt;
+[ERROR -&gt;]&lt;app-footer&gt;&lt;/app-footer&gt;
+"): ng:///DynamicTestModule/AppComponent.html@4:0
+    at syntaxError (node_modules/@angular/compiler/fesm5/compiler.js:2430:1)
+    at TemplateParser.push../node_modules/@angular/compiler/fesm5/compiler.js.TemplateParser.parse (node_modules/@angular/compiler/fesm5/compiler.js:20605:1)
+    at JitCompiler.push../node_modules/@angular/compiler/fesm5/compiler.js.JitCompiler._parseTemplate (node_modules/@angular/compiler/fesm5/compiler.js:26171:1)
+    at JitCompiler.push../node_modules/@angular/compiler/fesm5/compiler.js.JitCompiler._compileTemplate (node_modules/@angular/compiler/fesm5/compiler.js:26158:1)
+    at node_modules/@angular/compiler/fesm5/compiler.js:26101:48
+    at Set.forEach (&lt;anonymous&gt;)
+    at JitCompiler.push../node_modules/@angular/compiler/fesm5/compiler.js.JitCompiler._compileComponents (node_modules/@angular/compiler/fesm5/compiler.js:26101:1)
+    at node_modules/@angular/compiler/fesm5/compiler.js:26019:1
+    at Object.then (node_modules/@angular/compiler/fesm5/compiler.js:2421:33)
+    at JitCompiler.push../node_modules/@angular/compiler/fesm5/compiler.js.JitCompiler._compileModuleAndAllComponents (node_modules/@angular/compiler/fesm5/compiler.js:26017:1)
+</failure>
+  </testcase>
+  <testcase name="CustomerdashboardComponent should create" time="0.113" classname="HeadlessChrome_74_0_3729_(Mac_OS_X_10_14_5).CustomerdashboardComponent">
+    <failure type="">Can't bind to 'ngModel' since it isn't a known property of 'input'. (""text" name="CustomerNameFilter"
+            placeholder="customer name" aria-label="customer name" [ERROR -&gt;][(ngModel)]="filteredName" /&gt;
+        &lt;select name="statusList" id="statusList"  [(ngModel)]="selecte"): ng:///DynamicTestModule/CustomerdashboardComponent.html@3:67
+Can't bind to 'ngModel' since it isn't a known property of 'select'. ("el="customer name" [(ngModel)]="filteredName" /&gt;
+        &lt;select name="statusList" id="statusList"  [ERROR -&gt;][(ngModel)]="selectedVehicleStatus" class="form-control mr-sm-2"
+            style="width: 30%"&gt;
+    "): ng:///DynamicTestModule/CustomerdashboardComponent.html@4:51
+Can't bind to 'ngValue' since it isn't a known property of 'option'. ("ctedVehicleStatus" class="form-control mr-sm-2"
+            style="width: 30%"&gt;
+            &lt;option [ERROR -&gt;][(ngValue)]="status" *ngFor="let status of statutList"&gt;
+                {{status}}&lt;/option&gt;
+        &lt;"): ng:///DynamicTestModule/CustomerdashboardComponent.html@6:20
+The pipe 'customersfilter' could not be found ("
+        &lt;/select&gt;
+    &lt;/div&gt;
+    &lt;div class="container" *ngFor="let cust[ERROR -&gt;]omer of customers | customersfilter:filteredName"&gt;
+        &lt;div class="d-flex align-items-center p-3 "): ng:///DynamicTestModule/CustomerdashboardComponent.html@10:43
+The pipe 'vehiclesfiliter' could not be found ("
+        &lt;/div&gt;
+        &lt;div class="media text-muted pt-3"
+            *ngFor="let veh[ERROR -&gt;]icle of customer.vehicles |vehiclesfiliter:selectedVehicleStatus"&gt;
+            &lt;img src="../assets/on"): ng:///DynamicTestModule/CustomerdashboardComponent.html@19:27
+Error: Template parse errors:
+    at syntaxError (node_modules/@angular/compiler/fesm5/compiler.js:2430:1)
+    at TemplateParser.push../node_modules/@angular/compiler/fesm5/compiler.js.TemplateParser.parse (node_modules/@angular/compiler/fesm5/compiler.js:20605:1)
+    at JitCompiler.push../node_modules/@angular/compiler/fesm5/compiler.js.JitCompiler._parseTemplate (node_modules/@angular/compiler/fesm5/compiler.js:26171:1)
+    at JitCompiler.push../node_modules/@angular/compiler/fesm5/compiler.js.JitCompiler._compileTemplate (node_modules/@angular/compiler/fesm5/compiler.js:26158:1)
+    at node_modules/@angular/compiler/fesm5/compiler.js:26101:48
+    at Set.forEach (&lt;anonymous&gt;)
+    at JitCompiler.push../node_modules/@angular/compiler/fesm5/compiler.js.JitCompiler._compileComponents (node_modules/@angular/compiler/fesm5/compiler.js:26101:1)
+    at node_modules/@angular/compiler/fesm5/compiler.js:26019:1
+    at Object.then (node_modules/@angular/compiler/fesm5/compiler.js:2421:33)
+    at JitCompiler.push../node_modules/@angular/compiler/fesm5/compiler.js.JitCompiler._compileModuleAndAllComponents (node_modules/@angular/compiler/fesm5/compiler.js:26017:1)
+</failure>
+    <failure type="">Error: Template parse errors:
+Can't bind to 'ngModel' since it isn't a known property of 'input'. (""text" name="CustomerNameFilter"
+            placeholder="customer name" aria-label="customer name" [ERROR -&gt;][(ngModel)]="filteredName" /&gt;
+        &lt;select name="statusList" id="statusList"  [(ngModel)]="selecte"): ng:///DynamicTestModule/CustomerdashboardComponent.html@3:67
+Can't bind to 'ngModel' since it isn't a known property of 'select'. ("el="customer name" [(ngModel)]="filteredName" /&gt;
+        &lt;select name="statusList" id="statusList"  [ERROR -&gt;][(ngModel)]="selectedVehicleStatus" class="form-control mr-sm-2"
+            style="width: 30%"&gt;
+    "): ng:///DynamicTestModule/CustomerdashboardComponent.html@4:51
+Can't bind to 'ngValue' since it isn't a known property of 'option'. ("ctedVehicleStatus" class="form-control mr-sm-2"
+            style="width: 30%"&gt;
+            &lt;option [ERROR -&gt;][(ngValue)]="status" *ngFor="let status of statutList"&gt;
+                {{status}}&lt;/option&gt;
+        &lt;"): ng:///DynamicTestModule/CustomerdashboardComponent.html@6:20
+The pipe 'customersfilter' could not be found ("
+        &lt;/select&gt;
+    &lt;/div&gt;
+    &lt;div class="container" *ngFor="let cust[ERROR -&gt;]omer of customers | customersfilter:filteredName"&gt;
+        &lt;div class="d-flex align-items-center p-3 "): ng:///DynamicTestModule/CustomerdashboardComponent.html@10:43
+The pipe 'vehiclesfiliter' could not be found ("
+        &lt;/div&gt;
+        &lt;div class="media text-muted pt-3"
+            *ngFor="let veh[ERROR -&gt;]icle of customer.vehicles |vehiclesfiliter:selectedVehicleStatus"&gt;
+            &lt;img src="../assets/on"): ng:///DynamicTestModule/CustomerdashboardComponent.html@19:27
+    at syntaxError (node_modules/@angular/compiler/fesm5/compiler.js:2430:1)
+    at TemplateParser.push../node_modules/@angular/compiler/fesm5/compiler.js.TemplateParser.parse (node_modules/@angular/compiler/fesm5/compiler.js:20605:1)
+    at JitCompiler.push../node_modules/@angular/compiler/fesm5/compiler.js.JitCompiler._parseTemplate (node_modules/@angular/compiler/fesm5/compiler.js:26171:1)
+    at JitCompiler.push../node_modules/@angular/compiler/fesm5/compiler.js.JitCompiler._compileTemplate (node_modules/@angular/compiler/fesm5/compiler.js:26158:1)
+    at node_modules/@angular/compiler/fesm5/compiler.js:26101:48
+    at Set.forEach (&lt;anonymous&gt;)
+    at JitCompiler.push../node_modules/@angular/compiler/fesm5/compiler.js.JitCompiler._compileComponents (node_modules/@angular/compiler/fesm5/compiler.js:26101:1)
+    at node_modules/@angular/compiler/fesm5/compiler.js:26019:1
+    at Object.then (node_modules/@angular/compiler/fesm5/compiler.js:2421:33)
+    at JitCompiler.push../node_modules/@angular/compiler/fesm5/compiler.js.JitCompiler._compileModuleAndAllComponents (node_modules/@angular/compiler/fesm5/compiler.js:26017:1)
+</failure>
+    <failure type="">Expected undefined to be truthy.
+    at UserContext.&lt;anonymous&gt; (src/app/customerdashboard/customerdashboard.component.spec.ts:23:23)
+    at ZoneDelegate../node_modules/zone.js/dist/zone.js.ZoneDelegate.invoke (node_modules/zone.js/dist/zone.js:391:1)
+    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (node_modules/zone.js/dist/zone-testing.js:289:1)
+    at ZoneDelegate../node_modules/zone.js/dist/zone.js.ZoneDelegate.invoke (node_modules/zone.js/dist/zone.js:390:1)
+</failure>
+  </testcase>
+  <testcase name="FooterComponent should create" time="0.043" classname="HeadlessChrome_74_0_3729_(Mac_OS_X_10_14_5).FooterComponent"/>
+  <testcase name="HeaderComponent should create" time="0.016" classname="HeadlessChrome_74_0_3729_(Mac_OS_X_10_14_5).HeaderComponent"/>
+  <testcase name="CustomervehiclesmanagerserviceService should be created" time="0.013" classname="HeadlessChrome_74_0_3729_(Mac_OS_X_10_14_5).CustomervehiclesmanagerserviceService">
+    <failure type="">Error: StaticInjectorError[CustomerVehiclesManagerService]: 
+  NullInjectorError: No provider for CustomerVehiclesManagerService!
+    at NullInjector.push../node_modules/@angular/core/fesm5/core.js.NullInjector.get (node_modules/@angular/core/fesm5/core.js:8896:1)
+    at resolveToken (node_modules/@angular/core/fesm5/core.js:9141:1)
+    at tryResolveToken (node_modules/@angular/core/fesm5/core.js:9085:1)
+    at StaticInjector.push../node_modules/@angular/core/fesm5/core.js.StaticInjector.get (node_modules/@angular/core/fesm5/core.js:8982:1)
+    at TestBedViewEngine.push../node_modules/@angular/core/fesm5/testing.js.TestBedViewEngine.get (node_modules/@angular/core/fesm5/testing.js:1816:1)
+    at Function.push../node_modules/@angular/core/fesm5/testing.js.TestBedViewEngine.get (node_modules/@angular/core/fesm5/testing.js:1598:1)
+    at UserContext.&lt;anonymous&gt; (src/app/shared/services/customervehiclesmanagerservice.service.spec.ts:9:61)
+    at ZoneDelegate../node_modules/zone.js/dist/zone.js.ZoneDelegate.invoke (node_modules/zone.js/dist/zone.js:391:1)
+    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (node_modules/zone.js/dist/zone-testing.js:289:1)
+    at ZoneDelegate../node_modules/zone.js/dist/zone.js.ZoneDelegate.invoke (node_modules/zone.js/dist/zone.js:390:1)
+</failure>
+  </testcase>
+  <system-out>
+    <![CDATA[
+]]>
+  </system-out>
+  <system-err/>
+</testsuite>
