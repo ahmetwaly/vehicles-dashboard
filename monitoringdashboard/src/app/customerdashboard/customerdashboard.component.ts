@@ -1,7 +1,7 @@
-import { Component, OnInit , OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Customer } from '../shared/dto/Customer';
 import { CustomerVehiclesManagerService } from '../shared/services/customervehiclesmanagerservice.service';
-import {Observable, interval} from 'rxjs';
+import { Observable, interval } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 @Component({
@@ -11,22 +11,32 @@ import { environment } from '../../environments/environment';
 })
 export class CustomerdashboardComponent implements OnInit {
 
+    constructor(private customerVehicleManager: CustomerVehiclesManagerService) { }
     customers: Customer[] = [];
     statutList = ['All', 'CONNECTED', 'DISCONNECTED'];
     selectedVehicleStatus: string = "All";
 
-    timerSubscribtion: any ;
-    constructor(private customerVehicleManager: CustomerVehiclesManagerService) { }
+    timerSubscribtion: any;
     filteredName: string;
     ngOnInit() {
-       this.timerSubscribtion =interval(environment.refreshInterval).subscribe(() => {
+        //run for first time to populate the infformation 
+        this.customerVehicleManager.getCustomerVehicles()
+            .subscribe((customersList: Customer[]) => {
+                console.log("customersAdded " + customersList.toString())
+                this.customers = customersList;
+            });
+        //run it based on interval from
+        this.timerSubscribtion = interval(environment.refreshInterval).subscribe(() => {
             this.customerVehicleManager.getCustomerVehicles()
-                .subscribe((customersList: Customer[]) => { this.customers = customersList; });
+                .subscribe((customersList: Customer[]) => {
+                    console.log("customersAdded " + customersList.toString())
+                    this.customers = customersList;
+                });
         });
     }
 
-    ngOnDestroy(){
-        if(this.timerSubscribtion){
+    ngOnDestroy() {
+        if (this.timerSubscribtion) {
             this.timerSubscribtion.unsubscribe();
         }
 

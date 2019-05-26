@@ -11,6 +11,7 @@ import { CustomerdashboardComponent } from './customerdashboard/customerdashboar
 import { CustomerNameFilterPipe } from './shared/pipes/customersfilter.pipe';
 import { VehicleStatusFilterPipe } from './shared/pipes/vehiclefiliter.pipe';
 import {CustomerVehiclesManagerService} from './shared/services/customervehiclesmanagerservice.service';
+import {CustomerVehiclesManagerServiceMock} from './shared/mocks/customervehiclesmanagerservice.service.mock';
 
 import { HttpClientModule } from '@angular/common/http'; 
 
@@ -21,7 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
         FooterComponent,
         CustomerdashboardComponent,
         CustomerNameFilterPipe,
-        VehicleStatusFilterPipe
+        VehicleStatusFilterPipe,
     ],
     imports: [
         BrowserModule,
@@ -31,7 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
         HttpClientModule
 
     ],
-    providers: [CustomerVehiclesManagerService],
+    providers: [CustomerVehiclesManagerService,CustomerVehiclesManagerServiceMock],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
