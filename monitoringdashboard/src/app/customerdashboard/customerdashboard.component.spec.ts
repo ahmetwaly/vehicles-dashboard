@@ -1,5 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CustomerdashboardComponent } from './customerdashboard.component';
+import { Customer } from '../shared/dto/Customer';
+import { CustomerVehiclesManagerService } from '../shared/services/customervehiclesmanagerservice.service';
+import {Observable, interval} from 'rxjs';
+import { environment } from '../../environments/environment';
 
 
 describe('CustomerdashboardComponent', () => {
