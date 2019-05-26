@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<testsuite name="Chrome 74.0.3729 (Mac OS X 10.14.5)" package="" timestamp="2019-05-26T19:40:34" id="0" hostname="Ahmeds-MBP" tests="8" errors="0" failures="0" time="12.264">
+  <properties>
+    <property name="browser.fullName" value="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"/>
+  </properties>
+  <testcase name="AppComponent should create the app" time="0.126" classname="Chrome_74_0_3729_(Mac_OS_X_10_14_5).AppComponent"/>
+  <testcase name="AppComponent should have as title 'monitoringdashboard'" time="1.033" classname="Chrome_74_0_3729_(Mac_OS_X_10_14_5).AppComponent"/>
+  <testcase name="CustomerdashboardComponent should create" time="2.032" classname="Chrome_74_0_3729_(Mac_OS_X_10_14_5).CustomerdashboardComponent"/>
+  <testcase name="CustomerdashboardComponent verify number of customers and vehciles" time="3.141" classname="Chrome_74_0_3729_(Mac_OS_X_10_14_5).CustomerdashboardComponent"/>
+  <testcase name="CustomerdashboardComponent should vehicle status filter" time="3" classname="Chrome_74_0_3729_(Mac_OS_X_10_14_5).CustomerdashboardComponent"/>
+  <testcase name="FooterComponent should create" time="0.839" classname="Chrome_74_0_3729_(Mac_OS_X_10_14_5).FooterComponent"/>
+  <testcase name="HeaderComponent should create" time="2.081" classname="Chrome_74_0_3729_(Mac_OS_X_10_14_5).HeaderComponent"/>
+  <testcase name="CustomervehiclesmanagerserviceService should be created" time="0.012" classname="Chrome_74_0_3729_(Mac_OS_X_10_14_5).CustomervehiclesmanagerserviceService"/>
+  <system-out>
+    <![CDATA[Chrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'moc called'
+,Chrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'customersAdded [object Object],[object Object],[object Object]'
+,HeadlessChrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'moc called'
+,HeadlessChrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'customersAdded [object Object],[object Object],[object Object]'
+,HeadlessChrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'moc called'
+,HeadlessChrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'customersAdded [object Object],[object Object],[object Object]'
+,Chrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'moc called'
+,Chrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'customersAdded [object Object],[object Object],[object Object]'
+,HeadlessChrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'moc called'
+,HeadlessChrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'customersAdded [object Object],[object Object],[object Object]'
+,Chrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'moc called'
+,Chrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'customersAdded [object Object],[object Object],[object Object]'
+,HeadlessChrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'moc called'
+,HeadlessChrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'customersAdded [object Object],[object Object],[object Object]'
+,Chrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'moc called'
+,Chrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'customersAdded [object Object],[object Object],[object Object]'
+,HeadlessChrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'moc called'
+,HeadlessChrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'customersAdded [object Object],[object Object],[object Object]'
+,Chrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'moc called'
+,Chrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'customersAdded [object Object],[object Object],[object Object]'
+,HeadlessChrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'moc called'
+,HeadlessChrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'customersAdded [object Object],[object Object],[object Object]'
+,Chrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'moc called'
+,Chrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'customersAdded [object Object],[object Object],[object Object]'
+,HeadlessChrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'moc called'
+,HeadlessChrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'customersAdded [object Object],[object Object],[object Object]'
+,HeadlessChrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'moc called'
+,HeadlessChrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'customersAdded [object Object],[object Object],[object Object]'
+,HeadlessChrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'moc called'
+,HeadlessChrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'customersAdded [object Object],[object Object],[object Object]'
+,HeadlessChrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'All'
+,HeadlessChrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'All'
+,HeadlessChrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'All'
+,HeadlessChrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'All'
+,HeadlessChrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'All'
+,HeadlessChrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'All'
+,HeadlessChrome 74.0.3729 (Mac OS X 10.14.5) LOG: undefined
+,HeadlessChrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'moc called'
+,HeadlessChrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'customersAdded [object Object],[object Object],[object Object]'
+,Chrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'moc called'
+,Chrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'customersAdded [object Object],[object Object],[object Object]'
+,HeadlessChrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'moc called'
+,HeadlessChrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'customersAdded [object Object],[object Object],[object Object]'
+,Chrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'moc called'
+,Chrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'customersAdded [object Object],[object Object],[object Object]'
+,Chrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'moc called'
+,Chrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'customersAdded [object Object],[object Object],[object Object]'
+,Chrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'All'
+,Chrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'All'
+,Chrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'All'
+,Chrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'All'
+,Chrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'All'
+,Chrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'All'
+,Chrome 74.0.3729 (Mac OS X 10.14.5) LOG: undefined
+,HeadlessChrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'moc called'
+,HeadlessChrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'customersAdded [object Object],[object Object],[object Object]'
+,Chrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'moc called'
+,HeadlessChrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'moc called'
+,HeadlessChrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'customersAdded [object Object],[object Object],[object Object]'
+,Chrome 74.0.3729 (Mac OS X 10.14.5) LOG: 'customersAdded [object Object],[object Object],[object Object]'
+
+]]>
+  </system-out>
+  <system-err/>
+</testsuite>
