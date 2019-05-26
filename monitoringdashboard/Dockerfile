@@ -6,7 +6,7 @@ RUN rm -rf /usr/share/nginx/html/*
 # Copying nginx configuration.
 COPY ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
-# Copying openhome-panel source into web server root.
+# Copying monitoringdashboard source into web server root.
 COPY ./dist/monitoringdashboard /usr/share/nginx/html
 
 # Exposing ports.
