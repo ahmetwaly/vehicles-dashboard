@@ -21,11 +21,12 @@ jobs:
       workingDir: ./$(service.name)
    
   - task: Npm@1
-    displayName: 'Build Angular'
+    displayName: 'install bootstrap'
     inputs:
       command: custom
       customCommand: install bootstrap
       workingDir: ./$(service.name)
+
   - task: Npm@1
     displayName: 'Build Angular'
     inputs:
