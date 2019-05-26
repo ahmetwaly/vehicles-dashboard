@@ -32,7 +32,13 @@ jobs:
       command: custom
       customCommand: install puppeteer --save-dev
       workingDir: ./$(service.name)
-  
+  - task: Npm@1
+    displayName: 'Build Angular'
+    inputs:
+      command: custom
+      customCommand: install karma-junit-reporter --save-dev
+      workingDir: ./$(service.name)
+
   - task: Npm@1
     displayName: 'Build Angular'
     inputs:
