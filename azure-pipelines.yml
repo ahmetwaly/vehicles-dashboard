@@ -1,6 +1,6 @@
 name: $(Date:yyyyMMdd)$(Rev:.r)
 variables:
-  service.name: 'vehiclemanager'
+  service.name: 'cusotmermanager'
   acr.name: 'vehiclesDashboardRegistry'
 trigger:
   branches:
