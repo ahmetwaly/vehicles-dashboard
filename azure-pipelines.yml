@@ -46,11 +46,6 @@ stages:
           pmdRunAnalysis: true
           findBugsRunAnalysis: true
           goals: "clean test package"
-
-      - task: SonarCloudPublish@1
-        displayName: '$(service.name) publish test resuts'
-        inputs:
-          pollingTimeoutSec: '300'
       
       - task: WhiteSource Bolt@19
         inputs:
