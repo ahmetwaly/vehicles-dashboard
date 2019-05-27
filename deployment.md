@@ -32,6 +32,10 @@
       az aks create --resource-group $AKS_RESOURCE_GROUP --name $AKS_CLUSTER \
       --service-principal $SP_APP_ID --client-secret $SP_PASSWD --node-count 1 --generate-ssh-keys
       
+   - Create public ip address and dns name
+     ````bash
+       az network public-ip create -g vehicles-dashboard -n monitordashboardip --allocation-method Static --dns-name monitordashboard
+      
    - install cli tools
       ```bash 
        az aks install-cli
