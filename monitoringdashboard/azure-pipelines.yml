@@ -37,7 +37,7 @@ jobs:
   - task: PublishBuildArtifacts@1
     inputs:
       artifactName: 'dist'
-      targetPath: '$(System.DefaultWorkingDirectory)/$(service.name)/dist'
+      PathtoPublish: '$(System.DefaultWorkingDirectory)/$(service.name)/dist/'
   
   - task: Npm@1
     displayName: 'Test Angular'
