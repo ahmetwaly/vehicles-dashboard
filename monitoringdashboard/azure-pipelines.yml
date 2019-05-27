@@ -81,7 +81,7 @@ jobs:
 
 - job: dockerbuildandpush
   dependsOn: Angularmonitoringdashboardbuild
-  condition: succeededOrFailed()
+  condition: succeeded
   displayName: '[dokcer build , push to container container registry]'
   pool:
     vmImage: 'ubuntu-latest'
@@ -108,6 +108,7 @@ jobs:
       command: 'push'
 - job: helm_package
   dependsOn: dockerbuildandpush
+  condition: succeeded
   displayName: '[helm init package deploy to ACR]'
   pool:
     vmImage: 'ubuntu-latest'
