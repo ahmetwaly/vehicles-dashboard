@@ -79,7 +79,7 @@ jobs:
       testResultsFiles: "**/junit*.xml"
 
 - job: dockerbuildandpush
-  dependsOn: Angularmonitori(ngdashboardbuild
+  dependsOn: Angularmonitoringdashboardbuild
   condition: succeeded()
   displayName: '[dokcer build , push to container container registry]'
   pool:
