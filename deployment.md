@@ -55,4 +55,4 @@
      
   - install nginx ingress controller 
    ````bash 
-       helm install stable/nginx-ingress --namespace kube-system -n nginx-ingress
+        helm install -n nginx-ingress stable/nginx-ingress --set controller.service.loadBalancerIP="13.72.68.241" --set serviceAccount.name="ngnix-ingress" --namespace kube-system --set serviceAccount.create=false --set nodeSelector."beta.kubernetes.io/os"=linux
