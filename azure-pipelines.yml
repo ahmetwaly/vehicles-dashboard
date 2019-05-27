@@ -35,7 +35,7 @@ stages:
         inputs:
           mavenPomFile: './$(service.name)/pom.xml'
           options: '-P staging'
-          publishJUnitResults: true
+          publishJUnitResults: false
           testResultsFiles: '**/surefire-reports/TEST-*.xml'
           codeCoverageToolOption: 'JaCoCo'
           javaHomeOption: 'JDKVersion'
@@ -45,6 +45,8 @@ stages:
           checkStyleRunAnalysis: true
           pmdRunAnalysis: true
           findBugsRunAnalysis: true
+          goals: 'clean package'
+
           
       - task: PublishBuildArtifacts@1
         inputs:
