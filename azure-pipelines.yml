@@ -41,14 +41,14 @@ stages:
           javaHomeOption: 'JDKVersion'
           jdkVersionOption: '1.8'
           mavenVersionOption: 'Default'
-          mavenAuthenticateFeed: true
           sonarQubeRunAnalysis: true
           checkStyleRunAnalysis: true
           pmdRunAnalysis: true
           findBugsRunAnalysis: true
+          
       - task: PublishBuildArtifacts@1
         inputs:
-          PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+          PathtoPublish: '$(Build.SourcesDirectory)/$(service.name)/target'
           ArtifactName: 'target'
           publishLocation: 'Container'
           
@@ -57,7 +57,7 @@ stages:
         inputs:
           testResultsFormat: 'JUnit'
           testResultsFiles: '**/surefire-reports/TEST-*.xml'
-      
+
       - task: SonarCloudPublish@1
         displayName: '$(service.name) publish test resuts'
         inputs:
@@ -66,12 +66,6 @@ stages:
       - task: WhiteSource Bolt@19
         inputs:
           cwd: './$(service.name)'
-
-      - task: PublishBuildArtifacts@1
-        inputs:
-          PathtoPublish: './$(service.name)/target'
-          ArtifactName: 'target'
-          publishLocation: 'Container'
 
     - job: dockerbuildandpush
       dependsOn: mavenbuild
