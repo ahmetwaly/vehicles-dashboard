@@ -62,8 +62,7 @@ jobs:
       searchFolder: $(System.DefaultWorkingDirectory)/$(service.name)/junit
       testRunTitle: Angular
       testResultsFormat: JUnit
-      testResultsFiles: "**/TESTS*.xml"
-  
+      testResultsFiles: "**/TESTS*.xml" 
   - task: Npm@1
     displayName: 'E2E Test Angular'
     inputs:
