@@ -46,7 +46,18 @@ stages:
           checkStyleRunAnalysis: true
           pmdRunAnalysis: true
           findBugsRunAnalysis: true
-
+      - task: PublishBuildArtifacts@1
+        inputs:
+          PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+          ArtifactName: 'target'
+          publishLocation: 'Container'
+          
+      - task: PublishTestResults@2
+        displayName: junit test resuts
+        inputs:
+          testResultsFormat: 'JUnit'
+          testResultsFiles: '**/surefire-reports/TEST-*.xml'
+      
       - task: SonarCloudPublish@1
         displayName: '$(service.name) publish test resuts'
         inputs:
