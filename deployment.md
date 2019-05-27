@@ -13,6 +13,7 @@
       ACR_REGISTRY=vehiclesDashboardRegistry
       ACR_SP_NAME=http://acr-vehicles-rbac
       AKS_CLUSTER=vehicles-cluster
+      DNS_NAME=monitordashboard
       
    - Create a resource group for AKS
       ```bash
@@ -34,7 +35,7 @@
       
    - Create public ip address and dns name
      ````bash
-       az network public-ip create -g vehicles-dashboard -n monitordashboardip --allocation-method Static --dns-name monitordashboard
+       az network public-ip create -g vehicles-dashboard -n monitordashboardip --allocation-method Static --dns-name $DNS_NAME
       
    - install cli tools
       ```bash 
