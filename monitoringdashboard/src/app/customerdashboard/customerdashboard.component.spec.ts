@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed, fakeAsync, tick, flushMicrotasks } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed} from '@angular/core/testing';
 import { CustomerdashboardComponent } from './customerdashboard.component';
 import { CustomerVehiclesManagerService } from '../shared/services/customervehiclesmanagerservice.service';
 import { CustomerVehiclesManagerServiceMock } from '../shared/mocks/customervehiclesmanagerservice.service.mock';
