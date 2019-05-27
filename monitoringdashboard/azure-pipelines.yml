@@ -11,44 +11,40 @@ jobs:
   - task: DeleteFiles@1
     displayName: 'Delete JUnit files'
     inputs:
-      SourceFolder: ./$(service.name)/junit
+      SourceFolder: $(System.DefaultWorkingDirectory)/$(service.name)/junit
       Contents: 'TEST*.xml'
   
   - task: Npm@1
     displayName: 'npm install'
     inputs:
       command: install
-      workingDir: ./$(service.name)
+      workingDir: $(System.DefaultWorkingDirectory)/$(service.name)/
    
   - task: Npm@1
     displayName: 'install bootstrap'
     inputs:
       command: custom
       customCommand: install bootstrap
-      workingDir: ./$(service.name)
+      workingDir: $(System.DefaultWorkingDirectory)/$(service.name)
 
   - task: Npm@1
     displayName: 'Build Angular'
     inputs:
       command: custom
       customCommand: run-script build -- --configuration $(buildConfiguration)
-      workingDir: ./$(service.name)
-  - task: PublishBuildArtifacts@1
-    inputs:
-      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-      ArtifactName: 'drop'
-      publishLocation: 'Container'
+      workingDir: $(System.DefaultWorkingDirectory)/$(service.name)
+
   - task: PublishBuildArtifacts@1
     inputs:
       artifactName: 'dist'
-      targetPath: './$(service.name)/dist'
+      targetPath: '$(System.DefaultWorkingDirectory)/$(service.name)/dist'
   
   - task: Npm@1
     displayName: 'Test Angular'
     inputs:
       command: custom
       customCommand: run test -- --watch=false --code-coverage
-      workingDir: ./$(service.name)/
+      workingDir: $(System.DefaultWorkingDirectory)/$(service.name)/
   
   - task: PublishCodeCoverageResults@1
     displayName: 'Publish code coverage Angular results'
@@ -56,7 +52,7 @@ jobs:
     inputs:
       codeCoverageTool: Cobertura
       summaryFileLocation: '$(System.DefaultWorkingDirectory)/$(service.name)/coverage/cobertura-coverage.xml'
-      reportDirectory: /$(service.name)/coverage
+      reportDirectory: $(System.DefaultWorkingDirectory)/$(service.name)/coverage
       failIfCoverageEmpty: false
   
   - task: PublishTestResults@2
@@ -73,14 +69,14 @@ jobs:
     inputs:
       command: custom
       customCommand: run lint --  --format=stylish
-      workingDir: ./$(service.name)/
+      workingDir: $(System.DefaultWorkingDirectory)/$(service.name)/
   
   - task: Npm@1
     displayName: 'E2E Test Angular'
     inputs:
       command: custom
       customCommand: run e2e
-      workingDir: ./$(service.name)
+      workingDir: $(System.DefaultWorkingDirectory)/$(service.name)
   
   - task: PublishTestResults@2
     displayName: 'Publish Angular E2E test results'
@@ -103,7 +99,7 @@ jobs:
       buildType: 'current'
       downloadType: 'single'
       artifactName: 'dist'
-      downloadPath: '$(Build.SourcesDirectory)/$(service.name)/dist'
+      downloadPath: '$(System.DefaultWorkingDirectory)/$(service.name)/dist'
   - task: Docker@2
     displayName: build docker image
     inputs:
@@ -137,7 +133,7 @@ jobs:
     displayName: Helm package
     inputs:
       command: package
-      chartPath: './$(service.name)/$(service.name)-helm'
+      chartPath: '$(System.DefaultWorkingDirectory)/$(service.name)/$(service.name)-helm'
       destination: $(Build.ArtifactStagingDirectory)
       chartVersion: $(Build.BuildId)
       arguments: '--app-version $(Build.BuildId)'
