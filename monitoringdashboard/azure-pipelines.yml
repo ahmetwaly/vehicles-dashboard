@@ -1,6 +1,6 @@
 variables:
   buildConfiguration: 'staging'
-  service.name: 'monitoringdashboard'
+  service.name: 'monitordashboard'
   acr.name: 'vehiclesDashboardRegistry'
 
 jobs:
