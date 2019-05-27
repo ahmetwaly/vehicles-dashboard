@@ -1,6 +1,6 @@
 image:
   repository: "vehiclesdashboardregistry.azurecr.io/customermanager"
-  tag: "52"
+  tag: "155"
   pullPolicy: "IfNotPresent"
 
 replicas: 1
