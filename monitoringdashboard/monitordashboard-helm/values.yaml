@@ -1,0 +1,31 @@
+image:
+  repository: "vehiclesdashboardregistry.azurecr.io/monitoringdashboard"
+  tag: "1.0"
+  pullPolicy: "IfNotPresent"
+
+replicas: 1
+cluster:
+  namespace: frontend 
+
+resources:
+  requests:
+    memory: 250Mi
+    cpu: 40m
+  limits:
+    memory: 2Gi
+    cpu: 1
+
+
+env: {}
+#  - name: "JAVA_OPTS2"
+#    value: "-Dserver.port=8080"
+
+
+service:
+  name: monitoringdashboard
+  type: ClusterIP
+  internalPort: 80
+  externalPort:  80
+  ## Service annotations
+  ##
+  annotations: {}
