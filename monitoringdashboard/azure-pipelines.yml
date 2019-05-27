@@ -65,13 +65,6 @@ jobs:
       testResultsFiles: "**/TESTS*.xml"
   
   - task: Npm@1
-    displayName: 'Lint Angular'
-    inputs:
-      command: custom
-      customCommand: run lint --  --format=stylish
-      workingDir: $(System.DefaultWorkingDirectory)/$(service.name)/
-  
-  - task: Npm@1
     displayName: 'E2E Test Angular'
     inputs:
       command: custom
