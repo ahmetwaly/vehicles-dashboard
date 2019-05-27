@@ -33,12 +33,15 @@ jobs:
       command: custom
       customCommand: run-script build -- --configuration $(buildConfiguration)
       workingDir: ./$(service.name)
-  
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      ArtifactName: 'drop'
+      publishLocation: 'Container'
   - task: PublishBuildArtifacts@1
     inputs:
       artifactName: 'dist'
       targetPath: './$(service.name)/dist'
-      publishLocation: 'Container'
   
   - task: Npm@1
     displayName: 'Test Angular'
@@ -107,8 +110,8 @@ jobs:
       containerRegistry: 'ACR'
       repository: '$(service.name)'
       command: 'build'
-      Dockerfile: '$(Build.SourcesDirectory)/$(service.name)/Dockerfile'
-      buildContext: '$(Build.SourcesDirectory)/$(service.name)/'
+      Dockerfile: '$(System.DefaultWorkingDirectory)/$(service.name)/Dockerfile'
+      buildContext: '$(System.DefaultWorkingDirectory)/$(service.name)/'
   - task: Docker@2
     displayName: push docker image
     inputs:
