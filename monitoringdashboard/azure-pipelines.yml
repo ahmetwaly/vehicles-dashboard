@@ -1,8 +1,7 @@
 variables:
   buildConfiguration: 'staging'
-  service.name: 'monitordashboard'
+  service.name: 'monitoringdashboard'
   acr.name: 'vehiclesDashboardRegistry'
-
 jobs:
 - job: Angularmonitoringdashboardbuild
   pool:
@@ -81,7 +80,7 @@ jobs:
 
 - job: dockerbuildandpush
   dependsOn: Angularmonitoringdashboardbuild
-  condition: succeeded
+  condition: succeeded()
   displayName: '[dokcer build , push to container container registry]'
   pool:
     vmImage: 'ubuntu-latest'
@@ -108,7 +107,7 @@ jobs:
       command: 'push'
 - job: helm_package
   dependsOn: dockerbuildandpush
-  condition: succeeded
+  condition: succeeded()
   displayName: '[helm init package deploy to ACR]'
   pool:
     vmImage: 'ubuntu-latest'
