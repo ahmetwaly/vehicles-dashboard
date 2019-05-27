@@ -31,7 +31,7 @@
    - Create AKS cluster 
       ```bash 
       az aks create --resource-group $AKS_RESOURCE_GROUP --name $AKS_CLUSTER \
-      --service-principal $SP_APP_ID --client-secret $SP_PASSWD --node-count 1 --generate-ssh-keys
+      --service-principal $SP_APP_ID --client-secret $SP_PASSWD --node-count 1 --generate-ssh-keys --node-resource-group $AKS_RESOURCE_GROUP
       
    - Create public ip address and dns name
      ````bash
