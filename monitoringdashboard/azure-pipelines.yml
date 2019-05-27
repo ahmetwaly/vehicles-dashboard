@@ -79,8 +79,8 @@ jobs:
       testResultsFiles: "**/junit*.xml"
 
 - job: dockerbuildandpush
-  dependsOn: Angularmonitoringdashboardbuild
-  condition: succeeded
+  dependsOn: Angularmonitori(ngdashboardbuild
+  condition: succeeded()
   displayName: '[dokcer build , push to container container registry]'
   pool:
     vmImage: 'ubuntu-latest'
