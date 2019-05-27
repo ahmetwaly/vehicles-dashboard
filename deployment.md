@@ -52,3 +52,7 @@
      ```bash
      kubectl create namespace backend
      kubectl create namespace frontend
+     
+  - install nginx ingress controller 
+   ````bash 
+       helm install stable/nginx-ingress --namespace kube-system -n nginx-ingress
