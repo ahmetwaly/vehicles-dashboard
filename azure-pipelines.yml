@@ -58,10 +58,8 @@ stages:
 
       - task: PublishBuildArtifacts@1
         inputs:
-          PathtoPublish: './$(service.name)/target'
+          PathtoPublish: '$(Build.SourcesDirectory)/$(service.name)/target/'
           ArtifactName: 'target'
-          publishLocation: 'Container'
-
     - job: dockerbuildandpush
       dependsOn: mavenbuild
       displayName: '[dokcer build , push to container container registry]'
