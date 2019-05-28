@@ -1,4 +1,4 @@
 jobs:
-- template: templates/ci-template.yml  # Template reference
+- template: /templates/ci-template.yml  # Template reference
   parameters:
     service.name: 'apigateway'
