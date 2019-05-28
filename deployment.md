@@ -51,6 +51,7 @@
       ```bash
        kubectl create serviceaccount tiller --namespace kube-system
        kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller
+       helm init --service-account tiller
 
   - Create k8 namespaces 
      ```bash
