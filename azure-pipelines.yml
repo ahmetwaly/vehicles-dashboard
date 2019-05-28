@@ -1,4 +1,3 @@
-name: $(Date:yyyyMMdd)$(Rev:.r)
 variables:
   service.name: 'customermanager'
   acr.name: 'vehiclesDashboardRegistry'
