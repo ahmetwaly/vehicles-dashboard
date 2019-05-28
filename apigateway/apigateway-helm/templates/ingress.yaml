@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+   annotations:
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/rewrite-target: /$2
+      
+   name: apigateway-ingress
+   namespace: backend
+spec:
+   rules:
+   -  host: monitordashboard.eastus.cloudapp.azure.com
+      http:
+         paths:
+         - path: /apigateway(/|$)(.*)
+           backend:
+             serviceName: apigateway
+             servicePort: 80
+             
