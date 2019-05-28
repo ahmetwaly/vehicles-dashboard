@@ -4,9 +4,15 @@
    - Azure subscribtion
    - Azure CLI
  - steps
+ 
+   - install cli tools
+      ```bash 
+       az aks install-cli
+       az extension add --name aks-preview
+       
    - login to you azure subscribtion
       ```bash 
-      Az login 
+      az login 
    - prepare variables 
      ```bahs 
       AKS_RESOURCE_GROUP=vehicles-dashboard
@@ -22,6 +28,7 @@
       ```bash
          az acr create --resource-group $AKS_RESOURCE_GROUP --name $ACR_REGISTRY --sku Standard
          ACR_REGISTRY_ID=$(az acr show --name $ACR_REGISTRY --query id --output tsv)
+   
    - Create service principal for ACR access
        ```bash
        SP_PASSWD =$(az ad sp create-for-rbac --name $ACR_SP_NAME --scopes $ACR_REGISTRY_ID \
@@ -37,9 +44,6 @@
      ````bash
        az network public-ip create -g vehicles-dashboard -n monitordashboardip --allocation-method Static --dns-name $DNS_NAME
       
-   - install cli tools
-      ```bash 
-       az aks install-cli
   - Use Kubectl with the cluster  
     ```bash
        az aks get-credentials --resource-group $AKS_RESOURCE_GROUP --name $AKS_CLUSTER
