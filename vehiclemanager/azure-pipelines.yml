@@ -1,22 +1,97 @@
 name: $(Date:yyyyMMdd)$(Rev:.r)
-
+variables:
+  service.name: 'vehiclemanager'
+  acr.name: 'vehiclesDashboardRegistry'
 trigger:
-- master
+  branches:
+    include:
+    - master
+  paths:
+    include:
+    - ./$(service.name)
+    exclude:
+    - ./$(service.name)/$(service.name)-helm
 
 stages:
 - stage: Build
+  displayName: CI Build $(service.name)
   jobs:
-    - job: BuildJob
+    - job: mavenbuild
+      displayName: '[mnv build ,static code analysis , security scanning]'
       pool:
         vmImage: 'ubuntu-latest'
-      variables:
-        service.rootDirectory: './vehiclemanager/'
-        service.imageName: 'vehiclemanager'
-        helm.SourcesDirectory: './vehiclemanager/vehiclemanager-helm'
-        helm.packagePrefix: 'vehiclemanager-helm'
       steps:
-      - script: echo wellcome to vehicles-dashboard!
-        displayName: 'wellcome'
+
+      - task: SonarCloudPrepare@1
+        displayName: prepare sonarcloud 
+        inputs:
+          SonarCloud: 'sonarcloud'
+          organization: 'ahmetwaly-github'
+          scannerMode: 'Other' 
+    
+      - task: Maven@3
+        name: customermanager_mvn_build
+        displayName: '$(service.name) mvn build'
+        inputs:
+          mavenPomFile: './$(service.name)/pom.xml'
+          options: '-P staging'
+          publishJUnitResults: true
+          testResultsFiles: '**/surefire-reports/TEST-*.xml'
+          codeCoverageToolOption: 'JaCoCo'
+          javaHomeOption: 'JDKVersion'
+          jdkVersionOption: '1.8'
+          mavenVersionOption: 'Default'
+          sonarQubeRunAnalysis: true
+          checkStyleRunAnalysis: true
+          pmdRunAnalysis: true
+          findBugsRunAnalysis: true
+          goals: "clean test package"
+
+      - task: SonarCloudPublish@1
+        displayName: publish sonarcloud results
+        inputs:
+          pollingTimeoutSec: '300'
+
+      - task: WhiteSource Bolt@19
+        inputs:
+          cwd: './$(service.name)'
+
+      - task: PublishBuildArtifacts@1
+        inputs:
+          PathtoPublish: '$(Build.SourcesDirectory)/$(service.name)/target/'
+          ArtifactName: 'target'
+    - job: dockerbuildandpush
+      dependsOn: mavenbuild
+      displayName: '[dokcer build , push to container container registry]'
+      pool:
+        vmImage: 'ubuntu-latest'
+      steps:
+      - task: DownloadBuildArtifacts@0
+        inputs:
+          buildType: 'current'
+          downloadType: 'single'
+          artifactName: 'target'
+          downloadPath: '$(Build.SourcesDirectory)/$(service.name)'
+      - task: Docker@2
+        displayName: build docker image
+        inputs:
+          containerRegistry: 'ACR'
+          repository: '$(service.name)'
+          command: 'build'
+          Dockerfile: '$(Build.SourcesDirectory)/$(service.name)/Dockerfile'
+          buildContext: '$(Build.SourcesDirectory)/$(service.name)/'
+      - task: Docker@2
+        displayName: push docker image
+        inputs:
+          containerRegistry: 'ACR'
+          repository: '$(service.name)'
+          command: 'push'
+    - job: helm_package
+      dependsOn: dockerbuildandpush
+      displayName: '[helm init package deploy to ACR]'
+      pool:
+        vmImage: 'ubuntu-latest'
+      steps:
 
       - task: HelmDeploy@0
         inputs:
@@ -26,57 +101,11 @@ stages:
           upgradeTiller: false
           arguments: '--client-only'
 
-      - task: SonarCloudPrepare@1
-        inputs:
-          SonarCloud: 'sonarcloud'
-          organization: 'ahmetwaly-github'
-          scannerMode: 'Other' 
-          
-      - task: Maven@3
-        name: customermanager_mvn_build
-        displayName: customermanager mvn build
-        inputs:
-          mavenPomFile: '$(service.rootDirectory)/pom.xml'
-          options: '-P staging'
-          publishJUnitResults: true
-          testResultsFiles: '**/surefire-reports/TEST-*.xml'
-          codeCoverageToolOption: 'JaCoCo'
-          javaHomeOption: 'JDKVersion'
-          jdkVersionOption: '1.8'
-          mavenVersionOption: 'Default'
-          mavenAuthenticateFeed: false
-          sonarQubeRunAnalysis: true
-          checkStyleRunAnalysis: true
-          pmdRunAnalysis: true
-          findBugsRunAnalysis: true
-
-      - task: SonarCloudPublish@1
-        inputs:
-          pollingTimeoutSec: '300'
-      - script: echo Build.SourcesDirectory:$(Build.SourcesDirectory) ,service.rootDirectory:$(service.rootDirectory)
-        displayName: echo variables
-
-      - task: Docker@2
-        displayName: build docker image
-        inputs:
-          containerRegistry: 'ACR'
-          repository: 'vehiclemanager'
-          command: 'build'
-          Dockerfile: '$(service.rootDirectory)/Dockerfile'
-          #arguments: '--build-arg ARTIFACT_PATH=/$(Build.SourcesDirectory)/customermanager/target'
-          buildContext: '$(Build.SourcesDirectory)/vehiclemanager/'
-
-      - task: Docker@2
-        displayName: push docker image
-        inputs:
-          containerRegistry: 'ACR'
-          repository: 'vehiclemanager'
-          command: 'push'
       - task: HelmDeploy@0
         displayName: Helm package
         inputs:
           command: package
-          chartPath: $(helm.SourcesDirectory)
+          chartPath: './$(service.name)/$(service.name)-helm'
           destination: $(Build.ArtifactStagingDirectory)
           chartVersion: $(Build.BuildId)
           arguments: '--app-version $(Build.BuildId)'
@@ -85,5 +114,4 @@ stages:
         inputs:
           azureSubscription: 'Free Trial(8d3b52bc-28ad-4afc-97f2-cd46726a2b0e)'
           scriptLocation: 'inlineScript'
-          inlineScript: 'az acr helm push $(Build.ArtifactStagingDirectory)/$(helm.packagePrefix)-$(Build.BuildId).tgz --name vehiclesDashboardRegistry --force;'
-    
+          inlineScript: 'az acr helm push $(Build.ArtifactStagingDirectory)/$(service.name)-helm-$(Build.BuildId).tgz --name $(acr.name) --force;'

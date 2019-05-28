@@ -1,8 +1,7 @@
-parameters:
+name: $(Date:yyyyMMdd)$(Rev:.r)
+variables:
   service.name: 'customermanager'
   acr.name: 'vehiclesDashboardRegistry'
-  
-jobs:    
 trigger:
   branches:
     include:
@@ -116,4 +115,3 @@ stages:
           azureSubscription: 'Free Trial(8d3b52bc-28ad-4afc-97f2-cd46726a2b0e)'
           scriptLocation: 'inlineScript'
           inlineScript: 'az acr helm push $(Build.ArtifactStagingDirectory)/$(service.name)-helm-$(Build.BuildId).tgz --name $(acr.name) --force;'
-    

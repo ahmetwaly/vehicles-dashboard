@@ -30,7 +30,7 @@ jobs:
     displayName: 'Build Angular'
     inputs:
       command: custom
-      customCommand: run-script build -- --configuration $(buildConfiguration)
+      customCommand: run-script build -- --configuration $(buildConfiguration) --base-href='/monitoringdashboard/'
       workingDir: $(System.DefaultWorkingDirectory)/$(service.name)
 
   - task: PublishBuildArtifacts@1
