@@ -1,4 +1,4 @@
 jobs:
-- template: azure-pipelines.yml  # Template reference
+- template: ../azure-pipelines.yml  # Template reference
   parameters:
     service.name: 'apigateway'
