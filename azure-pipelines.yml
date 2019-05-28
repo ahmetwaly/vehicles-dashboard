@@ -1,7 +1,7 @@
   parameters:
     service.name: 'customermanager'
     acr.name: 'vehiclesDashboardRegistry'
-    
+  jobs:    
   trigger:
     branches:
       include:
