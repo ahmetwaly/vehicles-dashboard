@@ -1,4 +1,117 @@
-jobs:
-- template: ../azure-pipelines.yml  # Template reference
-  parameters:
-    service.name: 'apigateway'
+name: $(Date:yyyyMMdd)$(Rev:.r)
+variables:
+  service.name: 'apigateway'
+  acr.name: 'vehiclesDashboardRegistry'
+trigger:
+  branches:
+    include:
+    - master
+  paths:
+    include:
+    - ./$(service.name)
+    exclude:
+    - ./$(service.name)/$(service.name)-helm
+
+stages:
+- stage: Build
+  displayName: CI Build $(service.name)
+  jobs:
+    - job: mavenbuild
+      displayName: '[mnv build ,static code analysis , security scanning]'
+      pool:
+        vmImage: 'ubuntu-latest'
+      steps:
+
+      - task: SonarCloudPrepare@1
+        displayName: prepare sonarcloud 
+        inputs:
+          SonarCloud: 'sonarcloud'
+          organization: 'ahmetwaly-github'
+          scannerMode: 'Other' 
+    
+      - task: Maven@3
+        name: customermanager_mvn_build
+        displayName: '$(service.name) mvn build'
+        inputs:
+          mavenPomFile: './$(service.name)/pom.xml'
+          options: '-P staging'
+          publishJUnitResults: true
+          testResultsFiles: '**/surefire-reports/TEST-*.xml'
+          codeCoverageToolOption: 'JaCoCo'
+          javaHomeOption: 'JDKVersion'
+          jdkVersionOption: '1.8'
+          mavenVersionOption: 'Default'
+          sonarQubeRunAnalysis: true
+          checkStyleRunAnalysis: true
+          pmdRunAnalysis: true
+          findBugsRunAnalysis: true
+          goals: "clean test package"
+
+      - task: SonarCloudPublish@1
+        displayName: publish sonarcloud results
+        inputs:
+          pollingTimeoutSec: '300'
+
+      - task: WhiteSource Bolt@19
+        inputs:
+          cwd: './$(service.name)'
+
+      - task: PublishBuildArtifacts@1
+        inputs:
+          PathtoPublish: '$(Build.SourcesDirectory)/$(service.name)/target/'
+          ArtifactName: 'target'
+    - job: dockerbuildandpush
+      dependsOn: mavenbuild
+      displayName: '[dokcer build , push to container container registry]'
+      pool:
+        vmImage: 'ubuntu-latest'
+      steps:
+      - task: DownloadBuildArtifacts@0
+        inputs:
+          buildType: 'current'
+          downloadType: 'single'
+          artifactName: 'target'
+          downloadPath: '$(Build.SourcesDirectory)/$(service.name)'
+      - task: Docker@2
+        displayName: build docker image
+        inputs:
+          containerRegistry: 'ACR'
+          repository: '$(service.name)'
+          command: 'build'
+          Dockerfile: '$(Build.SourcesDirectory)/$(service.name)/Dockerfile'
+          buildContext: '$(Build.SourcesDirectory)/$(service.name)/'
+      - task: Docker@2
+        displayName: push docker image
+        inputs:
+          containerRegistry: 'ACR'
+          repository: '$(service.name)'
+          command: 'push'
+    - job: helm_package
+      dependsOn: dockerbuildandpush
+      displayName: '[helm init package deploy to ACR]'
+      pool:
+        vmImage: 'ubuntu-latest'
+      steps:
+
+      - task: HelmDeploy@0
+        inputs:
+          connectionType: 'Kubernetes Service Connection'
+          kubernetesServiceConnection: 'AKS'
+          command: 'init'
+          upgradeTiller: false
+          arguments: '--client-only'
+
+      - task: HelmDeploy@0
+        displayName: Helm package
+        inputs:
+          command: package
+          chartPath: './$(service.name)/$(service.name)-helm'
+          destination: $(Build.ArtifactStagingDirectory)
+          chartVersion: $(Build.BuildId)
+          arguments: '--app-version $(Build.BuildId)'
+
+      - task: AzureCLI@1
+        inputs:
+          azureSubscription: 'Free Trial(8d3b52bc-28ad-4afc-97f2-cd46726a2b0e)'
+          scriptLocation: 'inlineScript'
+          inlineScript: 'az acr helm push $(Build.ArtifactStagingDirectory)/$(service.name)-helm-$(Build.BuildId).tgz --name $(acr.name) --force;'
