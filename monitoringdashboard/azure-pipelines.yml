@@ -62,12 +62,12 @@ jobs:
       testRunTitle: Angular
       testResultsFormat: JUnit
       testResultsFiles: "**/TESTS*.xml" 
-  - task: Npm@1
-    displayName: 'E2E Test Angular'
-    inputs:
-      command: custom
-      customCommand: run e2e
-      workingDir: $(System.DefaultWorkingDirectory)/$(service.name)
+#  - task: Npm@1
+#    displayName: 'E2E Test Angular'
+#    inputs:
+#      command: custom
+#      customCommand: run e2e
+#      workingDir: $(System.DefaultWorkingDirectory)/$(service.name)
   
   - task: PublishTestResults@2
     displayName: 'Publish Angular E2E test results'

@@ -39,7 +39,10 @@
       ```bash 
       az aks create --resource-group $AKS_RESOURCE_GROUP --name $AKS_CLUSTER \
       --service-principal $SP_APP_ID --client-secret $SP_PASSWD --node-count 1 --generate-ssh-keys --node-resource-group $AKS_RESOURCE_GROUP
-      
+   - create AKS Cluster service account 
+      ```bash
+       kubectl create serviceaccount aksdmin --namespace kube-system
+       kubectl create clusterrolebinding aksdmin --clusterrole cluster-admin --serviceaccount=kube-system:aksdmin
    - Create public ip address and dns name
      ````bash
        az network public-ip create -g vehicles-dashboard -n monitordashboardip --allocation-method Static --dns-name $DNS_NAME
