@@ -1,5 +1,5 @@
 export const environment = {
   production: false,
-  baseUrl: 'http://fakerestapi.azurewebsites.net/api'  ,
+  baseUrl: 'monitordashboard.eastus.cloudapp.azure.com/apigateway/customervehicles/v1/'  ,
   refreshInterval:30000
 };
