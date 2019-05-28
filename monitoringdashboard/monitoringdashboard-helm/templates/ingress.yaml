@@ -3,6 +3,8 @@ kind: Ingress
 metadata:
    annotations:
       kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/rewrite-target: /$2
+      
       
    name: monitordashboard-ingress
    namespace: frontend
@@ -11,7 +13,7 @@ spec:
    -  host: monitordashboard.eastus.cloudapp.azure.com
       http:
          paths:
-         - path: /monitoringdashboard
+         - path: /monitoringdashboard(/|$)(.*)
            backend:
              serviceName: monitoringdashboard
              servicePort: 80
