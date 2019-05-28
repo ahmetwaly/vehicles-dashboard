@@ -34,6 +34,7 @@ public class CustomerManagerAdapterImpl implements CustomerManagerAdapter {
 		try {
 			HttpHeaders headers = new HttpHeaders();
 			headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+			System.out.println(customerManagerUrl);
 			List<CustomerDto> customerDtos = restTemplate.exchange(customerManagerUrl, HttpMethod.GET, null,
 					new ParameterizedTypeReference<List<CustomerDto>>() {
 					}).getBody();
