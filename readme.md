@@ -9,7 +9,7 @@
 
 - [Introduction](#introduction)
 - [Business Requirement](alten-challenge.txt)
-- [Requirements](#requirements)
+- [Application Architecture](#ApplicationArchitecture)
 - [Quick Start](#quick-start)
 - [Testing](#testing)
 - [API](#requirements)
@@ -20,18 +20,14 @@
 
 ## Introduction
 
-  The application was built based on microservices architicure and CI/CD partcises .
 
-## Requiremts
+  * The application adopts the [microservices Archtiture patterens](https://microservices.io/patterns/microservices.html).
+  * The workload are containerized and pushed to Azure conainter registery .
+  * The workload are deployed on Azure Kuberntese cluster by [Helm](https://helm.sh/) .
+  * The whole process is being managed CI/CD process with proper quaity gates and unit testing implemented .
 
-* Include a list of
-* all the many beautiful
-* web server features
-
-
-## Requirements
-The application can be run locally or in a docker container, the requirements for each setup are listed below.
-
+## ApplicationArchitecture
+  
 
 ### EGO
 A running instance of [EGO](https://github.com/overture-stack/ego/) is required to generate the Authorization tokens and to provide the verification key.
