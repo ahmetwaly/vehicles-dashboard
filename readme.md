@@ -9,8 +9,9 @@
 
 - [Introduction](#introduction)
 - [Business Requirement](alten-challenge.txt)
-- [Application Architecture](#ApplicationArchitecture)
-- [Quick Start](#quick-start)
+- [Solution Architecture](#Application-Architecture)
+- [Solution Component](#quick-start)
+- [CI/CD]
 - [Testing](#testing)
 - [API](#requirements)
 - [Acknowledgements](#acknowledgements)
@@ -20,14 +21,41 @@
 
 ## Introduction
 
-
   * The application adopts the [microservices Archtiture patterens](https://microservices.io/patterns/microservices.html).
   * The workload are containerized and pushed to Azure conainter registery .
   * The workload are deployed on Azure Kuberntese cluster by [Helm](https://helm.sh/) .
-  * The whole process is being managed CI/CD process with proper quaity gates and unit testing implemented .
+  * The whole process is being managed CI/CD pipline using [azure pipline](https://azure.microsoft.com/en-us/services/devops/pipelines/) with proper quaity gates and unit testing implemented .
 
-## ApplicationArchitecture
-  
+## Application Architecture
+the business usecase is the best to be implemetned by microservice architure.There is two subdomains identified as per the usecase (Customers and Vehicles) and they require a service aggregator that retirve information from both domains and provide it to frontend/customer facing application (monitoring dashboard) .Other technical components was provided to adopt the microservice archtiture pattern and provide a cloud native capabilities to the solution .
+
+![alt text](https://raw.githubusercontent.com/ahmetwaly/vehicles-dashboard/master/solution-architecture.png)
+## Architecture components
+### customer manager [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=se.alten%3Acustomermangaer&metric=alert_status)](https://sonarcloud.io/dashboard?id=se.alten%3Acustomermangaer) [![Build Status](https://dev.azure.com/altenchallenge/vehicles-dashboard/_apis/build/status/customer%20manager?branchName=master)](https://dev.azure.com/altenchallenge/vehicles-dashboard/_build/latest?definitionId=2&branchName=master)
+
+hold the business logic of the customer domain and expose API to retireve the customers .
+* chassis framework : Spring boot , Spring data 
+* DB :HSQLDB
+
+### vehicle manager [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=se.alten%3Avehiclemanager&metric=alert_status)](https://sonarcloud.io/dashboard?id=se.alten%3Avehiclemanager) [![Build Status](https://dev.azure.com/altenchallenge/vehicles-dashboard/_apis/build/status/vehicle%20manager?branchName=master)](https://dev.azure.com/altenchallenge/vehicles-dashboard/_build/latest?definitionId=4&branchName=master)
+hold the business logic of the vehicle domain and expose API to retireve the vehicles and update the vehicle status .
+* chassis framework : Spring boot , Spring data 
+* DB :HSQLDB
+
+### customer vehicele manager [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=se.alten%3Acustomervehiclesmanager&metric=alert_status)](https://sonarcloud.io/dashboard?id=se.alten%3Acustomervehiclesmanager) [![Build Status](https://dev.azure.com/altenchallenge/vehicles-dashboard/_apis/build/status/customer%20vehicles%20manager?branchName=master)](https://dev.azure.com/altenchallenge/vehicles-dashboard/_build/latest?definitionId=5&branchName=master)
+[aggregator service](https://microservices.io/patterns/apigateway.html) that works as a gateway for collecting the data from different service and aggregate it based on certain business logic
+* chassis framework : Spring boot 
+
+### monitor dashboard [![Build Status](https://dev.azure.com/altenchallenge/vehicles-dashboard/_apis/build/status/monitoring%20dashboard?branchName=master)](https://dev.azure.com/altenchallenge/vehicles-dashboard/_build/latest?definitionId=8&branchName=master) 
+ micorservice for  displaying the customer and viechle data and status . 
+ * chassis framework : Angular 
+ 
+### apigateway
+Netilix zuul API Gateway for API verisioning , service metrics , security 
+### ingnix ingress 
+Ngnix ingress component for K8 used as a reverse proxy for the cluster , SSL offloading , etc
+
+
 
 ### EGO
 A running instance of [EGO](https://github.com/overture-stack/ego/) is required to generate the Authorization tokens and to provide the verification key.
