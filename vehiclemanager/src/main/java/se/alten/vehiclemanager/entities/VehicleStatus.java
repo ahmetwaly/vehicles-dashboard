@@ -16,7 +16,6 @@ public enum VehicleStatus {
 		this.vehicleStatus = vehicleStatus;
 	}
 
-	// TODO update to java 8 
 	public static VehicleStatus parse(int statusValue) {
 		VehicleStatus status = null;
 		for (VehicleStatus item : VehicleStatus.values()) {

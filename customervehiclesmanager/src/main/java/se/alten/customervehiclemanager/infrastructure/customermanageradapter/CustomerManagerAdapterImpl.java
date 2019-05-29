@@ -14,10 +14,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-// TODO: Auto-generated Javadoc
-/**
- * The Class OpenWeatherMapAdapterImpl.
- */
+
 @Component
 public class CustomerManagerAdapterImpl implements CustomerManagerAdapter {
 
