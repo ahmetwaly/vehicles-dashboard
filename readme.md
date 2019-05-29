@@ -53,6 +53,11 @@ Netilix zuul API Gateway for API verisioning , service metrics , security
 ### ingnix ingress 
 Ngnix ingress component for K8 used as a reverse proxy for the cluster , SSL termination , etc
 
+### microservice package structure 
+* each microservice package contains (DockerFile to deploy the application , CLI piline file ,Helm charts folder and configuration file .
+![alt text](https://raw.githubusercontent.com/ahmetwaly/vehicles-dashboard/master/package-structure.png)
+
+
 ## CI/CD
 Azure pipline was used as a pipline orchestrator for CI/CD 
 
@@ -69,16 +74,24 @@ Azure pipline was used as a pipline orchestrator for CI/CD
 ![alt text](https://raw.githubusercontent.com/ahmetwaly/vehicles-dashboard/master/realse-pipline.png)
 
 ##Deployment
-###local deployment 
+
+### cloud URL : http://monitordashboard.eastus.cloudapp.azure.com/monitoringdashboard
+
+### local deployment on local 
  * prerequistes 
    * JDK8.
    * Angular CLI.
   * step to run 
-    * please run run.sh from source repo .
-    * URL:http://localhost:80 .
-    
- ### cloud deployment
-
+    * please run run.sh from root folder .
+    * URL:http://localhost:8085
+ 
+### docker deployment on local 
+ * prerequistes 
+   * docker
+   * Angular CLI.
+  * step to run 
+    * please run run-dockercompose.sh from root folder .
+    * URL:http://localhost:8085
 
 ### EGO
 A running instance of [EGO](https://github.com/overture-stack/ego/) is required to generate the Authorization tokens and to provide the verification key.
