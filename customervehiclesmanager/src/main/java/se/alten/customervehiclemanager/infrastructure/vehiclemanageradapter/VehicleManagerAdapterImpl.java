@@ -11,6 +11,7 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
@@ -18,7 +19,6 @@ import org.springframework.web.client.RestTemplate;
 /**
  * The Class OpenWeatherMapAdapterImpl.
  */
-@Component
 public class VehicleManagerAdapterImpl implements VehicleManagerAdapter {
 
 	@Autowired
@@ -34,9 +34,10 @@ public class VehicleManagerAdapterImpl implements VehicleManagerAdapter {
 		try {
 			HttpHeaders headers = new HttpHeaders();
 			headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-			List<VehicleDto> vehicleDtos = restTemplate.exchange(vehicleManagerUrl, HttpMethod.GET, null,
+			ResponseEntity<List<VehicleDto>>  reposne=restTemplate.exchange(vehicleManagerUrl, HttpMethod.GET, null,
 					new ParameterizedTypeReference<List<VehicleDto>>() {
-					}).getBody();
+					});
+			List<VehicleDto> vehicleDtos = reposne.getBody();
 			return vehicleDtos;
 		} catch (Exception e) {
 			e.printStackTrace();

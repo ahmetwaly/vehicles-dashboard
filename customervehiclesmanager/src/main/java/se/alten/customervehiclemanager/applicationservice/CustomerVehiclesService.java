@@ -1,5 +1,6 @@
 package se.alten.customervehiclemanager.applicationservice;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -15,21 +16,25 @@ import se.alten.customervehiclemanager.infrastructure.vehiclemanageradapter.Vehi
 public class CustomerVehiclesService {
 
 	@Autowired
-	VehicleManagerAdapter vehicleManagerAdapter ;
-	
+	VehicleManagerAdapter vehicleManagerAdapter;
+
 	@Autowired
-	CustomerManagerAdapter customerManagerAdapter ;
+	CustomerManagerAdapter customerManagerAdapter;
 
 	public List<Customer> getCustomerVehicles() {
-		List<CustomerDto> customerDtos=  customerManagerAdapter.getAllCustomers();
-		List<Customer> customers = CustomerVehicleMapper.INSTANCE.toCustomers(customerDtos);
-		List<VehicleDto> vehicleDtos=vehicleManagerAdapter.getAllVehicles() ;
-		List<Vehicle> vehicles=CustomerVehicleMapper.INSTANCE.toVehicles(vehicleDtos);
-		customers.forEach((customer)->{
-			customer.setVehicles(vehicles.stream()
-					.filter((vehicle)-> vehicle.getCustomerId()==customer.getId())
-					.collect(Collectors.toList()));
-		});
-		return customers;
+		List<CustomerDto> customerDtos = customerManagerAdapter.getAllCustomers();
+		if(null!=customerDtos && customerDtos.isEmpty()==false) {
+			List<Customer> customers = CustomerVehicleMapper.INSTANCE.toCustomers(customerDtos);
+			List<VehicleDto> vehicleDtos = vehicleManagerAdapter.getAllVehicles();
+			List<Vehicle> vehicles = CustomerVehicleMapper.INSTANCE.toVehicles(vehicleDtos);
+			if (null != vehicles && vehicles.isEmpty() ==false) {
+				customers.forEach((customer) -> {
+					customer.setVehicles(vehicles.stream().filter((vehicle) -> vehicle.getCustomerId() == customer.getId())
+							.collect(Collectors.toList()));
+				});
+			}
+			return customers;
+		}
+		return new ArrayList<Customer>();
 	}
 }

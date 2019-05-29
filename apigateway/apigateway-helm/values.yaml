@@ -22,7 +22,7 @@ env: {}
 
 service:
   name: apigateway
-  type: LoadBalancer
+  type: ClusterIP
   internalPort: 80
   externalPort:  80
   annotations: {}

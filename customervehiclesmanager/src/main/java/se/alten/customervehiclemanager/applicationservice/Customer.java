@@ -1,5 +1,6 @@
 package se.alten.customervehiclemanager.applicationservice;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Customer {
@@ -8,8 +9,7 @@ public class Customer {
 	String name ;
 	String address ;
 	
-	List<Vehicle> vehicles ;
-	
+	List<Vehicle> vehicles = new ArrayList<Vehicle>();
 	
 	public Integer getId() {
 		return id;
