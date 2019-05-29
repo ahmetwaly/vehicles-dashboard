@@ -45,7 +45,7 @@ hold the business logic of the vehicle domain and expose API to retireve the veh
 [aggregator service](https://microservices.io/patterns/apigateway.html) that works as a gateway for collecting the data from different service and aggregate it based on certain business logic
 * chassis framework : Spring boot 
 
-### monitor dashboard
+### monitor dashboard [![Build Status](https://dev.azure.com/altenchallenge/vehicles-dashboard/_apis/build/status/monitoring%20dashboard?branchName=master)](https://dev.azure.com/altenchallenge/vehicles-dashboard/_build/latest?definitionId=8&branchName=master) 
  micorservice for  displaying the customer and viechle data and status . 
  * chassis framework : Angular 
  
