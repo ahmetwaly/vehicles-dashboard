@@ -46,9 +46,13 @@ hold the business logic of the vehicle domain and expose API to retireve the veh
 * chassis framework : Spring boot 
 
 ### monitor dashboard
-
-### ingnix ingress 
+ micorservice for  displaying the customer and viechle data and status . 
+ * chassis framework : Angular 
+ 
 ### apigateway
+Netilix zuul API Gateway for API verisioning , service metrics , security 
+### ingnix ingress 
+Ngnix ingress component for K8 used as a reverse proxy for the cluster , SSL offloading , etc
 
 
 
