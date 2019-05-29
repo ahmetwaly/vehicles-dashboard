@@ -9,7 +9,7 @@
 
 - [Introduction](#introduction)
 - [Business Requirement](alten-challenge.txt)
-- [Solution Architecture](#solution\\ architecture)
+- [Solution Architecture](#"solution-architecture|)
 - [Solution microservices](#Solution microservices)
 - [CI/CD](#CI/CD)
 - [Deployment](#deployment)
@@ -22,7 +22,7 @@
   * The workload are deployed on Azure Kuberntese cluster by [Helm](https://helm.sh/) .
   * The whole process is being managed CI/CD pipline using [azure pipline](https://azure.microsoft.com/en-us/services/devops/pipelines/) with proper quaity gates and unit testing implemented .
 
-## Solution Architecture
+## Solution-Architecture
 * the business usecase is best to be implemetned by microservice architure.
 * There is two subdomains identified as per the usecase (Customers and Vehicles) and it requires a service aggregator that retirve information from both domains and provide it to frontend/customer-facing application(monitoring dashboard).
 * Other technical components was provided to adopt the microservice archtiture pattern and provide a cloud native capabilities to the solution .
