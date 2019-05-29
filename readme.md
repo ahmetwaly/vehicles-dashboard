@@ -56,15 +56,18 @@ Netilix zuul API Gateway for API verisioning , service metrics , security
 Ngnix ingress component for K8 used as a reverse proxy for the cluster , SSL termination , etc
 
 ## CI/CD
+Azure pipline was used as a pipline orchestrator for CI/CD 
+
 ### CI 
-all the microservice are continiously intgerated and unit test once the code is pushed to the repo .
-the CI flow contains the below steps and artifacts 
+* All the microservice are continiously intgerated and unit test once the code is pushed to the repo .
+* Each microservice has a seprate CI pipline 
+* each CI pipline contains the below steps and artifacts 
 ![alt text](https://raw.githubusercontent.com/ahmetwaly/vehicles-dashboard/master/CI-Diagram.png)
 
 ### CD  
-Contiouse deployment release pipline is configured to run on specific schedule with latest artifcats pushed to the container registry .
-The release contains all solution microservice to be deployed to staging and then Integration test runs and the last step for manual approval .
-
+* Contiouse deployment release pipline is configured to run on specific schedule with latest artifcats pushed to the container registry .
+* The release contains all solution microservice to be deployed to staging environment in specific sequence based on dependencies . 
+* Integration test runs after all service depployed and if successed then manual approval is required to deploy to upper environment.
 ![alt text](https://raw.githubusercontent.com/ahmetwaly/vehicles-dashboard/master/realse-pipline.png)
 
 
