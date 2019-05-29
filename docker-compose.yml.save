@@ -1,0 +1,17 @@
+version: '3.4'
+services:
+  apigateway:
+    build: ./apigateway
+    image: ahmetwaly/apigateway
+    container_name: apigateway
+    ports:
+      - '8081:8081'
+
+  vehiclemanager:
+    build: ./vehiclemanager
+    image: ahmetwaly/vehicle-api
+    container_name: vehiclemanager
+    ports:
+      - '8083:8083'
+    depends_on:
+      - apigateway

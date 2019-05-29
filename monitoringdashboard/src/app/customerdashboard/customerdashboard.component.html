@@ -1,9 +1,8 @@
 <main role="main" class="container">
     <div class="my-3 p-3 bg-white rounded shadow-sm">
-        <input class="form-control mr-sm-2" style="width: 30%" type="text" name="CustomerNameFilter"
+        <input class="form-control mr-sm-2" type="text" name="CustomerNameFilter"
             placeholder="customer name" aria-label="customer name" [(ngModel)]="filteredName" />
-        <select name="statusList" id="statusList"  [(ngModel)]="selectedVehicleStatus" class="form-control mr-sm-2"
-            style="width: 30%">
+        <select name="statusList" id="statusList"  [(ngModel)]="selectedVehicleStatus" class="form-control mr-sm-2">
             <option [(ngValue)]="status" *ngFor="let status of statutList">
                 {{status}}</option>
         </select>

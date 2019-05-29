@@ -1,0 +1,29 @@
+server:
+  port: 8081
+zuul:
+   routes:
+      customermanager:
+         path: /customers/v1/**
+         url: http://customermanager:8082/customers
+         methods:
+           - POST
+           - PUT
+           - PATCH
+           - GET
+         
+      vehiclemanager:
+         path: /vehicles/v1/**
+         url: http://vehiclemanager:8083/vehicles
+         methods:
+           - POST
+           - PUT
+           - PATCH
+           - GETT
+      customervehiclesmanager:
+         path: /customervehicles/v1/**
+         url: http://customervehiclesmanager:8084/customervehicles
+         methods:
+           - POST
+           - PUT
+           - PATCH
+           - GETT

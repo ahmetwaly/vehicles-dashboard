@@ -1,0 +1,73 @@
+version: '3.4'
+networks:
+  vehicle_dashboard_nt:
+    driver: bridge
+
+services:
+  vehiclemanager:
+    build: ./vehiclemanager
+    image: ahmetwaly/vehiclemanager
+    container_name: vehiclemanager
+    ports:
+      - '8083:8083'
+    networks:
+      - vehicle_dashboard_nt
+
+      
+  customermanager:
+    build: ./customermanager
+    image: ahmetwaly/customermanager
+    container_name: customermanager
+    ports:
+      - '8082:8082'
+    networks:
+      - vehicle_dashboard_nt
+
+  customervehiclesmanager:
+    build: ./customervehiclesmanager
+    image: ahmetwaly/customervehiclesmanager
+    container_name: customervehiclesmanager
+    ports:
+      - '8084:8084'
+    networks:
+      - vehicle_dashboard_nt
+
+    depends_on:
+      - vehiclemanager
+      - customermanager
+  apigateway:
+    build: ./apigateway
+    image: ahmetwaly/apigateway
+    container_name: apigateway
+    ports:
+      - '8081:8081'
+    networks:
+      - vehicle_dashboard_nt
+
+    depends_on:
+      - vehiclemanager
+      - customermanager
+      - customervehiclesmanager
+      
+  monitoringdashboard:
+    build:
+      context: "./monitoringdashboard"
+      dockerfile: "Dockerfile-BuildIncluded"
+    image: ahmetwaly/monitoringdashboard
+    container_name: monitoringdashboard
+    ports:
+      - '8085:80'
+    networks:
+      - vehicle_dashboard_nt
+    depends_on:
+      - apigateway
+      
+  vehiclesimulator:
+    build: ./vehiclesimulator
+    image: ahmetwaly/vehiclesimulator
+    container_name: vehiclesimulator
+    networks:
+      - vehicle_dashboard_nt
+    depends_on:
+      - apigateway
+      
