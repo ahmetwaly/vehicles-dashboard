@@ -9,14 +9,10 @@
 
 - [Introduction](#introduction)
 - [Business Requirement](alten-challenge.txt)
-- [Solution Architecture](#Application-Architecture)
-- [Solution Component](#quick-start)
-- [CI/CD]
-- [Testing](#testing)
-- [API](#requirements)
-- [Acknowledgements](#acknowledgements)
-
-
+- [Solution Architecture](#Solution Architecture)
+- [Solution microservices](#Solution microservices)
+- [CI/CD](#CI/CD)
+- [Deployment](#deployment)
 
 
 ## Introduction
@@ -72,6 +68,16 @@ Azure pipline was used as a pipline orchestrator for CI/CD
 * Integration test runs after all service depployed and if successed then manual approval is required to deploy to upper environment.
 ![alt text](https://raw.githubusercontent.com/ahmetwaly/vehicles-dashboard/master/realse-pipline.png)
 
+##Deployment
+###local deployment 
+ * prerequistes 
+   * JDK8.
+   * Angular CLI.
+  * step to run 
+    * please run run.sh from source repo .
+    * URL:http://localhost:80 .
+    
+ ### cloud deployment
 
 
 ### EGO
