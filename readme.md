@@ -74,16 +74,24 @@ Azure pipline was used as a pipline orchestrator for CI/CD
 ![alt text](https://raw.githubusercontent.com/ahmetwaly/vehicles-dashboard/master/realse-pipline.png)
 
 ##Deployment
-###local deployment 
+
+### cloud URL : http://monitordashboard.eastus.cloudapp.azure.com/monitoringdashboard
+
+### local deployment on local 
  * prerequistes 
    * JDK8.
    * Angular CLI.
   * step to run 
     * please run run.sh from source repo .
-    * URL:http://localhost:80 .
-    
- ### cloud deployment
-
+    * URL:http://localhost:8085
+ 
+### docker deployment on local 
+ * prerequistes 
+   * docker
+   * Angular CLI.
+  * step to run 
+    * please run run.sh from source repo .
+    * URL:http://localhost:8085
 
 ### EGO
 A running instance of [EGO](https://github.com/overture-stack/ego/) is required to generate the Authorization tokens and to provide the verification key.
