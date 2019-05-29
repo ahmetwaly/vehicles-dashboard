@@ -1,7 +1,7 @@
-<h1 align="center"> Project Title </h1> <br>
+<h1 align="center"> Customer Vehicle Dashboard </h1> <br>
 
 <p align="center">
-  Sample microservice description.
+  dashboard for displaying the  current customers and their vechile connection status . 
 </p>
 
 
