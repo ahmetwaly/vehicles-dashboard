@@ -36,16 +36,14 @@ hold the business logic of the customer domain and expose API to retireve the cu
 * chassis framework : Spring boot , Spring data 
 * DB :HSQLDB
 
-### vehicle manager 
+### vehicle manager [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=se.alten%3Avehiclemanager&metric=alert_status)](https://sonarcloud.io/dashboard?id=se.alten%3Avehiclemanager) [![Build Status](https://dev.azure.com/altenchallenge/vehicles-dashboard/_apis/build/status/vehicle%20manager?branchName=master)](https://dev.azure.com/altenchallenge/vehicles-dashboard/_build/latest?definitionId=4&branchName=master)
 hold the business logic of the vehicle domain and expose API to retireve the vehicles and update the vehicle status .
 * chassis framework : Spring boot , Spring data 
 * DB :HSQLDB
 
-### customer vehicele manager [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=se.alten%3Acustomermangaer&metric=alert_status)](https://sonarcloud.io/dashboard?id=se.alten%3Acustomermangaer)
-
-hold the business logic of the vehicle domain and expose API to retireve the vehicles and update the vehicle status .
-* chassis framework : Spring boot , Spring data 
-* DB :HSQLDB
+### customer vehicele manager [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=se.alten%3Acustomervehiclesmanager&metric=alert_status)](https://sonarcloud.io/dashboard?id=se.alten%3Acustomervehiclesmanager) [![Build Status](https://dev.azure.com/altenchallenge/vehicles-dashboard/_apis/build/status/customer%20vehicles%20manager?branchName=master)](https://dev.azure.com/altenchallenge/vehicles-dashboard/_build/latest?definitionId=5&branchName=master)
+[aggregator service](https://microservices.io/patterns/apigateway.html) that works as a gateway for collecting the data from different service and aggregate it based on certain business logic
+* chassis framework : Spring boot 
 
 ### monitor dashboard
 
