@@ -55,6 +55,12 @@ Netilix zuul API Gateway for API verisioning , service metrics , security
 ### ingnix ingress 
 Ngnix ingress component for K8 used as a reverse proxy for the cluster , SSL offloading , etc
 
+## CI/CD
+### CI 
+all the microservice are continiously intgerated and unit test once the code is pushed .
+the 
+the CI flow contains the below steps
+![alt text](https://raw.githubusercontent.com/ahmetwaly/vehicles-dashboard/master/CI-Diagram.png)
 
 
 ### EGO
