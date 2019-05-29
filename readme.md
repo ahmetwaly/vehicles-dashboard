@@ -24,10 +24,10 @@
   * The application adopts the [microservices Archtiture patterens](https://microservices.io/patterns/microservices.html).
   * The workload are containerized and pushed to Azure conainter registery .
   * The workload are deployed on Azure Kuberntese cluster by [Helm](https://helm.sh/) .
-  * The whole process is being managed CI/CD process with proper quaity gates and unit testing implemented .
+  * The whole process is being managed CI/CD pipline using [azure pipline](https://azure.microsoft.com/en-us/services/devops/pipelines/) with proper quaity gates and unit testing implemented .
 
 ## ApplicationArchitecture
-  
+![alt text](https://raw.githubusercontent.com/ahmetwaly/vehicles-dashboard/master/solution-architecture.png)
 
 ### EGO
 A running instance of [EGO](https://github.com/overture-stack/ego/) is required to generate the Authorization tokens and to provide the verification key.
