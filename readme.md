@@ -9,8 +9,9 @@
 
 - [Introduction](#introduction)
 - [Business Requirement](alten-challenge.txt)
-- [Solution Architecture](#ApplicationArchitecture)
-- [Quick Start](#quick-start)
+- [Solution Architecture](#Application-Architecture)
+- [Solution Component](#quick-start)
+- [CI/CD]
 - [Testing](#testing)
 - [API](#requirements)
 - [Acknowledgements](#acknowledgements)
