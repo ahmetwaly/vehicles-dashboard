@@ -20,14 +20,24 @@
 
 ## Introduction
 
-
   * The application adopts the [microservices Archtiture patterens](https://microservices.io/patterns/microservices.html).
   * The workload are containerized and pushed to Azure conainter registery .
   * The workload are deployed on Azure Kuberntese cluster by [Helm](https://helm.sh/) .
   * The whole process is being managed CI/CD pipline using [azure pipline](https://azure.microsoft.com/en-us/services/devops/pipelines/) with proper quaity gates and unit testing implemented .
 
 ## ApplicationArchitecture
+the business usecase is the best to be implemetned by microservice architure.There is two subdomains identified as per the usecase (Customers and Vehicles) and they require a service aggregator that retirve information from both domains and provide it to frontend/customer facing application (monitoring dashboard) .Other technical components was provided to adopt the microservice archtiture pattern and provide a cloud native capnilities to the solution .
+
 ![alt text](https://raw.githubusercontent.com/ahmetwaly/vehicles-dashboard/master/solution-architecture.png)
+### Architecture components
+#### ingnix ingress 
+#### apigateway
+#### customer manager
+#### vehicle manager 
+#### customer vehicele manager 
+#### monitor dashboard
+
+
 
 ### EGO
 A running instance of [EGO](https://github.com/overture-stack/ego/) is required to generate the Authorization tokens and to provide the verification key.
