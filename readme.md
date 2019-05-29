@@ -9,7 +9,7 @@
 
 - [Introduction](#introduction)
 - [Business Requirement](alten-challenge.txt)
-- [Solution Architecture](#"solution-architecture|)
+- [Solution Architecture](#solution-architecture)
 - [Solution microservices](#Solution microservices)
 - [CI/CD](#CI/CD)
 - [Deployment](#deployment)
