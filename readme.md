@@ -30,11 +30,24 @@ the business usecase is the best to be implemetned by microservice architure.The
 
 ![alt text](https://raw.githubusercontent.com/ahmetwaly/vehicles-dashboard/master/solution-architecture.png)
 ## Architecture components
-### customer manager
+### customer manager [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=se.alten%3Acustomermangaer&metric=alert_status)](https://sonarcloud.io/dashboard?id=se.alten%3Acustomermangaer)
+[![Build Status](https://dev.azure.com/altenchallenge/vehicles-dashboard/_apis/build/status/customer%20manager?branchName=master)](https://dev.azure.com/altenchallenge/vehicles-dashboard/_build/latest?definitionId=2&branchName=master)
+
 hold the business logic of the customer domain and expose API to retireve the customers .
+* chassis framework : Spring boot , Spring data 
+* DB :HSQLDB
 
 ### vehicle manager 
-### customer vehicele manager 
+hold the business logic of the vehicle domain and expose API to retireve the vehicles and update the vehicle status .
+* chassis framework : Spring boot , Spring data 
+* DB :HSQLDB
+
+### customer vehicele manager [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=se.alten%3Acustomermangaer&metric=alert_status)](https://sonarcloud.io/dashboard?id=se.alten%3Acustomermangaer)
+
+hold the business logic of the vehicle domain and expose API to retireve the vehicles and update the vehicle status .
+* chassis framework : Spring boot , Spring data 
+* DB :HSQLDB
+
 ### monitor dashboard
 
 ### ingnix ingress 
