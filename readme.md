@@ -11,7 +11,7 @@
 - [Business Requirement](alten-challenge.txt)
 - [Solution Architecture](#solution-architecture)
 - [Solution microservices](#solution-microservices)
-- [CI/CD](#CI/CD)
+- [CI/CD](#CICD)
 - [Deployment](#deployment)
 
 
