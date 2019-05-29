@@ -9,7 +9,7 @@ public class Customer {
 	String name ;
 	String address ;
 	
-	List<Vehicle> vehicles = new ArrayList<Vehicle>();
+	List<Vehicle> vehicles = new ArrayList<>();
 	
 	public Integer getId() {
 		return id;

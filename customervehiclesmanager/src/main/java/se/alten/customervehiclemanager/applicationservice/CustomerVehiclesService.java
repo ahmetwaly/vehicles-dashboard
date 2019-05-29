@@ -23,18 +23,18 @@ public class CustomerVehiclesService {
 
 	public List<Customer> getCustomerVehicles() {
 		List<CustomerDto> customerDtos = customerManagerAdapter.getAllCustomers();
-		if(null!=customerDtos && customerDtos.isEmpty()==false) {
+		if(null!=customerDtos && !customerDtos.isEmpty()) {
 			List<Customer> customers = CustomerVehicleMapper.INSTANCE.toCustomers(customerDtos);
 			List<VehicleDto> vehicleDtos = vehicleManagerAdapter.getAllVehicles();
 			List<Vehicle> vehicles = CustomerVehicleMapper.INSTANCE.toVehicles(vehicleDtos);
-			if (null != vehicles && vehicles.isEmpty() ==false) {
-				customers.forEach((customer) -> {
-					customer.setVehicles(vehicles.stream().filter((vehicle) -> vehicle.getCustomerId() == customer.getId())
+			if (null != vehicles && !vehicles.isEmpty()) {
+				customers.forEach(customer -> {
+					customer.setVehicles(vehicles.stream().filter(vehicle -> vehicle.getCustomerId() == customer.getId())
 							.collect(Collectors.toList()));
 				});
 			}
 			return customers;
 		}
-		return new ArrayList<Customer>();
+		return new ArrayList<>();
 	}
 }

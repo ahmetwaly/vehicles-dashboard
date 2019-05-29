@@ -21,9 +21,9 @@ public class VehicleSimulatorServiceImpl implements VehicleSimulatorService {
 	@Override
 	public void updateServiceStatus() {
 		List<Vehicle> vehicles = vehicleSimulatorRepository.findAll();
+		Random randomGenerator = new Random();
 		while(true) {
 			vehicles.forEach((vehicle)->{
-				Random randomGenerator = new Random();
 				int randomInt = randomGenerator.nextInt(50) + 1;
 				String status="CONNECTED" ;
 				if (randomInt%2==0) status="DISCONNECTED" ;
@@ -33,6 +33,7 @@ public class VehicleSimulatorServiceImpl implements VehicleSimulatorService {
 				Thread.sleep(60000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
+			    Thread.currentThread().interrupt();
 			}
 		}
 	}
