@@ -82,7 +82,7 @@ Azure pipline was used as a pipline orchestrator for CI/CD
    * JDK8.
    * Angular CLI.
   * step to run 
-    * please run run.sh from source repo .
+    * please run run.sh from root folder .
     * URL:http://localhost:8085
  
 ### docker deployment on local 
@@ -90,7 +90,7 @@ Azure pipline was used as a pipline orchestrator for CI/CD
    * docker
    * Angular CLI.
   * step to run 
-    * please run run.sh from source repo .
+    * please run run-dockercompose.sh from root folder .
     * URL:http://localhost:8085
 
 ### EGO
