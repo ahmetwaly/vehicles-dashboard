@@ -9,7 +9,7 @@
 
 - [Introduction](#introduction)
 - [Business Requirement](alten-challenge.txt)
-- [Application Architecture](#ApplicationArchitecture)
+- [Solution Architecture](#Application Architecture)
 - [Quick Start](#quick-start)
 - [Testing](#testing)
 - [API](#requirements)
@@ -25,17 +25,20 @@
   * The workload are deployed on Azure Kuberntese cluster by [Helm](https://helm.sh/) .
   * The whole process is being managed CI/CD pipline using [azure pipline](https://azure.microsoft.com/en-us/services/devops/pipelines/) with proper quaity gates and unit testing implemented .
 
-## ApplicationArchitecture
-the business usecase is the best to be implemetned by microservice architure.There is two subdomains identified as per the usecase (Customers and Vehicles) and they require a service aggregator that retirve information from both domains and provide it to frontend/customer facing application (monitoring dashboard) .Other technical components was provided to adopt the microservice archtiture pattern and provide a cloud native capnilities to the solution .
+## Application Architecture
+the business usecase is the best to be implemetned by microservice architure.There is two subdomains identified as per the usecase (Customers and Vehicles) and they require a service aggregator that retirve information from both domains and provide it to frontend/customer facing application (monitoring dashboard) .Other technical components was provided to adopt the microservice archtiture pattern and provide a cloud native capabilities to the solution .
 
 ![alt text](https://raw.githubusercontent.com/ahmetwaly/vehicles-dashboard/master/solution-architecture.png)
-### Architecture components
-#### ingnix ingress 
-#### apigateway
-#### customer manager
-#### vehicle manager 
-#### customer vehicele manager 
-#### monitor dashboard
+## Architecture components
+### customer manager
+hold the business logic of the customer domain and expose API to retireve the customers .
+
+### vehicle manager 
+### customer vehicele manager 
+### monitor dashboard
+
+### ingnix ingress 
+### apigateway
 
 
 
