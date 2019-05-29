@@ -8,7 +8,7 @@
 ## Table of Contents
 
 - [Introduction](#introduction)
-- [Requiremts](#Requiremts)
+- [Business Requirement](alten-challenge.txt)
 - [Requirements](#requirements)
 - [Quick Start](#quick-start)
 - [Testing](#testing)
