@@ -53,7 +53,7 @@ hold the business logic of the vehicle domain and expose API to retireve the veh
 ### apigateway [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=se.alten%3Aapigateway&metric=alert_status)](https://sonarcloud.io/dashboard?id=se.alten%3Aapigateway) [![Build Status](https://dev.azure.com/altenchallenge/vehicles-dashboard/_apis/build/status/apigateway?branchName=master)](https://dev.azure.com/altenchallenge/vehicles-dashboard/_build/latest?definitionId=1&branchName=master)
 Netilix zuul API Gateway for API verisioning , service metrics , security 
 ### ingnix ingress 
-Ngnix ingress component for K8 used as a reverse proxy for the cluster , SSL offloading , etc
+Ngnix ingress component for K8 used as a reverse proxy for the cluster , SSL termination , etc
 
 ## CI/CD
 ### CI 
