@@ -26,11 +26,11 @@
   * The workload are deployed on Azure Kuberntese cluster by [Helm](https://helm.sh/) .
   * The whole process is being managed CI/CD pipline using [azure pipline](https://azure.microsoft.com/en-us/services/devops/pipelines/) with proper quaity gates and unit testing implemented .
 
-## Application Architecture
+## Solution Architecture
 the business usecase is the best to be implemetned by microservice architure.There is two subdomains identified as per the usecase (Customers and Vehicles) and they require a service aggregator that retirve information from both domains and provide it to frontend/customer facing application (monitoring dashboard) .Other technical components was provided to adopt the microservice archtiture pattern and provide a cloud native capabilities to the solution .
 
 ![alt text](https://raw.githubusercontent.com/ahmetwaly/vehicles-dashboard/master/solution-architecture.png)
-## Architecture components
+## Solution microservices
 ### customer manager [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=se.alten%3Acustomermangaer&metric=alert_status)](https://sonarcloud.io/dashboard?id=se.alten%3Acustomermangaer) [![Build Status](https://dev.azure.com/altenchallenge/vehicles-dashboard/_apis/build/status/customer%20manager?branchName=master)](https://dev.azure.com/altenchallenge/vehicles-dashboard/_build/latest?definitionId=2&branchName=master)
 
 hold the business logic of the customer domain and expose API to retireve the customers .
@@ -50,7 +50,7 @@ hold the business logic of the vehicle domain and expose API to retireve the veh
  micorservice for  displaying the customer and viechle data and status . 
  * chassis framework : Angular 
  
-### apigateway
+### apigateway [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=se.alten%3Aapigateway&metric=alert_status)](https://sonarcloud.io/dashboard?id=se.alten%3Aapigateway) [![Build Status](https://dev.azure.com/altenchallenge/vehicles-dashboard/_apis/build/status/apigateway?branchName=master)](https://dev.azure.com/altenchallenge/vehicles-dashboard/_build/latest?definitionId=1&branchName=master)
 Netilix zuul API Gateway for API verisioning , service metrics , security 
 ### ingnix ingress 
 Ngnix ingress component for K8 used as a reverse proxy for the cluster , SSL offloading , etc
