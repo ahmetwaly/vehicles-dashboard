@@ -10,7 +10,7 @@
 - [Introduction](#introduction)
 - [Business Requirement](alten-challenge.txt)
 - [Solution Architecture](#solution-architecture)
-- [Solution microservices](#Solution microservices)
+- [Solution microservices](#solution-microservices)
 - [CI/CD](#CI/CD)
 - [Deployment](#deployment)
 
@@ -28,7 +28,7 @@
 * Other technical components was provided to adopt the microservice archtiture pattern and provide a cloud native capabilities to the solution .
 
 ![alt text](https://raw.githubusercontent.com/ahmetwaly/vehicles-dashboard/master/solution-architecture.png)
-## Solution microservices
+## Solution-microservices
 ### customer manager [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=se.alten%3Acustomermangaer&metric=alert_status)](https://sonarcloud.io/dashboard?id=se.alten%3Acustomermangaer) [![Build Status](https://dev.azure.com/altenchallenge/vehicles-dashboard/_apis/build/status/customer%20manager?branchName=master)](https://dev.azure.com/altenchallenge/vehicles-dashboard/_build/latest?definitionId=2&branchName=master)
 
 hold the business logic of the customer domain and expose API to retireve the customers .
