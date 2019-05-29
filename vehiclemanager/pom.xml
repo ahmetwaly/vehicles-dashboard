@@ -12,7 +12,7 @@
 	<groupId>se.alten</groupId>
 	<artifactId>vehiclemanager</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>vehiclemanager</name>
+	<name>vehicle manager</name>
 	<description>vehicles manager for alten se</description>
 
 	<properties>

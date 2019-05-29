@@ -13,7 +13,7 @@
 	<groupId>se.alten</groupId>
 	<artifactId>customervehiclesmanager</artifactId>
 	<version>1.0</version>
-	<name>vehiclemanager</name>
+	<name>customer vehicles manager</name>
 	<description>customervehicles manager for alten se</description>
 
 	<properties>

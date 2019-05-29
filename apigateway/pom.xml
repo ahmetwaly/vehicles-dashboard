@@ -6,7 +6,7 @@
 	<groupId>se.alten</groupId>
 	<artifactId>apigateway</artifactId>
 	<packaging>jar</packaging>
-	<name>Spring Cloud Netflix Zuul Server</name>
+	<name>apigateway</name>
 	<url>https://projects.spring.io/spring-cloud/</url>
 	<version>1.0</version>
 	<properties>

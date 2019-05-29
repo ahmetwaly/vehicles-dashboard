@@ -5,7 +5,7 @@
 	<groupId>se.alten</groupId>
 	<artifactId>customermangaer</artifactId>
 	<version>1.0</version>
-	<name>customermangaer</name>
+	<name>customer mangaer</name>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
