@@ -57,10 +57,16 @@ Ngnix ingress component for K8 used as a reverse proxy for the cluster , SSL off
 
 ## CI/CD
 ### CI 
-all the microservice are continiously intgerated and unit test once the code is pushed .
-the 
-the CI flow contains the below steps
+all the microservice are continiously intgerated and unit test once the code is pushed to the repo .
+the CI flow contains the below steps and artifacts 
 ![alt text](https://raw.githubusercontent.com/ahmetwaly/vehicles-dashboard/master/CI-Diagram.png)
+
+### CD  
+Contiouse deployment release pipline is configured to run on specific schedule with latest artifcats pushed to the container registry .
+The release contains all solution microservice to be deployed to staging and then Integration test runs and the last step for manual approval .
+
+![alt text](https://raw.githubusercontent.com/ahmetwaly/vehicles-dashboard/master/realse-pipline.png)
+
 
 
 ### EGO
