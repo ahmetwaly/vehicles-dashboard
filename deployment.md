@@ -37,32 +37,32 @@
        SP_APP_ID=$(az ad sp show --id $ACR_SP_NAME --query appId --output tsv)
        
    - Create AKS cluster 
-      ```bash 
-      az aks create --resource-group $AKS_RESOURCE_GROUP --name $AKS_CLUSTER \
-      --service-principal $SP_APP_ID --client-secret $SP_PASSWD --node-count 1 --generate-ssh-keys --node-resource-group  $AKS_RESOURCE_GROUP
+       ```bash 
+         az aks create --resource-group $AKS_RESOURCE_GROUP --name $AKS_CLUSTER \
+         --service-principal $SP_APP_ID --client-secret $SP_PASSWD --node-count 1 --generate-ssh-keys --node-resource-group   $AKS_RESOURCE_GROUP
    - Create AKS Cluster service account 
-      ```bash
-       kubectl create serviceaccount aksdmin --namespace kube-system
-       kubectl create clusterrolebinding aksdmin --clusterrole cluster-admin --serviceaccount=kube-system:aksdmin
+       ```bash
+        kubectl create serviceaccount aksdmin --namespace kube-system
+        kubectl create clusterrolebinding aksdmin --clusterrole cluster-admin --serviceaccount=kube-system:aksdmin
    - Create public ip address and dns name
-     ````bash
-       az network public-ip create -g vehicles-dashboard -n monitordashboardip --allocation-method Static --dns-name $DNS_NAME
+       ````bash
+          az network public-ip create -g vehicles-dashboard -n monitordashboardip --allocation-method Static --dns-name $DNS_NAME
       
    - Use Kubectl with the cluster  
-    ```bash
-       az aks get-credentials --resource-group $AKS_RESOURCE_GROUP --name $AKS_CLUSTER
+      ```bash
+        az aks get-credentials --resource-group $AKS_RESOURCE_GROUP --name $AKS_CLUSTER
        
   - Create tiller service accounts for helm
       ```bash
-       kubectl create serviceaccount tiller --namespace kube-system
-       kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller
-       helm init --service-account tiller
+         kubectl create serviceaccount tiller --namespace kube-system
+         kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller
+         helm init --service-account tiller
 
    - Create k8 namespaces for appliaction deployment
-     ```bash
-     kubectl create namespace backend
-     kubectl create namespace frontend
+       ```bash
+       kubectl create namespace backend
+       kubectl create namespace frontend
      
    - Install nginx ingress controller 
      ````bash 
-        helm install -n nginx-ingress stable/nginx-ingress --set controller.service.loadBalancerIP="13.72.68.241" --set serviceAccount.name="ngnix-ingress" --namespace kube-system --set serviceAccount.create=false --set nodeSelector."beta.kubernetes.io/os"=linux
+         helm install -n nginx-ingress stable/nginx-ingress --set controller.service.loadBalancerIP="13.72.68.241" --set serviceAccount.name="ngnix-ingress" --namespace kube-system --set serviceAccount.create=false --set nodeSelector."beta.kubernetes.io/os"=linux
