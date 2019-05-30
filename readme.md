@@ -57,6 +57,8 @@ Ngnix ingress component for K8 used as a reverse proxy for the cluster , SSL ter
 * each microservice package contains (DockerFile to deploy the application , CLI piline file ,Helm charts folder and configuration file .
 ![alt text](https://raw.githubusercontent.com/ahmetwaly/vehicles-dashboard/master/package-structure.png)
 
+## API
+Solution components APIs is documented using swagger .
 
 ## CI/CD
 Azure pipline was used as a pipline orchestrator for CI/CD 
@@ -97,10 +99,6 @@ Azure pipline was used as a pipline orchestrator for CI/CD
     The solution is build to be deployed on Kubernetese platform to avoid one vendor locking .  
 * [step to deploy AKS on Azure](deployment.md) : please follow those attached steps to deploy AKS cluster on azure .
 
-## Testing
-
-## API
-TODO: API Reference with examples, or a link to a wiki or other documentation source.
 
 ## Acknowledgements
 TODO: Show folks some love.
