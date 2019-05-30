@@ -11,8 +11,10 @@
 - [Business Requirement](alten-challenge.txt)
 - [Solution Architecture](#solution-architecture)
 - [Solution microservices](#solution-microservices)
+- [API Documentation](#API)
 - [CI/CD](#CICD)
 - [Deployment](#deployment)
+- [Integration Test] (#Test)
 
 
 ## Introduction
@@ -60,6 +62,14 @@ Ngnix ingress component for K8 used as a reverse proxy for the cluster , SSL ter
 ## API
 Solution components APIs is documented using swagger .
 
+ - URL
+    - http://localhost:8082/swagger-ui.html
+    - http://localhost:8083/swagger-ui.html
+    - http://localhost:8084/swagger-ui.html
+    ![alt text](https://raw.githubusercontent.com/ahmetwaly/vehicles-dashboard/master/swagger.png)
+
+    
+
 ## CI/CD
 Azure pipline was used as a pipline orchestrator for CI/CD 
 
@@ -100,5 +110,6 @@ Azure pipline was used as a pipline orchestrator for CI/CD
 * [step to deploy AKS on Azure](deployment.md) : please follow those attached steps to deploy AKS cluster on azure .
 
 
-## Acknowledgements
-TODO: Show folks some love.
+## Test
+During the release pipilien and after API gateway deployed quality gate runs to ensure that the service are up and running by hitting the actual deployed service URL 
+![alt text](https://raw.githubusercontent.com/ahmetwaly/vehicles-dashboard/master/qualitygate.png)
