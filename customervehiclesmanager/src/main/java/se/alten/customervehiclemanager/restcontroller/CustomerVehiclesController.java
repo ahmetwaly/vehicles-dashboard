@@ -20,8 +20,8 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-import se.alten.customervehiclemanager.applicationservice.Customer;
 import se.alten.customervehiclemanager.applicationservice.CustomerVehiclesService;
+import se.alten.customervehiclemanager.dto.Customer;
 
 /**
  * rest controller provide the rest operations for the customers

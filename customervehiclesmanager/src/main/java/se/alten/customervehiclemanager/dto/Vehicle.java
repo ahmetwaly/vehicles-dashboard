@@ -1,4 +1,4 @@
-package se.alten.customervehiclemanager.applicationservice;
+package se.alten.customervehiclemanager.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

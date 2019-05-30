@@ -19,9 +19,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import se.alten.customervehiclemanager.CustomerVehicleManager;
-import se.alten.customervehiclemanager.applicationservice.Customer;
 import se.alten.customervehiclemanager.applicationservice.CustomerVehiclesService;
-import se.alten.customervehiclemanager.applicationservice.Vehicle;
+import se.alten.customervehiclemanager.dto.Customer;
+import se.alten.customervehiclemanager.dto.Vehicle;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)

@@ -13,11 +13,10 @@ import org.mockito.Mock;
 import org.mockito.Spy;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import se.alten.customervehiclemanager.applicationservice.Customer;
 import se.alten.customervehiclemanager.applicationservice.CustomerVehiclesService;
-import se.alten.customervehiclemanager.infrastructure.customermanageradapter.CustomerDto;
+import se.alten.customervehiclemanager.dto.Customer;
+import se.alten.customervehiclemanager.dto.Vehicle;
 import se.alten.customervehiclemanager.infrastructure.customermanageradapter.CustomerManagerAdapter;
-import se.alten.customervehiclemanager.infrastructure.vehiclemanageradapter.VehicleDto;
 import se.alten.customervehiclemanager.infrastructure.vehiclemanageradapter.VehicleManagerAdapter;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -36,13 +35,13 @@ public class CustomerVehiclesServiceTest {
 	
 	@Test
 	public void testGetCustomerVehicles_Success () {
-		VehicleDto vehicle = new VehicleDto();
+		Vehicle vehicle = new Vehicle();
 		vehicle.setCustomerId(1);
 		vehicle.setRegNumber("GHI789");
 		vehicle.setVehicleId("VLUR4X20009048066");
 		vehicle.setStatus("DISCONNECTED");
 
-		CustomerDto customer = new CustomerDto();
+		Customer customer = new Customer();
 		customer.setAddress("Cementvägen 8");
 		customer.setId(1);
 		customer.setName("Kalles Grustransporter AB");
@@ -61,13 +60,13 @@ public class CustomerVehiclesServiceTest {
 	}
 	@Test
 	public void testGetCustomerVehicles_GetCustomerSucces_GetVehiclesFail_Then_Retrun_Customers () {
-		VehicleDto vehicle = new VehicleDto();
+		Vehicle vehicle = new Vehicle();
 		vehicle.setCustomerId(1);
 		vehicle.setRegNumber("GHI789");
 		vehicle.setVehicleId("VLUR4X20009048066");
 		vehicle.setStatus("DISCONNECTED");
 
-		CustomerDto customer = new CustomerDto();
+		Customer customer = new Customer();
 		customer.setAddress("Cementvägen 8");
 		customer.setId(1);
 		customer.setName("Kalles Grustransporter AB");
