@@ -111,5 +111,5 @@ Azure pipline was used as a pipline orchestrator for CI/CD
 
 
 ## Test
-During the release pipilien and after API gateway deployed quality gate runs to ensure that the service are up and running by hitting the actual deployed service URL 
+During the release pipline and after API gateway deployed quality gate runs to ensure that the service are up and running by hitting the actual deployed service URL 
 ![alt text](https://raw.githubusercontent.com/ahmetwaly/vehicles-dashboard/master/qualitygate.png)
