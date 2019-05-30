@@ -1,14 +1,11 @@
 package se.alten.customervehiclemanager.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 public class Vehicle {
 
 	private String regNumber;
 
 	private String vehicleId;
 
-	@JsonIgnore
 	private Integer customerId;
 
 	private String status;
