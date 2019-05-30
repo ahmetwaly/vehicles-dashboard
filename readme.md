@@ -95,14 +95,14 @@ Azure pipline was used as a pipline orchestrator for CI/CD
     * [Maven](https://maven.apache.org/download.cgi)
     * Angular CLI.
   * step to run 
-    * please run run.sh from root folder .
+    * please run run.sh from solution root folder .
     * URL:http://localhost:8085
  
 ### docker deployment on local 
  * prerequistes 
    * [docker](https://www.docker.com/get-docker)
   * step to run 
-    * please run run-dockercompose.sh from root folder .
+    * please run run-dockercompose.sh from solution applicaroot folder .
     * URL:http://localhost:8085
 
 ### Cloud Deployment 
