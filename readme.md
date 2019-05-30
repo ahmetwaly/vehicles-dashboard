@@ -14,7 +14,7 @@
 - [API Documentation](#API)
 - [CI/CD](#CICD)
 - [Deployment](#deployment)
-- [Integration Test] (#Test)
+- [Integration Test](#test)
 
 
 ## Introduction
