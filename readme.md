@@ -73,39 +73,25 @@ Azure pipline was used as a pipline orchestrator for CI/CD
 * Integration test runs after all service depployed and if successed then manual approval is required to deploy to upper environment.
 ![alt text](https://raw.githubusercontent.com/ahmetwaly/vehicles-dashboard/master/realse-pipline.png)
 
-##Deployment
+## Deployment
 
 ### cloud URL : http://monitordashboard.eastus.cloudapp.azure.com/monitoringdashboard
 
 ### local deployment on local 
  * prerequistes 
-   * JDK8.
-   * Angular CLI.
+    * [Java 8 SDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+    * [Maven](https://maven.apache.org/download.cgi)
+    * Angular CLI.
   * step to run 
     * please run run.sh from root folder .
     * URL:http://localhost:8085
  
 ### docker deployment on local 
  * prerequistes 
-   * docker
-   * Angular CLI.
+   * [docker](https://www.docker.com/get-docker)
   * step to run 
     * please run run-dockercompose.sh from root folder .
     * URL:http://localhost:8085
-
-### EGO
-A running instance of [EGO](https://github.com/overture-stack/ego/) is required to generate the Authorization tokens and to provide the verification key.
-
-[EGO](https://github.com/overture-stack/ego/) can be cloned and run locally if no public server is available. 
-
-
-### Local
-* [Java 8 SDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-* [Maven](https://maven.apache.org/download.cgi)
-
-
-### Docker
-* [Docker](https://www.docker.com/get-docker)
 
 
 ## Quick Start
