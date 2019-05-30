@@ -48,20 +48,21 @@
      ````bash
        az network public-ip create -g vehicles-dashboard -n monitordashboardip --allocation-method Static --dns-name $DNS_NAME
       
-  - Use Kubectl with the cluster  
+   - Use Kubectl with the cluster  
     ```bash
        az aks get-credentials --resource-group $AKS_RESOURCE_GROUP --name $AKS_CLUSTER
+       
   - Create tiller service accounts for helm
       ```bash
        kubectl create serviceaccount tiller --namespace kube-system
        kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller
        helm init --service-account tiller
 
-  - Create k8 namespaces for appliaction deployment
+   - Create k8 namespaces for appliaction deployment
      ```bash
      kubectl create namespace backend
      kubectl create namespace frontend
      
-  - Install nginx ingress controller 
-   ````bash 
+   - Install nginx ingress controller 
+     ````bash 
         helm install -n nginx-ingress stable/nginx-ingress --set controller.service.loadBalancerIP="13.72.68.241" --set serviceAccount.name="ngnix-ingress" --namespace kube-system --set serviceAccount.create=false --set nodeSelector."beta.kubernetes.io/os"=linux
