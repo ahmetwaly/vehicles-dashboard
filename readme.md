@@ -78,6 +78,8 @@ Azure pipline was used as a pipline orchestrator for CI/CD
 * Each microservice has a seprate CI pipline 
 * each CI pipline contains the below steps and artifacts 
 ![alt text](https://raw.githubusercontent.com/ahmetwaly/vehicles-dashboard/master/CI-Diagram.png)
+![alt text](https://raw.githubusercontent.com/ahmetwaly/vehicles-dashboard/master/CI-Results.png)
+
 
 ### CD  
 * Contiouse deployment release pipline is configured to run on specific schedule with latest artifcats pushed to the container registry .
