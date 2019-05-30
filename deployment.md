@@ -1,5 +1,5 @@
 
-# Create Azure Container Register(ACR)
+# Create Azure Kubernetes Cluster and Cotainer regitry
  - prerequistes 
    - Azure subscribtion
    - Azure CLI
@@ -24,6 +24,7 @@
    - Create a resource group for AKS
       ```bash
        az group create --name $AKS_RESOURCE_GROUP --location eastus
+       
    - Create  Azure container registery ACR and keep copy of result for future use
       ```bash
          az acr create --resource-group $AKS_RESOURCE_GROUP --name $ACR_REGISTRY --sku Standard
@@ -38,8 +39,8 @@
    - Create AKS cluster 
       ```bash 
       az aks create --resource-group $AKS_RESOURCE_GROUP --name $AKS_CLUSTER \
-      --service-principal $SP_APP_ID --client-secret $SP_PASSWD --node-count 1 --generate-ssh-keys --node-resource-group $AKS_RESOURCE_GROUP
-   - create AKS Cluster service account 
+      --service-principal $SP_APP_ID --client-secret $SP_PASSWD --node-count 1 --generate-ssh-keys --node-resource-group  $AKS_RESOURCE_GROUP
+   - Create AKS Cluster service account 
       ```bash
        kubectl create serviceaccount aksdmin --namespace kube-system
        kubectl create clusterrolebinding aksdmin --clusterrole cluster-admin --serviceaccount=kube-system:aksdmin
@@ -50,17 +51,17 @@
   - Use Kubectl with the cluster  
     ```bash
        az aks get-credentials --resource-group $AKS_RESOURCE_GROUP --name $AKS_CLUSTER
-  - create tiller service accounts 
+  - Create tiller service accounts for helm
       ```bash
        kubectl create serviceaccount tiller --namespace kube-system
        kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller
        helm init --service-account tiller
 
-  - Create k8 namespaces 
+  - Create k8 namespaces for appliaction deployment
      ```bash
      kubectl create namespace backend
      kubectl create namespace frontend
      
-  - install nginx ingress controller 
+  - Install nginx ingress controller 
    ````bash 
         helm install -n nginx-ingress stable/nginx-ingress --set controller.service.loadBalancerIP="13.72.68.241" --set serviceAccount.name="ngnix-ingress" --namespace kube-system --set serviceAccount.create=false --set nodeSelector."beta.kubernetes.io/os"=linux
